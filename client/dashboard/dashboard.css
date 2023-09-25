@@ -1,0 +1,44 @@
+body {
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    margin-top: 0;
+}
+
+.user-header,
+.admin-header {
+    display: flex;
+    align-items: center;
+}
+
+.user-header a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.user-profile a {
+    display: inline-block;
+    align-items: end;
+    position: absolute;
+    top: 1.5%;
+    right: 1.5%;
+    color: red;
+  }
+  
