@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     console.log(response);
                     console.log(response.length)
                     if (response === "success") {
-                        window.location.href = "../dashboard/dashboard.html";
+                        window.location.href = "../dashboard";
                     } else if (response === "error") {
                         alert("Invalid username or password");
                     } else {

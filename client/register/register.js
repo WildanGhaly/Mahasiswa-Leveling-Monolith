@@ -107,7 +107,7 @@ function registerUser(username, email, password) {
             console.log(response);
 
             if (response == "success") {
-                window.location.href = '../dashboard/dashboard.html'; 
+                window.location.href = '../dashboard'; 
             } else {
                 alert('Gagal mendaftar akun baru');
             }

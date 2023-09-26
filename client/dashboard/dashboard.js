@@ -47,5 +47,5 @@ function logout() {
 
 function redirectToLogin() {
     // Redirect to the login page
-    window.location.href = '../login/login.html';
+    window.location.href = '../login';
 }
