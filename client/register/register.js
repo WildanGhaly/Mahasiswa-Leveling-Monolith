@@ -68,7 +68,7 @@ function checkEmail(email) {
 function checkPassword(password) {
     if (password.length < 8) {
         document.getElementById('password').style.borderColor = 'red';
-        document.getElementById('passwordError').textContent = 'Password harus lebih dari 8 karakter';
+        document.getElementById('passwordError').textContent = 'Password minimal 8 karakter';
         $isPasswordValid = false;
     } else {
         document.getElementById('password').style.borderColor = 'green';
