@@ -31,6 +31,15 @@ document.addEventListener('DOMContentLoaded', function() {
 });
   
 function checkUsername(username) {
+    const usernameRegex = /^[a-zA-Z0-9_]{5,20}$/;
+
+    if (!usernameRegex.test(username)) {
+        document.getElementById('username').style.borderColor = 'red';
+        document.getElementById('usernameError').textContent = 'Invalid username';
+        $isUsernameValid = false;
+        return;
+    }
+
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
