@@ -12,8 +12,8 @@ if ($conn->connect_error) {
 }
 
 $query = "CREATE DATABASE IF NOT EXISTS $database";
+$conn->query($query);
 $conn->close();
-
 
 $conn = new mysqli($server, $username, $password, $database);
 if ($conn->connect_error) {
