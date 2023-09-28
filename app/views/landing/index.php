@@ -10,7 +10,7 @@
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width=device=width, initial-scale=1.0">
-            <link rel="stylesheet" href="./landingPage.css">
+            <link rel="stylesheet" href="../../../public/css/landingPage.css">
         </head>
 
         <body>
@@ -19,7 +19,7 @@
                     <header>
                         <div class="container">
                             <div class="logo">
-                                <img src="../image/logo.jpg" alt="Logo">
+                                <img src="../../../public/img/logo.jpg" alt="Logo">
                                 <h3>Darmodar</h3>
                             </div>
 
@@ -51,7 +51,7 @@
     
                             </div>
                             <div class="right"> 
-                                <img src="../image/desktop-wallpaper-weightlifting-background-gym-equipment-thumbnail.jpg" alt="Person image" class="person">
+                                <img src="../../../public/img/desktop-wallpaper-weightlifting-background-gym-equipment-thumbnail.jpg" alt="Person image" class="person">
     
                             </div>
                         </div>
@@ -66,7 +66,7 @@
                         <div class="container">
                             <div class="links2">
                                 <ul>
-                                    <img src="../image/logo.jpg" alt="Test">
+                                    <img src="../../../public/img/logo.jpg" alt="Test">
                                     <a href="#" class="">&copy; 2023 Darmodar. All rights reserved.</a>
                                     
                                 

@@ -1,11 +1,11 @@
-document.write('<script src="../api/api.js"></script>');
+document.write('<script src="../../../public/js/api.js"></script>');
 
 document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("loginForm").addEventListener("submit", function(event) {
         event.preventDefault(); // Prevent the form from submitting normally
     
         var xhr = new XMLHttpRequest();
-        var url = `${SERVER_PATH}login/Login.php`;
+        var url = `${SERVER_PATH}auth/Login.php`;
         var formData = new FormData();
     
         var username = document.getElementById("username").value;

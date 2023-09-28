@@ -1,4 +1,4 @@
-document.write('<script src="../api/api.js"></script>');
+document.write('<script src="../../../public/js/api.js"></script>');
 
 document.addEventListener('DOMContentLoaded', function() {
     var username = getUsernameFromCookie(); 
@@ -24,7 +24,7 @@ function getUsernameFromCookie() {
 
 function logout() {
     var xhr = new XMLHttpRequest();
-    var logoutUrl = `${SERVER_PATH}logout/Logout.php`;
+    var logoutUrl = `${SERVER_PATH}auth/Logout.php`;
 
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) { // Request completed

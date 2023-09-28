@@ -2,8 +2,8 @@
 <html>
 <head>
   <title>Login</title>
-  <link rel="stylesheet" type="text/css" href="login.css">
-  <script src="login.js"></script>
+  <link rel="stylesheet" type="text/css" href="../../../public/css/login.css">
+  <script src="../../../public/js/login.js"></script>
 </head>
 <body>
   <h1>Login</h1>

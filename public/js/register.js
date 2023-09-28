@@ -1,4 +1,4 @@
-document.write('<script src="../api/api.js"></script>');
+document.write('<script src="../../../public/js/api.js"></script>');
 
 $isUsernameValid    = false;
 $isPasswordValid    = false;
@@ -55,7 +55,7 @@ function checkUsername(username) {
             }
         }
     };
-    xhr.open('POST', `${SERVER_PATH}registration/CheckUsername.php`, true); 
+    xhr.open('POST', `${SERVER_PATH}auth/CheckUsername.php`, true); 
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.send('username=' + encodeURIComponent(username));
 }
@@ -103,7 +103,7 @@ function registerUser(username, email, password) {
     }
 
     var xhr = new XMLHttpRequest();
-    var url = `${SERVER_PATH}registration/Register.php`;
+    var url = `${SERVER_PATH}auth/Register.php`;
     var formData = new FormData();
 
     formData.append('username', username);

@@ -2,8 +2,8 @@
 <html>
 <head>
   <title>Registration</title>
-  <link rel="stylesheet" type="text/css" href="register.css">
-  <script src="register.js"></script>
+  <link rel="stylesheet" type="text/css" href="../../../public/css/register.css">
+  <script src="../../../public/js/register.js"></script>
 </head>
 <body>
   <h1>Registration</h1>
