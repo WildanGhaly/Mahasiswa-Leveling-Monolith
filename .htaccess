@@ -1,2 +1,2 @@
 RewriteEngine On
-RewriteRule ^$ app
+RewriteRule ^$ app/views/landing [L]
