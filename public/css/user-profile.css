@@ -1,0 +1,305 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    width: 100%;
+    height: 100%;
+  }
+  
+  body {
+    background: #202020;
+    font-family: "Arial", sans-serif;
+  }
+  
+  .card {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 350px;
+    height: 500px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px 5px rgba(0, 0, 0, 0.2);
+    background: #151515;
+    overflow: hidden;
+  }
+
+  .card .ds-top {
+    /* position: absolute; */
+    margin: auto;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 350px;
+    height: 90px;
+    background: crimson;
+    animation: dsTop 1.5s;
+  }
+  .card .avatar-holder {
+    position: absolute;
+    margin: auto;
+    top: 40px;
+    right: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 5px #151515, inset 0 0 0 5px #000000, inset 0 0 0 5px #000000, inset 0 0 0 5px #000000, inset 0 0 0 5px #000000;
+    background: white;
+    overflow: hidden;
+    animation: mvTop 1.5s;
+  }
+  .card .avatar-holder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .card .name {
+    position: relative;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: inherit;
+    height: 40px;
+    text-align: center;
+    animation: fadeIn 2s ease-in;
+  }
+  .card .name a {
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 22px;
+  }
+  .card .name a:hover {
+    text-decoration: underline;
+    color: crimson;
+  }
+  .card .name h6 {
+    margin: 12px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: white;
+    font-size: 16px;
+  }
+  .card .button {
+    /* position: absolute; */
+    margin: 20px 0; 
+    padding: 20px 40px;
+    width: inherit;
+    height: 60px;
+    text-align: center;
+    animation: fadeIn 2s ease-in;
+    outline: none;
+  }
+  .card .button a {
+    padding: 5px 20px;
+    border-radius: 10px;
+    color: white;
+    background: rgb(72, 18, 29);
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    font-size: 15px;
+    transition: all 1s;
+  }
+  .card .button a:hover {
+    color: white;
+    background: crimson;
+  }
+  .card .ds-info {
+    /* position: absolute; */
+    margin: auto;
+    top: 120px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: inherit;
+    height: 40px;
+    display: flex;
+    font-size: 30px;
+    justify-content: space-evenly;
+  }
+  .card .ds-info .achievements, .card .ds-info .quest {
+    position: relative;
+    left: -300px;
+    width: calc(250px / 3);
+    text-align: center;
+    color: white;
+    animation: fadeInMove 2s;
+    animation-fill-mode: forwards;
+  }
+  .card .ds-info .achievements h6, .card .ds-info .quest h6 {
+    text-transform: uppercase;
+    color: crimson;
+  }
+  .card .ds-info .achievements p, .card .ds-info .quest p {
+    font-size: 30px;
+  }
+  .card .ds-info .ds:nth-of-type(2) {
+    animation-delay: 0.5s;
+  }
+  .card .ds-info .ds:nth-of-type(1) {
+    animation-delay: 1s;
+  }
+  .card .ds-level {
+    /* position: absolute; */
+    margin:75px auto -60px auto;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 300px;
+    height: 150px;
+    animation: mvBottom 1.5s;
+  }
+  .card .ds-level h6 {
+    margin-bottom: 5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: crimson;
+    font-size: 18px;
+  }
+  .card .ds-level .skill h6 {
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    margin: 4px 0;
+    color: white;
+  }
+  
+  .card .ds-level .skill .fab {
+    color: crimson;
+    font-size: 14px;
+  }
+  .card .ds-level .skill .bar {
+    height: 5px;
+    background: crimson;
+    text-align: right;
+  }
+  .card .ds-level .skill .bar p {
+    color: white;
+    font-size: 12px;
+    padding-top: 5px;
+    animation: fadeIn 5s;
+  }
+  .card .ds-level .skill .bar:hover {
+    background: white;
+  }
+  .card .ds-level .skill .bar-level {
+    width: 95%;
+    animation: htmlSkill 1s;
+    animation-delay: 0.4s;
+  }
+  
+  @keyframes fadeInMove {
+    0% {
+      opacity: 0;
+      left: -300px;
+    }
+    100% {
+      opacity: 1;
+      left: 0;
+    }
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes htmlSkill {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 95%;
+    }
+  }
+  @keyframes cssSkill {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 90%;
+    }
+  }
+  @keyframes jsSkill {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 75%;
+    }
+  }
+  @keyframes mvBottom {
+    0% {
+      bottom: -150px;
+    }
+    100% {
+      bottom: 10px;
+    }
+  }
+  @keyframes mvTop {
+    0% {
+      top: -150px;
+    }
+    100% {
+      top: 40px;
+    }
+  }
+  @keyframes dsTop {
+    0% {
+      top: -150px;
+    }
+    100% {
+      top: 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .card {
+      width: 100%; 
+      height: auto; 
+    }
+    
+    .ds-top {
+      width: 100%; 
+    }
+    
+    .avatar-holder {
+      top: 20px;
+    }
+    
+    .name {
+      top: 10px; 
+    }
+    
+    .button {
+      top: 10px; 
+    }
+    
+    .ds-info {
+      top: 80px; 
+    }
+    
+    .ds-info .achievements,
+    .ds-info .projects,
+    .ds-info .quest {
+      left: 0; 
+      width: 100%; 
+    }
+
+  }
+
+  .following {
+    color: white;
+    background: crimson;
+  }
