@@ -1,4 +1,7 @@
-    
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>    
     <html>
 
@@ -28,7 +31,16 @@
                                     <li><a href="#">Home</a></li>
                                     <li><a href="#">About</a></li>
                                     <li><a href="#">Flag</a></li>
-                                    <li><a href="../login/" class="btn">Sign in</a> </li>
+                                    <?php
+                                        // Cek apakah sesi pengguna ada
+                                        if (isset($_SESSION['username'])) {
+                                            // Jika sesi username ada, tampilkan username sebagai teks tombol
+                                            echo '<li><a href="../dashboard" class = "btn">' . $_SESSION['username'] . '</a></li>';
+                                        } else {
+                                            // Jika sesi username tidak ada, tampilkan tombol Sign In
+                                            echo '<li><a href="../login/" class="btn">Sign in</a></li>';
+                                        }
+                                    ?>
                                 </ul>
                             </div>
                         </div>
