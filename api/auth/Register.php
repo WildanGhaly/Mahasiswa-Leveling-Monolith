@@ -1,5 +1,7 @@
 <?php
 
+session_start(); // Mulai sesi
+
 include "../../config/config.php";
 include "../../app/core/database.php";
 
@@ -14,11 +16,9 @@ $conn = Database::getInstance();
 
 $sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$en_password')";
 if ($conn->query($sql) === TRUE) {
-    setcookie('username', $username, time() + (30 * 24 * 60 * 60), '/');
+    $_SESSION['username'] = $username; // Menyimpan username dalam sesi
     echo 'success';
 } else {
     echo 'error';
 }
 ?>
-
- 

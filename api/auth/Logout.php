@@ -1,4 +1,7 @@
 <?php
-    setcookie('username', '', time() - 3600, '/');
-    echo 'success';
+
+session_start(); 
+session_destroy();
+
+echo 'success';
 ?>
