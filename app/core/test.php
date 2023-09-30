@@ -3,10 +3,8 @@
 include '../../config/config.php';
 include 'database.php';
 
-$connection2 = mysqli_connect('db', 'zero_one', 'password', 'mahasiswa_leveling');
-
 // Mengambil koneksi dari Singleton
-$connection = Database::getInstance('db', 'zero_one', 'password', 'mahasiswa_leveling');
+$connection = Database::getInstance();
 
 // Lakukan operasi pada tabel pertama dengan koneksi yang sama
 $table_name = "users";
