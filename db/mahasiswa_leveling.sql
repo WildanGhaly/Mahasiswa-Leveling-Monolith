@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db:3306
--- Generation Time: Oct 01, 2023 at 10:15 AM
+-- Generation Time: Oct 01, 2023 at 11:35 AM
 -- Server version: 8.1.0
 -- PHP Version: 8.2.8
 
@@ -90,7 +90,7 @@ INSERT INTO `users` (`id`, `username`, `name`, `email`, `password`, `isAdmin`, `
 (2, 'user', NULL, 'user@gmail.com', 'user', 0, 0, 1, 1, 0, 100),
 (4, '222', NULL, '222', '222', 0, 0, 0, 1, 0, 100),
 (5, '2', NULL, '2', '2', 0, 0, 0, 2, 30, 140),
-(6, '123host', NULL, '13521015@std.stei.itb.ac.id', '1+8UUdV1ZFsTMzmd3BP1Rw==', 0, 0, 0, 1, 0, 100);
+(6, '123host', 'Wildan Ghaly', '13521015@std.stei.itb.ac.id', '1+8UUdV1ZFsTMzmd3BP1Rw==', 0, 1, 1, 1, 58, 100);
 
 --
 -- Triggers `users`
@@ -136,7 +136,8 @@ CREATE TABLE `user_achievement` (
 --
 
 INSERT INTO `user_achievement` (`user_id`, `achievement_id`) VALUES
-(1, 1);
+(1, 1),
+(6, 1);
 
 --
 -- Triggers `user_achievement`
@@ -165,7 +166,8 @@ CREATE TABLE `user_quest` (
 --
 
 INSERT INTO `user_quest` (`user_id`, `quest_id`) VALUES
-(2, 1);
+(2, 1),
+(6, 1);
 
 --
 -- Triggers `user_quest`
