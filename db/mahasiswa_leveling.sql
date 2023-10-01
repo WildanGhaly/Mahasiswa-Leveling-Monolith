@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db:3306
--- Generation Time: Oct 01, 2023 at 05:37 AM
+-- Generation Time: Oct 01, 2023 at 08:18 AM
 -- Server version: 8.1.0
 -- PHP Version: 8.2.8
 
@@ -86,10 +86,38 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `name`, `email`, `password`, `isAdmin`, `total_achievement`, `total_quest`, `level`, `current_experience`, `target_experience`) VALUES
-(1, 'admin', NULL, 'admin@gmail.com', 'admin', 1, 1, 0, 0, 0, 0),
-(2, 'user', NULL, 'user@gmail.com', 'user', 0, 0, 1, 0, 0, 0),
-(4, '222', NULL, '222', '222', 0, 0, 0, 0, 0, 0),
-(5, '2', NULL, '2', '2', 0, 0, 0, 0, 0, 0);
+(1, 'admin', NULL, 'admin@gmail.com', 'admin', 1, 1, 0, 1, 0, 100),
+(2, 'user', NULL, 'user@gmail.com', 'user', 0, 0, 1, 1, 0, 100),
+(4, '222', NULL, '222', '222', 0, 0, 0, 1, 0, 100),
+(5, '2', NULL, '2', '2', 0, 0, 0, 2, 30, 140);
+
+--
+-- Triggers `users`
+--
+DELIMITER $$
+CREATE TRIGGER `update_level_and_experience_before_insert` BEFORE INSERT ON `users` FOR EACH ROW BEGIN
+    DECLARE remaining_experience INT;
+    SET remaining_experience = NEW.current_experience - NEW.target_experience;
+    IF remaining_experience >= 0 THEN
+        SET NEW.level = NEW.level + 1;
+        SET NEW.target_experience = NEW.target_experience + (NEW.level * 20); 
+        SET NEW.current_experience = remaining_experience;
+    END IF;
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `update_level_and_experience_before_update` BEFORE UPDATE ON `users` FOR EACH ROW BEGIN
+    DECLARE remaining_experience INT;
+    SET remaining_experience = NEW.current_experience - NEW.target_experience;
+    IF remaining_experience >= 0 THEN
+        SET NEW.level = NEW.level + 1;
+        SET NEW.target_experience = NEW.target_experience + (NEW.level * 20); 
+        SET NEW.current_experience = remaining_experience;
+    END IF;
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
