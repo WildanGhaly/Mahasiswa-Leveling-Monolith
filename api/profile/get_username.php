@@ -1,2 +1,4 @@
 <?php
-echo '123Dummy';
+include_once __DIR__."/../session.php";
+
+echo $_SESSION['username'];
