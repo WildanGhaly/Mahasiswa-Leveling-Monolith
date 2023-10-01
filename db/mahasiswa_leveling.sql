@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db:3306
--- Generation Time: Oct 01, 2023 at 05:06 AM
+-- Generation Time: Oct 01, 2023 at 05:11 AM
 -- Server version: 8.1.0
 -- PHP Version: 8.2.8
 
@@ -70,6 +70,7 @@ INSERT INTO `quest` (`id`, `name`, `description`, `threshold`) VALUES
 CREATE TABLE `users` (
   `id` int NOT NULL,
   `username` varchar(255) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `isAdmin` tinyint(1) NOT NULL DEFAULT '0',
@@ -81,11 +82,11 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `email`, `password`, `isAdmin`, `total_achievement`, `total_quest`) VALUES
-(1, 'admin', 'admin@gmail.com', 'admin', 1, 1, 0),
-(2, 'user', 'user@gmail.com', 'user', 0, 0, 1),
-(4, '222', '222', '222', 0, 0, 0),
-(5, '2', '2', '2', 0, 0, 0);
+INSERT INTO `users` (`id`, `username`, `name`, `email`, `password`, `isAdmin`, `total_achievement`, `total_quest`) VALUES
+(1, 'admin', NULL, 'admin@gmail.com', 'admin', 1, 1, 0),
+(2, 'user', NULL, 'user@gmail.com', 'user', 0, 0, 1),
+(4, '222', NULL, '222', '222', 0, 0, 0),
+(5, '2', NULL, '2', '2', 0, 0, 0);
 
 -- --------------------------------------------------------
 
