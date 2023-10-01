@@ -35,7 +35,7 @@ session_start();
     </div>
   </div>
   <div class="name">
-    <a href="" target="_blank">
+    <a href="#">
       <?php include "../../../api/profile/get_name.php"?>
     </a>
     <h6 title="Username"> 
@@ -43,7 +43,7 @@ session_start();
     </h6>
   </div>
   <div class="button">
-    <a href="#" class="btn">Edit </a>
+    <a href="../edit-profile" class="btn">Edit </a>
   </div>
   <div class="ds-info">
     <div class="ds achievements">
