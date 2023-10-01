@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Menu</title>
     <link rel="stylesheet" href="../../../public/css/dashboard.css">
-</head>
+    <script src="../../../public/js/logout.js"></script> <!-- Sementara untuk test -->
+  </head>
 <body>
     <div class="sidebar">
         <h2>Darmodar</h2>
@@ -14,7 +15,8 @@
             <li><a href="#">Hall of Fame</a></li>
             <li><a href="#"></a></li>
             <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
+            <li><a href="../user-profile">ProfileTemp</a></li>
+            <li><a href="#" id="logoutLink">LogoutTemp</a><li>
         </ul>
     </div>
 
