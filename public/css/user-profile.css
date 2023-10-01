@@ -189,8 +189,8 @@
     background: white;
   }
   .card .ds-level .skill .bar-level {
-    width: 95%;
-    animation: htmlSkill 1s;
+    /* width: 49%; */
+    animation: levelAnimate 1s;
     animation-delay: 0.4s;
   }
   
@@ -212,30 +212,15 @@
       opacity: 1;
     }
   }
-  @keyframes htmlSkill {
+  @keyframes levelAnimate {
     0% {
       width: 0;
     }
     100% {
-      width: 95%;
+      width: '<?php echo $progress; ?>%';
     }
   }
-  @keyframes cssSkill {
-    0% {
-      width: 0;
-    }
-    100% {
-      width: 90%;
-    }
-  }
-  @keyframes jsSkill {
-    0% {
-      width: 0;
-    }
-    100% {
-      width: 75%;
-    }
-  }
+
   @keyframes mvBottom {
     0% {
       bottom: -150px;

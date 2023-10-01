@@ -26,7 +26,7 @@ session_start();
       <h6>
         <?php include "../../../api/profile/get_progress.php"?>
       </h6>
-      <div class="bar bar-level">
+      <div class="bar bar-level" <?php include "../../../api/profile/get_progress_percent_style.php"?>>
         <p>
           <?php include "../../../api/profile/get_progress_percent.php"?>
         </p>
