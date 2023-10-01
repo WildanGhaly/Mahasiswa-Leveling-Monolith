@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db:3306
--- Generation Time: Oct 01, 2023 at 08:18 AM
+-- Generation Time: Oct 01, 2023 at 10:15 AM
 -- Server version: 8.1.0
 -- PHP Version: 8.2.8
 
@@ -76,9 +76,9 @@ CREATE TABLE `users` (
   `isAdmin` tinyint(1) NOT NULL DEFAULT '0',
   `total_achievement` int NOT NULL DEFAULT '0',
   `total_quest` int NOT NULL DEFAULT '0',
-  `level` int NOT NULL,
-  `current_experience` int NOT NULL,
-  `target_experience` int NOT NULL
+  `level` int NOT NULL DEFAULT '1',
+  `current_experience` int NOT NULL DEFAULT '0',
+  `target_experience` int NOT NULL DEFAULT '100'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -89,7 +89,8 @@ INSERT INTO `users` (`id`, `username`, `name`, `email`, `password`, `isAdmin`, `
 (1, 'admin', NULL, 'admin@gmail.com', 'admin', 1, 1, 0, 1, 0, 100),
 (2, 'user', NULL, 'user@gmail.com', 'user', 0, 0, 1, 1, 0, 100),
 (4, '222', NULL, '222', '222', 0, 0, 0, 1, 0, 100),
-(5, '2', NULL, '2', '2', 0, 0, 0, 2, 30, 140);
+(5, '2', NULL, '2', '2', 0, 0, 0, 2, 30, 140),
+(6, '123host', NULL, '13521015@std.stei.itb.ac.id', '1+8UUdV1ZFsTMzmd3BP1Rw==', 0, 0, 0, 1, 0, 100);
 
 --
 -- Triggers `users`
@@ -236,7 +237,7 @@ ALTER TABLE `quest`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
