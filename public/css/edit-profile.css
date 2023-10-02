@@ -90,6 +90,10 @@
     animation: mvDown 1s forwards;
   }
 
+  .card .avatar-holder input {
+    display: none;
+  }
+
   .card .name {
     position: relative;
     margin-top: 70px;
