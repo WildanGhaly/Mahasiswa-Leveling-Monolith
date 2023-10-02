@@ -45,11 +45,34 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function selectImage() {
     console.log("selectImage() called");
-    var fileInput = document.getElementById('gambarInput');
+    var fileInput = document.getElementById('imageInput');
     fileInput.click();
-
 }
 
 function uploadImage() {
     console.log("uploadImage() called");
+    var fileInput = document.getElementById('imageInput');
+    var file = fileInput.files[0];
+    var url = `${SERVER_PATH}edit-profile/update-image.php`;
+
+    if (file) {
+        var formData = new FormData();
+        formData.append('image', file);
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', url, true);
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var response = JSON.parse(xhr.responseText);
+                if (response.success) {
+                    console.log('Image successfully uploaded: ' + response.fileName);
+                } else {
+                    console.log('Unknown error and I am tired.');
+                }
+            }
+        };
+
+        xhr.send(formData);
+    } 
 }

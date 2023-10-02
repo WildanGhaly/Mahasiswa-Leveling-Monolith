@@ -15,7 +15,7 @@ session_start();
 <div class="card">
   <div class="ds-top"></div>
   <div class="avatar-holder" onclick="selectImage()">
-    <input type="file" id="gambarInput" onchange="uploadImage()">
+    <input type="file" id="imageInput" onchange="uploadImage()">
     <img src="../../../public/img/logo.jpg" alt="">
     <div class="edit-text">Edit</div>
   </div>
