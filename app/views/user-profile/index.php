@@ -43,7 +43,7 @@ session_start();
     </h6>
   </div>
   <div class="button">
-    <a href="../edit-profile" class="btn">Edit </a>
+    <button type="submit" class="btn" onclick="window.location.href='../edit-profile'">Edit</button>
   </div>
   <div class="ds-info">
     <div class="ds achievements">

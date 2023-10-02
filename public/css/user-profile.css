@@ -99,7 +99,8 @@
     animation: fadeIn 2s ease-in;
     outline: none;
   }
-  .card .button a {
+
+  .card .button .btn {
     padding: 5px 20px;
     border-radius: 10px;
     color: white;
@@ -109,10 +110,11 @@
     font-size: 15px;
     transition: all 1s;
   }
-  .card .button a:hover {
+  .card .button .btn:hover {
     color: white;
     background: crimson;
   }
+
   .card .ds-info {
     /* position: absolute; */
     margin: auto;
