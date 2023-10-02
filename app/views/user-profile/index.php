@@ -11,6 +11,7 @@ session_start();
     <title>My Profile</title>
 </head>
 <body>
+  <?php include "../dashboard/index.php" ?>
 <div class="card">
 
   <div class="ds-top"></div>
