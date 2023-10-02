@@ -12,15 +12,12 @@
   body {
     background: #202020;
     font-family: "Arial", sans-serif;
+    display: flex;
   }
   
   .card {
-    position: absolute;
+    position: relative;
     margin: auto;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
     width: 350px;
     height: 500px;
     border-radius: 10px;
@@ -59,6 +56,40 @@
     height: 100%;
     object-fit: cover;
   }
+
+  .car .avatar-holder img {
+    filter: brightness(100%);
+    transition: filter 0.5s ease;
+  }
+
+  .card .avatar-holder:hover{
+    filter: brightness(60%);
+    cursor: pointer;
+  }
+
+  .card .avatar-holder:active{
+    filter: brightness(100%);
+  }
+
+  .card .avatar-holder .edit-text {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: crimson;
+    opacity: 0.8;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: none;
+    top: 63px;
+  }
+
+  .card .avatar-holder:hover .edit-text {
+    display: block;
+    animation: mvDown 1s forwards;
+  }
+
   .card .name {
     position: relative;
     margin-top: 70px;
@@ -141,6 +172,16 @@
       top: 40px;
     }
   }
+
+  @keyframes mvDown {
+    0% {
+      top: 190px;
+    }
+    100% {
+      top: 63px;
+    }
+  }
+
   @keyframes dsTop {
     0% {
       top: -150px;
@@ -151,9 +192,17 @@
   }
 
   @media (max-width: 768px) {
+    body {
+      display: block;
+    }
+
     .card {
       width: 100%; 
-      height: auto; 
+      height: 100%;
+    }
+
+    .card .button .btn{
+      margin-top: 220px;
     }
     
     .ds-top {
@@ -168,9 +217,7 @@
       top: 10px; 
     }
     
-    .button {
-      top: 10px; 
-    }
+    
     
 
   }

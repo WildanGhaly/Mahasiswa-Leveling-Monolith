@@ -16,6 +16,7 @@ session_start();
   <div class="ds-top"></div>
   <div class="avatar-holder">
     <img src="../../../public/img/logo.jpg" alt="">
+    <div class="edit-text">Edit</div>
   </div>
   <form id="updateForm"> 
     <div class="name">
