@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db:3306
--- Generation Time: Oct 01, 2023 at 11:35 AM
+-- Generation Time: Oct 02, 2023 at 02:35 AM
 -- Server version: 8.1.0
 -- PHP Version: 8.2.8
 
@@ -74,6 +74,7 @@ CREATE TABLE `users` (
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `isAdmin` tinyint(1) NOT NULL DEFAULT '0',
+  `image_path` varchar(255) DEFAULT NULL,
   `total_achievement` int NOT NULL DEFAULT '0',
   `total_quest` int NOT NULL DEFAULT '0',
   `level` int NOT NULL DEFAULT '1',
@@ -85,12 +86,12 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `name`, `email`, `password`, `isAdmin`, `total_achievement`, `total_quest`, `level`, `current_experience`, `target_experience`) VALUES
-(1, 'admin', NULL, 'admin@gmail.com', 'admin', 1, 1, 0, 1, 0, 100),
-(2, 'user', NULL, 'user@gmail.com', 'user', 0, 0, 1, 1, 0, 100),
-(4, '222', NULL, '222', '222', 0, 0, 0, 1, 0, 100),
-(5, '2', NULL, '2', '2', 0, 0, 0, 2, 30, 140),
-(6, '123host', 'Wildan Ghaly', '13521015@std.stei.itb.ac.id', '1+8UUdV1ZFsTMzmd3BP1Rw==', 0, 1, 1, 1, 58, 100);
+INSERT INTO `users` (`id`, `username`, `name`, `email`, `password`, `isAdmin`, `image_path`, `total_achievement`, `total_quest`, `level`, `current_experience`, `target_experience`) VALUES
+(1, 'admin', NULL, 'admin@gmail.com', 'admin', 1, NULL, 1, 0, 1, 0, 100),
+(2, 'user', NULL, 'user@gmail.com', 'user', 0, NULL, 0, 1, 1, 0, 100),
+(4, '222', NULL, '222', '222', 0, NULL, 0, 0, 1, 0, 100),
+(5, '2', NULL, '2', '2', 0, NULL, 0, 0, 2, 30, 140),
+(6, '123host', 'Wildan Ghaly', '13521015@std.stei.itb.ac.id', '1+8UUdV1ZFsTMzmd3BP1Rw==', 0, NULL, 1, 1, 1, 58, 100);
 
 --
 -- Triggers `users`
