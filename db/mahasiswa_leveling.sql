@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db:3306
--- Generation Time: Oct 02, 2023 at 02:35 AM
+-- Generation Time: Oct 02, 2023 at 08:06 AM
 -- Server version: 8.1.0
 -- PHP Version: 8.2.8
 
@@ -39,7 +39,37 @@ CREATE TABLE `achievement` (
 --
 
 INSERT INTO `achievement` (`id`, `name`, `description`, `threshold`) VALUES
-(1, 'Test1', 'Test001', 'Test');
+(1, 'Test1', 'Test001', 'Test'),
+(3, 'First Step', 'You\'ve taken the first step on your fitness journey by completing your initial workout session.', 'Complete your first workout session.'),
+(4, 'Steady Start', 'Keep the momentum going! Workout for 7 consecutive days to establish a steady workout routine.', 'Workout for 7 consecutive days.'),
+(5, 'Weekly Warrior', 'Consistency is key. Achieve this by completing a workout every day for a week.', 'Complete a workout every day for a week.'),
+(6, 'Fitness Fanatic', 'You\'re on fire! Complete 30 workouts in a single month, demonstrating your dedication to fitness.', 'Complete 30 workouts in a month.'),
+(7, 'Pushing Limits', 'Feel the burn as you perform 50 push-ups in a single workout, pushing your strength to new heights.', 'Perform 50 push-ups in a single session.'),
+(8, 'Squats Galore', 'Your legs are getting stronger. Do 100 squats in one workout and feel the burn.', 'Do 100 squats in one workout.'),
+(9, 'Jumping Jack Pro', 'Jump, jump, jump! Complete 200 jumping jacks in one session to boost your cardio endurance.', 'Complete 200 jumping jacks in one session.'),
+(10, 'Marathon Runner', 'Celebrate your running achievement by covering the distance of a marathon, which is 26.2 miles in total.', 'Run 26.2 miles (a marathon) in total.'),
+(11, 'Couch to 5K', 'Prove your endurance by running a 5K distance without stopping, starting from scratch.', 'Run a 5K distance without stopping.'),
+(12, 'Bike Enthusiast', 'You\'ve covered 50 miles on your bike. Keep pedaling toward your fitness goals.', 'Cycle 50 miles in total.'),
+(13, 'Swim Champ', 'Dive in and swim a total of 1 mile, showcasing your aquatic prowess.', 'Swim 1 mile in total.'),
+(14, 'Plank Master', 'Test your core strength by holding a plank position for a challenging 3 minutes.', 'Hold a plank position for 3 minutes.'),
+(15, 'Yoga Guru', 'Find your inner zen as you complete 20 yoga sessions, improving flexibility and mindfulness.', 'Complete 20 yoga sessions.'),
+(16, 'Flexibility Pro', 'Touch your toes without bending your knees, showcasing your improved flexibility.', 'Touch your toes without bending your knees.'),
+(17, 'Cardio King/Queen', 'Maintain your heart rate in the cardio zone for 30 minutes, boosting cardiovascular fitness.', 'Maintain your heart rate in the cardio zone for 30 minutes.'),
+(18, 'Weightlifter', 'Lift your own body weight in the deadlift, demonstrating your strength and power.', 'Lift your body weight in the deadlift.'),
+(19, 'Push-up Prodigy', 'Push yourself to complete 100 push-ups in a single day, building upper body strength.', 'Do 100 push-ups in one day.'),
+(20, 'Pull-up Pro', 'Conquer gravity by performing 20 pull-ups in one session, showing off your upper body strength.', 'Perform 20 pull-ups in one session.'),
+(21, 'Burpee Boss', 'Crush your workout with 50 burpees in one session, testing your stamina and power.', 'Complete 50 burpees in one workout.'),
+(22, 'HIIT Hero', 'Finish a High-Intensity Interval Training (HIIT) workout, mastering both strength and endurance.', 'Finish a High-Intensity Interval Training (HIIT) workout.'),
+(23, 'Gym Rat', 'You\'re a regular! Visit the gym 50 times in total, making fitness a part of your lifestyle.', 'Visit the gym 50 times in total.'),
+(24, 'Home Workout Hero', 'Opt for home workouts and complete 100 of them, showcasing your versatility.', 'Complete 100 home workouts.'),
+(25, 'Hiking Hiker', 'Hike 50 miles in total.', 'Explore nature and hike a total of 50 miles, enjoying the great outdoors.'),
+(26, 'Climbing Champ', 'Scale new heights by climbing a 30-foot wall, testing your courage and strength.', 'Climb a 30-foot wall.'),
+(27, 'Water Warrior', 'Paddleboard your way to victory, covering 10 miles in total on the water.', 'Paddleboard for 10 miles in total.'),
+(28, 'Long-Distance Runner', 'Show off your endurance by running a half marathon (13.1 miles).', 'Run a half marathon (13.1 miles).'),
+(29, 'Iron Man/Woman', 'You\'re unstoppable! Complete a triathlon, including swimming, biking, and running.', 'Complete a triathlon (swim, bike, run).'),
+(30, 'Mindful Mover', 'Meditate for 20 minutes after each workout, promoting mental and physical balance.', 'Meditate for 20 minutes after each workout.'),
+(31, 'Nutrition Ninja', 'Log your meals for 30 consecutive days.', 'Keep track of your meals for 30 consecutive days, highlighting the importance of balanced nutrition.'),
+(32, 'Healthy Hydrator', 'Stay hydrated and drink 8 glasses of water daily for a month, supporting overall well-being.', 'Drink 8 glasses of water daily for a month.');
 
 -- --------------------------------------------------------
 
@@ -74,7 +104,7 @@ CREATE TABLE `users` (
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `isAdmin` tinyint(1) NOT NULL DEFAULT '0',
-  `image_path` varchar(255) DEFAULT NULL,
+  `image_path` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '../../../public/img/dummy/dummy.jpg',
   `total_achievement` int NOT NULL DEFAULT '0',
   `total_quest` int NOT NULL DEFAULT '0',
   `level` int NOT NULL DEFAULT '1',
@@ -87,11 +117,13 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `name`, `email`, `password`, `isAdmin`, `image_path`, `total_achievement`, `total_quest`, `level`, `current_experience`, `target_experience`) VALUES
-(1, 'admin', NULL, 'admin@gmail.com', 'admin', 1, NULL, 1, 0, 1, 0, 100),
-(2, 'user', NULL, 'user@gmail.com', 'user', 0, NULL, 0, 1, 1, 0, 100),
-(4, '222', NULL, '222', '222', 0, NULL, 0, 0, 1, 0, 100),
-(5, '2', NULL, '2', '2', 0, NULL, 0, 0, 2, 30, 140),
-(6, '123host', 'Wildan Ghaly', '13521015@std.stei.itb.ac.id', '1+8UUdV1ZFsTMzmd3BP1Rw==', 0, NULL, 1, 1, 1, 58, 100);
+(1, 'admin', NULL, 'admin@gmail.com', 'admin', 1, '../../../public/img/logo.jpg', 1, 0, 1, 0, 100),
+(2, 'user', NULL, 'user@gmail.com', 'user', 0, '../../../public/img/logo.jpg', 0, 1, 1, 0, 100),
+(4, '222', NULL, '222', '222', 0, '../../../public/img/logo.jpg', 0, 0, 1, 0, 100),
+(5, '2', NULL, '2', '2', 0, '../../../public/img/logo.jpg', 0, 0, 2, 30, 140),
+(6, '123host', 'Wildan Ghaly', '13521015@std.stei.itb.ac.id', 'dP3qonsy6OWDey59j7lhXA==', 0, '../../../views/img/profile/123host.jpg', 1, 1, 1, 58, 100),
+(7, '456host', 'Hellooo', '13521015@std.stei.itb.ac.id', '1+8UUdV1ZFsTMzmd3BP1Rw==', 0, '../../../public/img/logo.jpg', 0, 0, 1, 0, 100),
+(8, '789host', 'Wildan Ghalyss', '13521015@std.stei.itb.ac.id', '1+8UUdV1ZFsTMzmd3BP1Rw==', 0, '../../../views/img/profile/789host.jpg', 0, 0, 1, 0, 100);
 
 --
 -- Triggers `users`
@@ -228,7 +260,7 @@ ALTER TABLE `user_quest`
 -- AUTO_INCREMENT for table `achievement`
 --
 ALTER TABLE `achievement`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `quest`
@@ -240,7 +272,7 @@ ALTER TABLE `quest`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
