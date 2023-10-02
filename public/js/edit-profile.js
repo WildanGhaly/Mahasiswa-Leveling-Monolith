@@ -42,4 +42,14 @@ document.addEventListener("DOMContentLoaded", function() {
         xhr.send(formData);
     });
   });
-  
+
+function selectImage() {
+    console.log("selectImage() called");
+    var fileInput = document.getElementById('gambarInput');
+    fileInput.click();
+
+}
+
+function uploadImage() {
+    console.log("uploadImage() called");
+}
