@@ -15,7 +15,7 @@ session_start();
 
   <div class="ds-top"></div>
   <div class="avatar-holder">
-    <img src="../../../public/img/logo.jpg" alt="">
+    <img src="<?php include "../../../api/profile/get_image.php"?>"  alt="">
   </div>
   <div class="ds-level">
     <h6>

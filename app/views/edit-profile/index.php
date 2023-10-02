@@ -16,7 +16,7 @@ session_start();
   <div class="ds-top"></div>
   <div class="avatar-holder" onclick="selectImage()">
     <input type="file" id="imageInput" onchange="uploadImage()">
-    <img src="../../../public/img/logo.jpg" alt="">
+    <img id='profile-image' src="<?php include "../../../api/profile/get_image.php";?>" alt="">
     <div class="edit-text">Edit</div>
   </div>
   <form id="updateForm"> 

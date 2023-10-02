@@ -65,8 +65,11 @@ function uploadImage() {
         xhr.onreadystatechange = function() {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 var response = JSON.parse(xhr.responseText);
+                console.log(response);
                 if (response.success) {
-                    console.log('Image successfully uploaded: ' + response.fileName);
+                    console.log('Image successfully uploaded: ' + response.filePath);
+                    var randomParam = new Date().getTime();
+                    document.getElementById('profile-image').src = response.filePath + "?_=" + randomParam;
                 } else {
                     console.log('Unknown error and I am tired.');
                 }
