@@ -10,15 +10,20 @@
     <script src="../../../public/js/achievement.js"></script>
 </head>
 <body>
-    <div class="pagination">
-        <ul class="achievement" id="achievement-list">
-            <!-- Data akan dimuat di sini menggunakan AJAX -->
-        </ul>
-        <div id="pagination-buttons">
-            <!-- Tombol pagination akan dimuat di sini menggunakan AJAX -->
+    <?php include "../dashboard/index.php" ?>
+    <div class="container">
+        <div class="achievement-body">
+            <ul class="achievement-list" id="achievement-list">
+                    <!-- Data akan dimuat di sini menggunakan AJAX -->
+            </ul>
+        </div>
+        
+        <div class="pagination">
+            <div id="pagination-buttons">
+                <!-- Tombol pagination akan dimuat di sini menggunakan AJAX -->
+            </div>
         </div>
     </div>
-
     <script src="../../../public/js/achievement.js"></script>
 </body>
 </html>
