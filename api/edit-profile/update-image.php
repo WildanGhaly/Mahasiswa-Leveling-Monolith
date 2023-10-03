@@ -2,7 +2,7 @@
 session_start();
 include_once __DIR__."/../session.php";
 
-$uploadDir = '../../views/img/profile/'; // Direktori tempat gambar akan disimpan
+$uploadDir = '../../public/img/profile/'; // Direktori tempat gambar akan disimpan
 
 if (!file_exists($uploadDir)) {
     mkdir($uploadDir, 0777, true);
