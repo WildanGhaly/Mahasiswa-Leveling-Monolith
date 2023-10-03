@@ -2,7 +2,7 @@
 include_once __DIR__."/../session.php";
 
 $conn = Database::getInstance();
-$perPage = 10;
+$perPage = 5;
 
 $limit = isset($_POST["limit-records"]) ? $_POST["limit-records"] : $perPage;
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
@@ -38,7 +38,7 @@ $dummyData = range(($page - 1) * $perPage + 1, $page * $perPage);
 // Buat tombol pagination
 $totalPages = 7;
 $paginationButtons = '<ul class="achievement">';
-for ($i = 1; $i <= $totalPages; $i++) {
+for ($i = 1; $i <= $pages; $i++) {
     $activeClass = ($i == $page) ? 'active' : '';
     $paginationButtons .= "<li><a href='?page=$i' class='pagination-link $activeClass' data-page='$i'>$i</a></li>";
 }
