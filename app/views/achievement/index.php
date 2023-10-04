@@ -11,19 +11,25 @@
 </head>
 <body>
     <?php include "../dashboard/index.php" ?>
-    <div class="container">
-        <div class="achievement-body">
-            <ul class="achievement-list" id="achievement-list">
-                    <!-- Data akan dimuat di sini menggunakan AJAX -->
-            </ul>
-        </div>
+        <table class="achievement-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Threshold</th>
+                </tr>
+            </thead>
+            <tbody class="achievement-list" id="achievement-list">
+                <!-- Data achievement di sini -->
+            </tbody>
+        </table>
         
         <div class="pagination">
             <div id="pagination-buttons">
                 <!-- Tombol pagination akan dimuat di sini menggunakan AJAX -->
             </div>
         </div>
-    </div>
     <script src="../../../public/js/achievement.js"></script>
 </body>
 </html>

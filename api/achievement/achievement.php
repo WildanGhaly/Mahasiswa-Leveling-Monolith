@@ -18,12 +18,15 @@ $pages = ceil( $total / $limit );
 $Previous = $page - 1;
 $Next = $page + 1;
 
-$achievementList = '<tr>';
+$achievementList = '';
 foreach ($customers as $item) {
+    $achievementList .= '<tr>';
     $achievementList .= '<td>'.$item["id"].'</td>   ';
-    $achievementList .= '<td>'.$item["name"].'</td><br>';
+    $achievementList .= '<td>'.$item["name"].'</td>   ';
+    $achievementList .= '<td>'.$item["description"].'</td>   ';
+    $achievementList .= '<td>'.$item["threshold"].'</td>';
+    $achievementList .= '</tr>';
 }
-$achievementList .= '</tr>';
 
 // Data dummy (misalnya dari database)
 $dummyData = range(($page - 1) * $perPage + 1, $page * $perPage);
