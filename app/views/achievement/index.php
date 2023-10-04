@@ -47,6 +47,8 @@
                     <th>Name</th>
                     <th>Description</th>
                     <th>Threshold</th>
+                    <th>Difficulty</th>
+                    <th>Category</th>
                 </tr>
             </thead>
             <tbody class="achievement-list" id="achievement-list">
