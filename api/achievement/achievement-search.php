@@ -1,5 +1,8 @@
 <?php
+
 include_once __DIR__."/../session.php";
+
+$searchValue = $_GET['search'];
 
 $conn = Database::getInstance();
 $perPage = 5;
@@ -7,10 +10,11 @@ $perPage = 5;
 $limit = isset($_POST["limit-records"]) ? $_POST["limit-records"] : $perPage;
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
 $start = ($page - 1) * $limit;
-$result = $conn->query("SELECT * FROM achievement LIMIT $start, $limit");
+
+$result = $conn->query("SELECT * FROM achievement WHERE name LIKE '%$searchValue%' LIMIT $start, $limit");
 $customers = $result->fetch_all(MYSQLI_ASSOC);
 
-$result1 = $conn->query("SELECT count(id) AS id FROM achievement");
+$result1 = $conn->query("SELECT count(id) AS id FROM achievement WHERE name LIKE '%$searchValue%'");
 $custCount = $result1->fetch_all(MYSQLI_ASSOC);
 $total = $custCount[0]['id'];
 $pages = ceil( $total / $limit );
@@ -28,16 +32,6 @@ foreach ($customers as $item) {
     $achievementList .= '</tr>';
 }
 
-// Data dummy (misalnya dari database)
-
-// Buat daftar item achievement
-// $achievementList = '<ul>';
-// foreach ($dummyData as $item) {
-//     $achievementList .= "<li>Achievement $item</li>";
-// }
-// $achievementList .= '</ul>';
-
-// Buat tombol pagination
 $paginationButtons = '<ul class="achievement">';
 for ($i = 1; $i <= $pages; $i++) {
     $activeClass = ($i == $page) ? 'active' : '';
@@ -48,9 +42,7 @@ $paginationButtons .= '</ul>';
 $response = [
     'achievementList' => $achievementList,
     'paginationButtons' => $paginationButtons,
-    'get' => $_GET['page']
 ];
 
 header('Content-Type: application/json');
 echo json_encode($response);
-?>

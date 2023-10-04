@@ -37,6 +37,22 @@ document.addEventListener('DOMContentLoaded', function () {
             loadAchievementPage(page);
         }
     });
+
+    document.getElementById('searchInput').addEventListener('keyup', function () {
+        const search = this.value;
+        console.log("hello: ", search);
+
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', `${SERVER_PATH}achievement/achievement-search.php?search=${search}`, true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                const response = JSON.parse(xhr.responseText);
+                achievementList.innerHTML = response.achievementList;
+                paginationButtons.innerHTML = response.paginationButtons;
+            }
+        };
+        xhr.send();
+    });
 });
 
 
