@@ -17,17 +17,20 @@
         <div class="search-container">
             <input type="text" class="searchInput" id="searchInput" placeholder="Search...">
             <div class="filter-container">
-                <select class="filterDropdown1" id="filterDropdown1">
+                <select class="filter-difficulty" id="filter-difficulty">
                     <option value="semua">Semua</option>
-                    <option value="kategori1">Kategori 1</option>
-                    <option value="kategori2">Kategori 2</option>
-                    <option value="kategori3">Kategori 3</option>
+                    <option value="Beginner">Beginner</option>
+                    <option value="Intermediate">Intermediate</option>
+                    <option value="Advanced">Advanced</option>
                 </select>
-                <select class="filterDropdown2" id="filterDropdown2">
-                    <option value="semua">Semua</option>
-                    <option value="kategori1">Kategori 1</option>
-                    <option value="kategori2">Kategori 2</option>
-                    <option value="kategori3">Kategori 3</option>
+                <select class="filter-type" id="filter-type">
+                    <option value=0>Semua</option>
+                    <option value=1>Cardio Achievements</option>
+                    <option value=2>Strength Achievements</option>
+                    <option value=3>Flexibility and Balance Achievements</option>
+                    <option value=4>Variety and Endurance Achievements</option>
+                    <option value=5>Mindfulness and Wellness Achievements</option>
+                    <option value=6>General Fitness Achievements</option>
                 </select>
             </div>
         </div>

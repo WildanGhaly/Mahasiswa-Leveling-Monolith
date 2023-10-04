@@ -73,9 +73,72 @@ document.addEventListener('DOMContentLoaded', function () {
         const limit = this.value;
         const search = document.getElementById('searchInput').value;
         loadAchievementPage(1, search, limit);
-
-        
     });
+
+    document.getElementById("filter-difficulty").addEventListener('change', function () {
+        const difficulty = this.value;
+        const type = document.getElementById('filter-type').value;
+        const search = document.getElementById('searchInput').value;
+        const limit = document.getElementById('page-limit').value;
+        console.log(difficulty);
+        var url = `${SERVER_PATH}achievement/achievement.php`;
+        if (difficulty !== "semua") {
+            url += `?difficulty=${difficulty}`;
+        }
+        if (type !== "semua") {
+            url += `&type=${type}`;
+        }
+        if (search) {
+            url += `&search=${search}`;
+        }
+        if (limit) {
+            url += `&limit=${limit}`;
+        }
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                console.log(this.responseText);
+                const response = JSON.parse(xhr.responseText);
+                achievementList.innerHTML = response.achievementList;
+                paginationButtons.innerHTML = response.paginationButtons;
+            }
+        };
+        xhr.send();
+    });
+
+    document.getElementById("filter-type").addEventListener('change', function () {
+        const type = this.value;
+        const difficulty = document.getElementById('filter-difficulty').value;
+        const search = document.getElementById('searchInput').value;
+        const limit = document.getElementById('page-limit').value;
+        console.log(type);
+        var url = `${SERVER_PATH}achievement/achievement.php`;
+        if (type !== "semua") {
+            url += `?type=${type}`;
+        }
+        if (difficulty !== "semua") {
+            url += `&difficulty=${difficulty}`;
+        }
+        if (search) {
+            url += `&search=${search}`;
+        }
+        if (limit) {
+            url += `&limit=${limit}`;
+        }
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                console.log(this.responseText);
+                const response = JSON.parse(xhr.responseText);
+                achievementList.innerHTML = response.achievementList;
+                paginationButtons.innerHTML = response.paginationButtons;
+            }
+        };
+        xhr.send();
+    });
+    
 });
 
 
