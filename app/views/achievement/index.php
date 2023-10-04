@@ -11,6 +11,35 @@
 </head>
 <body>
     <?php include "../dashboard/index.php" ?>
+    <div class="achievement-container">
+        <h1>Achievement</h1>
+        <br><br>
+        <div class="search-container">
+            <input type="text" class="searchInput" id="searchInput" placeholder="Search...">
+            <div class="filter-container">
+                <select class="filterDropdown1" id="filterDropdown1">
+                    <option value="semua">Semua</option>
+                    <option value="kategori1">Kategori 1</option>
+                    <option value="kategori2">Kategori 2</option>
+                    <option value="kategori3">Kategori 3</option>
+                </select>
+                <select class="filterDropdown2" id="filterDropdown2">
+                    <option value="semua">Semua</option>
+                    <option value="kategori1">Kategori 1</option>
+                    <option value="kategori2">Kategori 2</option>
+                    <option value="kategori3">Kategori 3</option>
+                </select>
+            </div>
+        </div>
+        <br><br>
+        <div class="filter-box">
+            <select class="filterDropdown3" id="filterDropdown3">
+                <option value="semua">Semua</option>
+                <option value="kategori1">Kategori 1</option>
+                <option value="kategori2">Kategori 2</option>
+                <option value="kategori3">Kategori 3</option>
+            </select>
+        </div>
         <table class="achievement-table">
             <thead>
                 <tr>
@@ -18,6 +47,8 @@
                     <th>Name</th>
                     <th>Description</th>
                     <th>Threshold</th>
+                    <th>Difficulty</th>
+                    <th>Category</th>
                 </tr>
             </thead>
             <tbody class="achievement-list" id="achievement-list">
@@ -30,6 +61,7 @@
                 <!-- Tombol pagination akan dimuat di sini menggunakan AJAX -->
             </div>
         </div>
+    </div>
     <script src="../../../public/js/achievement.js"></script>
 </body>
 </html>
