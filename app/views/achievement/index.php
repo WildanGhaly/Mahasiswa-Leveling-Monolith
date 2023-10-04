@@ -61,6 +61,7 @@
                 <!-- Tombol pagination akan dimuat di sini menggunakan AJAX -->
             </div>
         </div>
+        
     </div>
     <script src="../../../public/js/achievement.js"></script>
 </body>
