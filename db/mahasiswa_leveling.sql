@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db:3306
--- Generation Time: Oct 02, 2023 at 08:06 AM
+-- Generation Time: Oct 04, 2023 at 06:43 AM
 -- Server version: 8.1.0
 -- PHP Version: 8.2.8
 
@@ -31,45 +31,71 @@ CREATE TABLE `achievement` (
   `id` int NOT NULL,
   `name` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
-  `threshold` text NOT NULL
+  `threshold` text NOT NULL,
+  `difficulty` enum('Beginner','Intermediate','Advanced') NOT NULL DEFAULT 'Beginner',
+  `group_id` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `achievement`
 --
 
-INSERT INTO `achievement` (`id`, `name`, `description`, `threshold`) VALUES
-(1, 'Test1', 'Test001', 'Test'),
-(3, 'First Step', 'You\'ve taken the first step on your fitness journey by completing your initial workout session.', 'Complete your first workout session.'),
-(4, 'Steady Start', 'Keep the momentum going! Workout for 7 consecutive days to establish a steady workout routine.', 'Workout for 7 consecutive days.'),
-(5, 'Weekly Warrior', 'Consistency is key. Achieve this by completing a workout every day for a week.', 'Complete a workout every day for a week.'),
-(6, 'Fitness Fanatic', 'You\'re on fire! Complete 30 workouts in a single month, demonstrating your dedication to fitness.', 'Complete 30 workouts in a month.'),
-(7, 'Pushing Limits', 'Feel the burn as you perform 50 push-ups in a single workout, pushing your strength to new heights.', 'Perform 50 push-ups in a single session.'),
-(8, 'Squats Galore', 'Your legs are getting stronger. Do 100 squats in one workout and feel the burn.', 'Do 100 squats in one workout.'),
-(9, 'Jumping Jack Pro', 'Jump, jump, jump! Complete 200 jumping jacks in one session to boost your cardio endurance.', 'Complete 200 jumping jacks in one session.'),
-(10, 'Marathon Runner', 'Celebrate your running achievement by covering the distance of a marathon, which is 26.2 miles in total.', 'Run 26.2 miles (a marathon) in total.'),
-(11, 'Couch to 5K', 'Prove your endurance by running a 5K distance without stopping, starting from scratch.', 'Run a 5K distance without stopping.'),
-(12, 'Bike Enthusiast', 'You\'ve covered 50 miles on your bike. Keep pedaling toward your fitness goals.', 'Cycle 50 miles in total.'),
-(13, 'Swim Champ', 'Dive in and swim a total of 1 mile, showcasing your aquatic prowess.', 'Swim 1 mile in total.'),
-(14, 'Plank Master', 'Test your core strength by holding a plank position for a challenging 3 minutes.', 'Hold a plank position for 3 minutes.'),
-(15, 'Yoga Guru', 'Find your inner zen as you complete 20 yoga sessions, improving flexibility and mindfulness.', 'Complete 20 yoga sessions.'),
-(16, 'Flexibility Pro', 'Touch your toes without bending your knees, showcasing your improved flexibility.', 'Touch your toes without bending your knees.'),
-(17, 'Cardio King/Queen', 'Maintain your heart rate in the cardio zone for 30 minutes, boosting cardiovascular fitness.', 'Maintain your heart rate in the cardio zone for 30 minutes.'),
-(18, 'Weightlifter', 'Lift your own body weight in the deadlift, demonstrating your strength and power.', 'Lift your body weight in the deadlift.'),
-(19, 'Push-up Prodigy', 'Push yourself to complete 100 push-ups in a single day, building upper body strength.', 'Do 100 push-ups in one day.'),
-(20, 'Pull-up Pro', 'Conquer gravity by performing 20 pull-ups in one session, showing off your upper body strength.', 'Perform 20 pull-ups in one session.'),
-(21, 'Burpee Boss', 'Crush your workout with 50 burpees in one session, testing your stamina and power.', 'Complete 50 burpees in one workout.'),
-(22, 'HIIT Hero', 'Finish a High-Intensity Interval Training (HIIT) workout, mastering both strength and endurance.', 'Finish a High-Intensity Interval Training (HIIT) workout.'),
-(23, 'Gym Rat', 'You\'re a regular! Visit the gym 50 times in total, making fitness a part of your lifestyle.', 'Visit the gym 50 times in total.'),
-(24, 'Home Workout Hero', 'Opt for home workouts and complete 100 of them, showcasing your versatility.', 'Complete 100 home workouts.'),
-(25, 'Hiking Hiker', 'Hike 50 miles in total.', 'Explore nature and hike a total of 50 miles, enjoying the great outdoors.'),
-(26, 'Climbing Champ', 'Scale new heights by climbing a 30-foot wall, testing your courage and strength.', 'Climb a 30-foot wall.'),
-(27, 'Water Warrior', 'Paddleboard your way to victory, covering 10 miles in total on the water.', 'Paddleboard for 10 miles in total.'),
-(28, 'Long-Distance Runner', 'Show off your endurance by running a half marathon (13.1 miles).', 'Run a half marathon (13.1 miles).'),
-(29, 'Iron Man/Woman', 'You\'re unstoppable! Complete a triathlon, including swimming, biking, and running.', 'Complete a triathlon (swim, bike, run).'),
-(30, 'Mindful Mover', 'Meditate for 20 minutes after each workout, promoting mental and physical balance.', 'Meditate for 20 minutes after each workout.'),
-(31, 'Nutrition Ninja', 'Log your meals for 30 consecutive days.', 'Keep track of your meals for 30 consecutive days, highlighting the importance of balanced nutrition.'),
-(32, 'Healthy Hydrator', 'Stay hydrated and drink 8 glasses of water daily for a month, supporting overall well-being.', 'Drink 8 glasses of water daily for a month.');
+INSERT INTO `achievement` (`id`, `name`, `description`, `threshold`, `difficulty`, `group_id`) VALUES
+(1, 'Test1', 'Test001', 'Test', 'Beginner', NULL),
+(3, 'First Step', 'You\'ve taken the first step on your fitness journey by completing your initial workout session.', 'Complete your first workout session.', 'Beginner', 6),
+(4, 'Steady Start', 'Keep the momentum going! Workout for 7 consecutive days to establish a steady workout routine.', 'Workout for 7 consecutive days.', 'Beginner', 6),
+(5, 'Weekly Warrior', 'Consistency is key. Achieve this by completing a workout every day for a week.', 'Complete a workout every day for a week.', 'Beginner', 1),
+(6, 'Fitness Fanatic', 'You\'re on fire! Complete 30 workouts in a single month, demonstrating your dedication to fitness.', 'Complete 30 workouts in a month.', 'Intermediate', 4),
+(7, 'Pushing Limits', 'Feel the burn as you perform 50 push-ups in a single workout, pushing your strength to new heights.', 'Perform 50 push-ups in a single session.', 'Intermediate', 2),
+(8, 'Squats Galore', 'Your legs are getting stronger. Do 100 squats in one workout and feel the burn.', 'Do 100 squats in one workout.', 'Intermediate', 2),
+(9, 'Jumping Jack Pro', 'Jump, jump, jump! Complete 200 jumping jacks in one session to boost your cardio endurance.', 'Complete 200 jumping jacks in one session.', 'Intermediate', NULL),
+(10, 'Marathon Runner', 'Celebrate your running achievement by covering the distance of a marathon, which is 26.2 miles in total.', 'Run 26.2 miles (a marathon) in total.', 'Intermediate', 1),
+(11, 'Couch to 5K', 'Prove your endurance by running a 5K distance without stopping, starting from scratch.', 'Run a 5K distance without stopping.', 'Beginner', 1),
+(12, 'Bike Enthusiast', 'You\'ve covered 50 miles on your bike. Keep pedaling toward your fitness goals.', 'Cycle 50 miles in total.', 'Intermediate', NULL),
+(13, 'Swim Champ', 'Dive in and swim a total of 1 mile, showcasing your aquatic prowess.', 'Swim 1 mile in total.', 'Intermediate', NULL),
+(14, 'Plank Master', 'Test your core strength by holding a plank position for a challenging 3 minutes.', 'Hold a plank position for 3 minutes.', 'Beginner', 2),
+(15, 'Yoga Guru', 'Find your inner zen as you complete 20 yoga sessions, improving flexibility and mindfulness.', 'Complete 20 yoga sessions.', 'Advanced', 3),
+(16, 'Flexibility Pro', 'Touch your toes without bending your knees, showcasing your improved flexibility.', 'Touch your toes without bending your knees.', 'Beginner', 3),
+(17, 'Cardio King/Queen', 'Maintain your heart rate in the cardio zone for 30 minutes, boosting cardiovascular fitness.', 'Maintain your heart rate in the cardio zone for 30 minutes.', 'Beginner', 1),
+(18, 'Weightlifter', 'Lift your own body weight in the deadlift, demonstrating your strength and power.', 'Lift your body weight in the deadlift.', 'Intermediate', 2),
+(19, 'Push-up Prodigy', 'Push yourself to complete 100 push-ups in a single day, building upper body strength.', 'Do 100 push-ups in one day.', 'Advanced', 2),
+(20, 'Pull-up Pro', 'Conquer gravity by performing 20 pull-ups in one session, showing off your upper body strength.', 'Perform 20 pull-ups in one session.', 'Advanced', 2),
+(21, 'Burpee Boss', 'Crush your workout with 50 burpees in one session, testing your stamina and power.', 'Complete 50 burpees in one workout.', 'Intermediate', 2),
+(22, 'HIIT Hero', 'Finish a High-Intensity Interval Training (HIIT) workout, mastering both strength and endurance.', 'Finish a High-Intensity Interval Training (HIIT) workout.', 'Intermediate', 4),
+(23, 'Gym Rat', 'You\'re a regular! Visit the gym 50 times in total, making fitness a part of your lifestyle.', 'Visit the gym 50 times in total.', 'Advanced', 6),
+(24, 'Home Workout Hero', 'Opt for home workouts and complete 100 of them, showcasing your versatility.', 'Complete 100 home workouts.', 'Advanced', 4),
+(25, 'Hiking Hiker', 'Hike 50 miles in total.', 'Explore nature and hike a total of 50 miles, enjoying the great outdoors.', 'Advanced', 4),
+(26, 'Climbing Champ', 'Scale new heights by climbing a 30-foot wall, testing your courage and strength.', 'Climb a 30-foot wall.', 'Advanced', 3),
+(27, 'Water Warrior', 'Paddleboard your way to victory, covering 10 miles in total on the water.', 'Paddleboard for 10 miles in total.', 'Advanced', 4),
+(28, 'Long-Distance Runner', 'Show off your endurance by running a half marathon (13.1 miles).', 'Run a half marathon (13.1 miles).', 'Advanced', 1),
+(29, 'Iron Man/Woman', 'You\'re unstoppable! Complete a triathlon, including swimming, biking, and running.', 'Complete a triathlon (swim, bike, run).', 'Advanced', 1),
+(30, 'Mindful Mover', 'Meditate for 20 minutes after each workout, promoting mental and physical balance.', 'Meditate for 20 minutes after each workout.', 'Beginner', 5),
+(31, 'Nutrition Ninja', 'Log your meals for 30 consecutive days.', 'Keep track of your meals for 30 consecutive days, highlighting the importance of balanced nutrition.', 'Beginner', 5),
+(32, 'Healthy Hydrator', 'Stay hydrated and drink 8 glasses of water daily for a month, supporting overall well-being.', 'Drink 8 glasses of water daily for a month.', 'Beginner', 5);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `achievement_group`
+--
+
+CREATE TABLE `achievement_group` (
+  `group_id` int NOT NULL,
+  `group_name` varchar(255) NOT NULL DEFAULT '-',
+  `description` varchar(255) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `achievement_group`
+--
+
+INSERT INTO `achievement_group` (`group_id`, `group_name`, `description`) VALUES
+(1, 'Cardio Achievements', 'Achievements related to cardio workouts.'),
+(2, 'Strength Achievements', 'Achievements related to strength training.'),
+(3, 'Flexibility and Balance Achievements', 'Achievements related to flexibility and balance.'),
+(4, 'Variety and Endurance Achievements', 'Achievements related to various workouts and endurance.'),
+(5, 'Mindfulness and Wellness Achievements', 'Achievements related to mental well-being and nutrition.'),
+(6, 'General Fitness Achievements', 'General fitness achievements.');
 
 -- --------------------------------------------------------
 
@@ -121,7 +147,7 @@ INSERT INTO `users` (`id`, `username`, `name`, `email`, `password`, `isAdmin`, `
 (2, 'user', NULL, 'user@gmail.com', 'user', 0, '../../../public/img/logo.jpg', 0, 1, 1, 0, 100),
 (4, '222', NULL, '222', '222', 0, '../../../public/img/logo.jpg', 0, 0, 1, 0, 100),
 (5, '2', NULL, '2', '2', 0, '../../../public/img/logo.jpg', 0, 0, 2, 30, 140),
-(6, '123host', 'Wildan Ghaly', '13521015@std.stei.itb.ac.id', 'dP3qonsy6OWDey59j7lhXA==', 0, '../../../views/img/profile/123host.jpg', 1, 1, 1, 58, 100),
+(6, '123host', 'Wildan Ghaly', '13521015@std.stei.itb.ac.id', 'dP3qonsy6OWDey59j7lhXA==', 0, '../../../public/img/profile/123host.jpg', 1, 1, 1, 58, 100),
 (7, '456host', 'Hellooo', '13521015@std.stei.itb.ac.id', '1+8UUdV1ZFsTMzmd3BP1Rw==', 0, '../../../public/img/logo.jpg', 0, 0, 1, 0, 100),
 (8, '789host', 'Wildan Ghalyss', '13521015@std.stei.itb.ac.id', '1+8UUdV1ZFsTMzmd3BP1Rw==', 0, '../../../views/img/profile/789host.jpg', 0, 0, 1, 0, 100);
 
@@ -222,7 +248,14 @@ DELIMITER ;
 --
 ALTER TABLE `achievement`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `achievement_name_index` (`name`);
+  ADD UNIQUE KEY `achievement_name_index` (`name`),
+  ADD KEY `achievement_group_classification` (`group_id`);
+
+--
+-- Indexes for table `achievement_group`
+--
+ALTER TABLE `achievement_group`
+  ADD PRIMARY KEY (`group_id`);
 
 --
 -- Indexes for table `quest`
@@ -263,6 +296,12 @@ ALTER TABLE `achievement`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
+-- AUTO_INCREMENT for table `achievement_group`
+--
+ALTER TABLE `achievement_group`
+  MODIFY `group_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `quest`
 --
 ALTER TABLE `quest`
@@ -277,6 +316,12 @@ ALTER TABLE `users`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `achievement`
+--
+ALTER TABLE `achievement`
+  ADD CONSTRAINT `achievement_group_classification` FOREIGN KEY (`group_id`) REFERENCES `achievement_group` (`group_id`) ON DELETE SET NULL ON UPDATE SET NULL;
 
 --
 -- Constraints for table `user_achievement`

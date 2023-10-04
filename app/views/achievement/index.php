@@ -1,6 +1,7 @@
 
+<!-- index.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,26 +9,27 @@
     <link rel="stylesheet" href="../../../public/css/achievement.css">
     <script src="../../../public/js/achievement.js"></script>
 </head>
-
 <body>
     <?php include "../dashboard/index.php" ?>
-    <div class="pagination">
-        <ul class="achievement">
-            <li><a href="#" class="prev">
-                <i class="fa fa-chevron-left"></i>
-                Previous
-                </a>
-            </li>
-            <li><a href="#">1</a></li>
-            <li> <a href="#">2</a></li>
-            <li> <a href="#">3</a></li>
-            <li> <a href="#">4</a></li>
-            <li> <a href="#" class="active">5</a></li>
-            <li> <a href="#">6</a></li>
-            <li> <a href="#">7</a></li>
-            <li><a href="#" class="next"> Next 
-                <i class="fa fa-chevron-right"></i>
-            </a></li>
-        </ul>
-    </div>
+        <table class="achievement-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Threshold</th>
+                </tr>
+            </thead>
+            <tbody class="achievement-list" id="achievement-list">
+                <!-- Data achievement di sini -->
+            </tbody>
+        </table>
+        
+        <div class="pagination">
+            <div id="pagination-buttons">
+                <!-- Tombol pagination akan dimuat di sini menggunakan AJAX -->
+            </div>
+        </div>
+    <script src="../../../public/js/achievement.js"></script>
 </body>
+</html>
