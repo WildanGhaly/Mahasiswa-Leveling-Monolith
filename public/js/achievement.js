@@ -84,16 +84,17 @@ document.addEventListener('DOMContentLoaded', function () {
         var url = `${SERVER_PATH}achievement/achievement.php`;
         if (difficulty !== "semua") {
             url += `?difficulty=${difficulty}`;
+        } else {
+            url += `?`;
         }
-        if (type !== "semua") {
-            url += `&type=${type}`;
-        }
+        url += `&type=${type}`;
         if (search) {
             url += `&search=${search}`;
         }
         if (limit) {
             url += `&limit=${limit}`;
         }
+        console.log(url);
         const xhr = new XMLHttpRequest();
         xhr.open('GET', url, true);
         xhr.onreadystatechange = function () {
@@ -114,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const limit = document.getElementById('page-limit').value;
         console.log(type);
         var url = `${SERVER_PATH}achievement/achievement.php`;
-        if (type !== "semua") {
+        if (type !== "Semua") {
             url += `?type=${type}`;
         }
         if (difficulty !== "semua") {

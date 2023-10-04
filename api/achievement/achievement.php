@@ -6,7 +6,7 @@ $perPage = 5;
 
 $limit      = isset($_GET["limit"]) ? $_GET["limit"] : $perPage;
 $difficulty = isset($_GET["difficulty"]) ? $_GET["difficulty"] : '';
-$type       = isset($_GET["type"]) ? $_GET["type"] : '';
+$type       = isset($_GET["type"]) ? $_GET["type"] : '0';
 $page       = isset($_GET['page']) ? $_GET['page'] : 1;
 $search     = isset($_GET['search']) ? $_GET['search'] : '';
 $start      = ($page - 1) * $limit;
@@ -22,7 +22,7 @@ if ($difficulty != ''){
         $sql1 .= " WHERE difficulty = '$difficulty'";
     }
 }
-if ($type != ''){
+if ($type != '0'){
     if ($search != '' || $difficulty != ''){
         $sql1 .= " AND a.group_id = '$type'";
     } else {
@@ -42,7 +42,7 @@ if ($difficulty != ''){
         $sql2 .= " WHERE difficulty = '$difficulty'";
     }
 }
-if ($type != 0){
+if ($type != '0'){
     if ($search != '' || $difficulty != ''){
         $sql2 .= " AND group_id = '$type'";
     } else {
