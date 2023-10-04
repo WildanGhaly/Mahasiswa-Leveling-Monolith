@@ -4,7 +4,8 @@ include_once __DIR__."/../session.php";
 $conn = Database::getInstance();
 $perPage = 5;
 
-$limit = isset($_POST["limit-records"]) ? $_POST["limit-records"] : $perPage;
+$limit = isset($_GET["limit"]) ? $_GET["limit"] : $perPage;
+// $limit = $perPage;
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
 $search = isset($_GET['search']) ? $_GET['search'] : '';
 $start = ($page - 1) * $limit;
@@ -47,7 +48,7 @@ foreach ($customers as $item) {
 $paginationButtons = '<ul class="achievement">';
 for ($i = 1; $i <= $pages; $i++) {
     $activeClass = ($i == $page) ? 'active' : '';
-    $paginationButtons .= "<li><a href='?page=$i&search=$search' class='pagination-link $activeClass' data-page='$i'>$i</a></li>";
+    $paginationButtons .= "<li><a href='?page=$i&search=$search&limit=$limit' class='pagination-link $activeClass' data-page='$i'>$i</a></li>";
 }
 $paginationButtons .= '</ul>';
 

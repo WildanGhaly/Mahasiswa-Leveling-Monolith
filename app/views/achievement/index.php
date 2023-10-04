@@ -33,11 +33,11 @@
         </div>
         <br><br>
         <div class="filter-box">
-            <select class="filterDropdown3" id="filterDropdown3">
-                <option value="semua">Semua</option>
-                <option value="kategori1">Kategori 1</option>
-                <option value="kategori2">Kategori 2</option>
-                <option value="kategori3">Kategori 3</option>
+            <select class="page-limit" id="page-limit">
+                <option value=5>5</option>
+                <option value=10>10</option>
+                <option value=15>15</option>
+                <option value=20>20</option>
             </select>
         </div>
         <table class="achievement-table">
