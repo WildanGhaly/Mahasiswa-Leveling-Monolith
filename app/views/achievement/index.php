@@ -42,7 +42,7 @@
                         <option value="id">ID</option>
                         <option value="name">Name</option>
                         <option value="difficulty">Difficulty</option>
-                        <option value="category">Category</option>
+                        <option value="a.group_id">Category</option>
                     </select>
                     <select class="sort-type" id="sort-type">
                         <option value="">Sort-Type</option>
