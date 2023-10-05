@@ -25,12 +25,14 @@ class UserModel
         if ($data['filter'] === 'level'){
           $query .= " AND level > 5";
         }
-        else {
+        else if ($data['filter'] === 'achievement') {
           $query .= " AND total_achievement > 5";
+        } else {
+          $query .= "";
         }
       
     }
-    if (!isset($data['sort'])) {
+    if (!isset($data['sort']) || $data['sort'] === 'Default') {
       $query .= " ORDER BY LOWER(name)";
     } else {
       $sign = substr($data['sort'], 0, 1);
