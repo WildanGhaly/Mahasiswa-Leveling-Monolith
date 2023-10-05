@@ -66,6 +66,5 @@
         </div>
         
     </div>
-    <script src="../../../public/js/achievement.js"></script>
 </body>
 </html>
