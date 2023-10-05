@@ -67,8 +67,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.getElementById("sort-by").addEventListener("change", function () {
         sort = this.value;
-        if (!sort || sort === "null" || sort === "undefined") {
-            sort = "";
+        if (!sort || sort === "null" || sort === "undefined" || sort === "default") {
+            sort = "default";
         }
         document.cookie = `my-achievement-sort=${sort}; path=/`
         loadAchievementPage(1);
@@ -76,8 +76,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.getElementById("sort-type").addEventListener("change", function () {
         order = this.value;
-        if (!order || order === "null" || order === "undefined") {
-            order = "";
+        if (!order || order === "null" || order === "undefined" || order === "default") {
+            order = "default";
         }
         document.cookie = `my-achievement-order=${order}; path=/`
         loadAchievementPage(1);
