@@ -52,11 +52,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     document.getElementById('Next').addEventListener('click', function () {
-
-        var filterSelect = document.getElementById('Filter').value;
-        var sortSelect = document.getElementById('Sort').value;
-        var search_input = document.getElementById('search_input').value;
-
         var currentURL = window.location.href;
         var page = getPage(currentURL);
         var intPage = parseInt(page);
@@ -69,7 +64,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         debounceTimeout = setTimeout(function() {
-            // searchUser(filterSelect, sortSelect, search_input);
         }, 400);
 
         
@@ -77,11 +71,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     document.getElementById('Previous').addEventListener('click', function () {
-
-        var filterSelect = document.getElementById('Filter').value;
-        var sortSelect = document.getElementById('Sort').value;
-        var search_input = document.getElementById('search_input').value;
-
         var currentURL = window.location.href;
         var page = getPage(currentURL);
         if (page == '1'){
@@ -90,17 +79,29 @@ document.addEventListener('DOMContentLoaded', function() {
         var intPage = parseInt(page);
         page = String(intPage - 1);
         window.location.search = '?page=' + page;
-        // + '&user=' +search_input + '&sort=' +sortSelect + '&filter=' + filterSelect
 
         if (debounceTimeout) {
             clearTimeout(debounceTimeout);
         }
         
         debounceTimeout = setTimeout(function() {
-            // searchUser(filterSelect, sortSelect, search_input);
         }, 400);
 
        
+    });
+
+    document.getElementById('deleteSessionButton').addEventListener('click', function() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', `${SERVER_PATH}search/delete_session.php`, true);
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                console.log("Success")
+                location.reload();
+            } else {
+                console.error('failed');
+            }
+        };
+        xhr.send();
     });
 
 
@@ -148,8 +149,7 @@ function getPage(url){
     var match = url.match(regex);
 
 if (match) {
-    var pageValue = match[1]; // 
-    // console.log(pageValue);  
+    var pageValue = match[1];  
     return pageValue;
 } else {
     console.log("No 'page' parameter found in the URL.");
@@ -160,7 +160,21 @@ if (match) {
 
 function searchUser(filter, sort, input) {
     var php_path = `${SERVER_PATH}search/search.php?`;
-    // var user_url = `http://localhost:8080/app/views/Hall-of-Fame/?`;
+    var filterSelect = document.getElementById('Filter');
+    var sortSelect = document.getElementById('Sort');
+    var search_input = document.getElementById('search_input');
+
+    if (filter != filterSelect.value && filter != ''){
+        filterSelect.value = filter;
+    }
+
+    if (sortSelect.value != sort && sort != ''){
+        sortSelect.value = sort;
+    }
+
+    if (search_input.value != input){
+        search_input.value = input;
+    }
 
     var parameter = ''
     var currentURL = window.location.href;
