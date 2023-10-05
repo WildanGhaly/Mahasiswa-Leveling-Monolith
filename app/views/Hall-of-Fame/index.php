@@ -35,6 +35,8 @@ session_start();
                 
             </select>
 
+            <button id="deleteSessionButton" class="deleteFilter">Reset Filter</button>
+
         </div>
         <h1>Hall of Fame</h1>
     </div>
