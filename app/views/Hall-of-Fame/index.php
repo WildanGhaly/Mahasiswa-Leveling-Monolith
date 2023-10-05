@@ -21,7 +21,6 @@ session_start();
 
             <select id="Filter" name="filter">
                 <option value="default">Filter</option>
-                <option value="Default">Default</option>
                 <option value="level">level > 5</option>
                 <option value="achievement">Achievment > 5</option>
                 
@@ -29,7 +28,6 @@ session_start();
 
             <select id="Sort" name="sort">
                 <option value="default">Sort</option>
-                <option value="Default">Default</option>
                 <option value="^level">Level Asc</option>
                 <option value="^total_achievement">Achievment Asc</option>
                 

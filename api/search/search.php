@@ -23,20 +23,16 @@ if (isset($_GET['user']) || isset($_SESSION['user'])) {
     }
     
 }
-if ((isset($_GET['filter']) && $_GET['filter'] !== 'default')) {
-    if (isset($_GET['filter']) && $_GET['filter'] !== 'default'){
-        $filter = $_GET['filter'];
-        $params['filter'] = $filter;
-        $_SESSION['filter'] = $filter;
-    } 
+if (isset($_GET['filter'])) {
+    $filter = $_GET['filter'];
+    $params['filter'] = $filter;
+    $_SESSION['filter'] = $filter;
     
 }
-if ((isset($_GET['sort']) && $_GET['sort'] !== 'default')) {
-    if (isset($_GET['sort']) && $_GET['sort'] !== 'default'){
-        $sort = $_GET['sort'];
-        $params['sort'] = $sort;
-        $_SESSION['sort'] = $sort;
-    }    
+if (isset($_GET['sort'])) {
+    $sort = $_GET['sort'];
+    $params['sort'] = $sort;
+    $_SESSION['sort'] = $sort;
 }
 
 if (isset($_GET['page'])) {
