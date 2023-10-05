@@ -32,7 +32,7 @@ class UserModel
         }
       
     }
-    if (!isset($data['sort']) || $data['sort'] === 'Default') {
+    if (!isset($data['sort']) || $data['sort'] === 'default') {
       $query .= " ORDER BY LOWER(name)";
     } else {
       $sign = substr($data['sort'], 0, 1);
