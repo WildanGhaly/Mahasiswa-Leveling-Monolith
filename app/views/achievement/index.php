@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header('Location: ../login');
+    return;
+}
+?>
 
 <!-- index.html -->
 <!DOCTYPE html>
@@ -13,6 +20,8 @@
     <?php include "../dashboard/index.php" ?>
     <div class="achievement-container">
         <h1>Achievement</h1>
+        <br>
+        <button class="btn" onclick="window.location.href='../my-achievement'">My Achievement</button>
         <br><br>
         <div class="search-container">
             <input type="text" class="searchInput" id="searchInput" placeholder="Search...">
@@ -38,14 +47,13 @@
                 <div class="sort-container">
                     <h4>Sort:   </h4>
                     <select class="sort-by" id="sort-by">
-                        <option value="">Sort</option>
+                        <option value="default">Sort</option>
                         <option value="id">ID</option>
                         <option value="name">Name</option>
                         <option value="difficulty">Difficulty</option>
                         <option value="a.group_id">Category</option>
                     </select>
                     <select class="sort-type" id="sort-type">
-                        <option value="">Sort-Type</option>
                         <option value="asc">Ascending</option>
                         <option value="desc">Descending</option>
                     </select>

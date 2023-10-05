@@ -24,11 +24,11 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('searchInput').value = search;
 
     var achievementSortCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('achievement-sort='));
-    var sort = achievementSortCookie ? achievementSortCookie.split('=')[1] : "newest";
+    var sort = achievementSortCookie ? achievementSortCookie.split('=')[1] : "default";
     document.getElementById('sort-by').value = sort;
 
     var achievementOrderCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('achievement-order='));
-    var order = achievementOrderCookie ? achievementOrderCookie.split('=')[1] : "desc";
+    var order = achievementOrderCookie ? achievementOrderCookie.split('=')[1] : "asc";
     document.getElementById('sort-type').value = order;
 
     console.log(limit);
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.getElementById("sort-by").addEventListener("change", function () {
         sort = this.value;
-        if (!sort || sort === "null" || sort === "undefined") {
+        if (!sort || sort === "null" || sort === "undefined" || sort === "default") {
             sort = "";
         }
         document.cookie = `achievement-sort=${sort}; path=/`
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.getElementById("sort-type").addEventListener("change", function () {
         order = this.value;
-        if (!order || order === "null" || order === "undefined") {
+        if (!order || order === "null" || order === "undefined" || order === "default") {
             order = "";
         }
         document.cookie = `achievement-order=${order}; path=/`
