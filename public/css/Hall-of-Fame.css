@@ -1,0 +1,166 @@
+.head-container {
+    text-align: center;
+    padding-top: 50px; 
+    position: relative;
+    
+}
+
+.search-box {
+    width: 300px;
+    padding: 10px;
+    border: 2px solid #151515;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-right: 10px;
+    margin-left: 200px;
+    background: #151515;
+    color: crimson;
+}
+
+.search-button {
+    background-color: #151515;
+    color: crimson;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 200px;
+
+}
+
+.head-container h1 {
+    margin-top: 60px;
+    margin-left: 200px;
+    color: crimson;
+}
+
+
+
+
+select {
+    padding: 5px; 
+    font-size: 14px; 
+    border: 1px solid #333; 
+    border-radius: 3px; 
+    appearance: none; 
+    background-color: #151515;
+    color: crimson;
+}
+
+
+select::after {
+    content: '\25BC'; 
+    position: absolute;
+    top: 50%;
+    right: 5px; 
+    transform: translateY(-50%);
+    pointer-events: none; 
+}
+
+
+option {
+    font-size: 14px; 
+    color: crimson;
+}
+
+option:hover {
+    background-color: #151515;
+}
+
+
+
+.body-container {
+    /* max-width: 800px;    */
+    /* margin: 20px auto; */
+    padding: 20px;
+    background-color: #192e3a;
+    /* border: 1px solid #ccc;
+    border-radius: 5px; */
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
+    /* margin-right: 250px; */
+    margin-left: 255px;
+    overflow-x: auto;
+
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: 1px solid #192e3a;
+    border-top: 2px solid crimson;
+}
+
+tr {
+    background-color: black;
+    color: crimson;
+}   
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    line-height: 1.5;
+}
+
+th {
+    background-color: #192e3a;
+    color: #fff;
+}
+
+tr:nth-child(even) {
+    background-color: #1f1f1f;
+}
+
+a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+.pagination-container {
+    display: flex;
+    align-items: center;
+    margin-left: 700px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.pagination {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+.pagination li {
+    margin: 0 5px;
+}
+
+.pagination a {
+    text-decoration: none;
+    background-color: black;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.pagination a:hover {
+    background-color: #0056b3;
+}
+
+.pagination .active {
+    background-color: #0056b3;
+}
+
+.prev {
+    margin-right: 30px; 
+}
+
+
+
+
+
+
+
+
+
+
