@@ -2,51 +2,53 @@
 include_once __DIR__."/../session.php";
 
 $conn = Database::getInstance();
-$perPage = 5;
 
-$limit      = isset($_GET["limit"]) ? $_GET["limit"] : $perPage;
-$difficulty = isset($_GET["difficulty"]) ? $_GET["difficulty"] : '';
-$type       = isset($_GET["type"]) ? $_GET["type"] : '';
 $page       = isset($_GET['page']) ? $_GET['page'] : 1;
-$search     = isset($_GET['search']) ? $_GET['search'] : '';
+$limit      = isset($_COOKIE['achievement-limit']) ? $_COOKIE['achievement-limit'] : 5;
+$difficulty = isset($_COOKIE['achievement-difficulty']) ? $_COOKIE['achievement-difficulty'] : 'semua';
+$type       = isset($_COOKIE['achievement-type']) ? $_COOKIE['achievement-type'] : 0;
+$search     = isset($_COOKIE['achievement-search']) ? $_COOKIE['achievement-search'] : '';
 $start      = ($page - 1) * $limit;
 
 $sql1 = "SELECT * FROM achievement a JOIN achievement_group g ON a.group_id = g.group_id ";
-if ($search != ''){
-    $sql1 .= " WHERE name LIKE '%$search%'";
+if ($difficulty != 'semua') {
+    $sql1 .= "WHERE difficulty = '$difficulty' ";
 }
-if ($difficulty != ''){
-    if ($search != ''){
-        $sql1 .= " AND difficulty = '$difficulty'";
+
+if ($type != 0) {
+    if ($difficulty != 'semua') {
+        $sql1 .= "AND a.group_id = $type ";
     } else {
-        $sql1 .= " WHERE difficulty = '$difficulty'";
+        $sql1 .= "WHERE a.group_id = $type ";
     }
 }
-if ($type != ''){
-    if ($search != '' || $difficulty != ''){
-        $sql1 .= " AND a.group_id = '$type'";
+
+if ($search != '') {
+    if ($difficulty != 'semua' || $type != 0) {
+        $sql1 .= "AND name LIKE '%$search%' ";
     } else {
-        $sql1 .= " WHERE a.group_id = '$type'";
+        $sql1 .= "WHERE name LIKE '%$search%' ";
     }
 }
+
 $sql1 .= "LIMIT $start, $limit";
 
 $sql2 = "SELECT count(id) AS id FROM achievement";
-if ($search != ''){
-    $sql2 .= " WHERE name LIKE '%$search%'";
+if ($difficulty != 'semua') {
+    $sql2 .= " WHERE difficulty = '$difficulty'";
 }
-if ($difficulty != ''){
-    if ($search != ''){
-        $sql2 .= " AND difficulty = '$difficulty'";
+if ($type != 0) {
+    if ($difficulty != 'semua') {
+        $sql2 .= " AND group_id = $type";
     } else {
-        $sql2 .= " WHERE difficulty = '$difficulty'";
+        $sql2 .= " WHERE group_id = $type";
     }
 }
-if ($type != 0){
-    if ($search != '' || $difficulty != ''){
-        $sql2 .= " AND group_id = '$type'";
+if ($search != '') {
+    if ($difficulty != 'semua' || $type != 0) {
+        $sql2 .= " AND name LIKE '%$search%'";
     } else {
-        $sql2 .= " WHERE group_id = '$type'";
+        $sql2 .= " WHERE name LIKE '%$search%'";
     }
 }
 
@@ -77,7 +79,7 @@ foreach ($customers as $item) {
 $paginationButtons = '<ul class="achievement">';
 for ($i = 1; $i <= $pages; $i++) {
     $activeClass = ($i == $page) ? 'active' : '';
-    $paginationButtons .= "<li><a href='?page=$i&search=$search&limit=$limit' class='pagination-link $activeClass' data-page='$i'>$i</a></li>";
+    $paginationButtons .= "<li><a href='?page=$i' class='pagination-link $activeClass' data-page='$i'>$i</a></li>";
 }
 $paginationButtons .= '</ul>';
 
