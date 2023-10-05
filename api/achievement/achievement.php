@@ -8,6 +8,8 @@ $limit      = isset($_COOKIE['achievement-limit']) ? $_COOKIE['achievement-limit
 $difficulty = isset($_COOKIE['achievement-difficulty']) ? $_COOKIE['achievement-difficulty'] : 'semua';
 $type       = isset($_COOKIE['achievement-type']) ? $_COOKIE['achievement-type'] : 0;
 $search     = isset($_COOKIE['achievement-search']) ? $_COOKIE['achievement-search'] : '';
+$sort       = isset($_COOKIE['achievement-sort']) ? $_COOKIE['achievement-sort'] : '';
+$sortType   = isset($_COOKIE['achievement-order']) ? $_COOKIE['achievement-order'] : 'asc';
 $start      = ($page - 1) * $limit;
 
 $sql1 = "SELECT * FROM achievement a 
@@ -29,6 +31,10 @@ if ($search !== '') {
 
 if (!empty($whereClauses)) {
     $sql1 .= " WHERE " . implode(' AND ', $whereClauses);
+}
+
+if ($sort !== '') {
+    $sql1 .= " ORDER BY $sort $sortType";
 }
 
 $sql1 .= " LIMIT $start, $limit";
