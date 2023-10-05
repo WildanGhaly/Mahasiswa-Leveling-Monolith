@@ -81,15 +81,28 @@ $previous   = ($page == 1) ? 1 : $page - 1;
 $next       = ($page == $pages) ? $pages : $page + 1;
 $first      = 1;
 $last       = $pages;
+
 $paginationButtons = '<ul class="achievement">';
-$paginationButtons .= "<li><a href='?page=$first' class='pagination-link' data-page='$first'>&lt;&lt;</a></li>";
-$paginationButtons .= "<li><a href='?page=$previous' class='pagination-link' data-page='$Previous'>&lt;</a></li>";
-for ($i = 1; $i <= $pages; $i++) {
+
+if ($page > 1){
+    $paginationButtons .= "<li><a href='?page=$first' class='pagination-link' data-page='$first'><b>&lt;&lt;</b></a></li>";
+    $paginationButtons .= "<li><a href='?page=$previous' class='pagination-link' data-page='$previous'><b>&lt;</b></a></li>";
+}
+
+$range = 5; 
+$start = max(1, $page - $range);
+$end = min($pages, $page + $range);
+
+for ($i = $start; $i <= $end; $i++) {
     $activeClass = ($i == $page) ? 'active' : '';
     $paginationButtons .= "<li><a href='?page=$i' class='pagination-link $activeClass' data-page='$i'>$i</a></li>";
 }
-$paginationButtons .= "<li><a href='?page=$next' class='pagination-link' data-page='$Next'>&gt;</a></li>";
-$paginationButtons .= "<li><a href='?page=$last' class='pagination-link' data-page='$last'>&gt;&gt;</a></li>";
+
+if ($page < $pages){
+    $paginationButtons .= "<li><a href='?page=$next' class='pagination-link' data-page='$next'><b>&gt;</b></a></li>";
+    $paginationButtons .= "<li><a href='?page=$last' class='pagination-link' data-page='$last'><b>&gt;&gt;</b></a></li>";
+}
+
 $paginationButtons .= '</ul>';
 
 $response = [
