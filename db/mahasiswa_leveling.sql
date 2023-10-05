@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db:3306
--- Generation Time: Oct 04, 2023 at 06:43 AM
+-- Generation Time: Oct 05, 2023 at 11:19 PM
 -- Server version: 8.1.0
 -- PHP Version: 8.2.8
 
@@ -41,18 +41,18 @@ CREATE TABLE `achievement` (
 --
 
 INSERT INTO `achievement` (`id`, `name`, `description`, `threshold`, `difficulty`, `group_id`) VALUES
-(1, 'Test1', 'Test001', 'Test', 'Beginner', NULL),
+(1, 'Test1', 'Test001', 'Test', 'Beginner', 1),
 (3, 'First Step', 'You\'ve taken the first step on your fitness journey by completing your initial workout session.', 'Complete your first workout session.', 'Beginner', 6),
 (4, 'Steady Start', 'Keep the momentum going! Workout for 7 consecutive days to establish a steady workout routine.', 'Workout for 7 consecutive days.', 'Beginner', 6),
 (5, 'Weekly Warrior', 'Consistency is key. Achieve this by completing a workout every day for a week.', 'Complete a workout every day for a week.', 'Beginner', 1),
 (6, 'Fitness Fanatic', 'You\'re on fire! Complete 30 workouts in a single month, demonstrating your dedication to fitness.', 'Complete 30 workouts in a month.', 'Intermediate', 4),
 (7, 'Pushing Limits', 'Feel the burn as you perform 50 push-ups in a single workout, pushing your strength to new heights.', 'Perform 50 push-ups in a single session.', 'Intermediate', 2),
 (8, 'Squats Galore', 'Your legs are getting stronger. Do 100 squats in one workout and feel the burn.', 'Do 100 squats in one workout.', 'Intermediate', 2),
-(9, 'Jumping Jack Pro', 'Jump, jump, jump! Complete 200 jumping jacks in one session to boost your cardio endurance.', 'Complete 200 jumping jacks in one session.', 'Intermediate', NULL),
+(9, 'Jumping Jack Pro', 'Jump, jump, jump! Complete 200 jumping jacks in one session to boost your cardio endurance.', 'Complete 200 jumping jacks in one session.', 'Intermediate', 1),
 (10, 'Marathon Runner', 'Celebrate your running achievement by covering the distance of a marathon, which is 26.2 miles in total.', 'Run 26.2 miles (a marathon) in total.', 'Intermediate', 1),
 (11, 'Couch to 5K', 'Prove your endurance by running a 5K distance without stopping, starting from scratch.', 'Run a 5K distance without stopping.', 'Beginner', 1),
-(12, 'Bike Enthusiast', 'You\'ve covered 50 miles on your bike. Keep pedaling toward your fitness goals.', 'Cycle 50 miles in total.', 'Intermediate', NULL),
-(13, 'Swim Champ', 'Dive in and swim a total of 1 mile, showcasing your aquatic prowess.', 'Swim 1 mile in total.', 'Intermediate', NULL),
+(12, 'Bike Enthusiast', 'You\'ve covered 50 miles on your bike. Keep pedaling toward your fitness goals.', 'Cycle 50 miles in total.', 'Intermediate', 4),
+(13, 'Swim Champ', 'Dive in and swim a total of 1 mile, showcasing your aquatic prowess.', 'Swim 1 mile in total.', 'Intermediate', 3),
 (14, 'Plank Master', 'Test your core strength by holding a plank position for a challenging 3 minutes.', 'Hold a plank position for 3 minutes.', 'Beginner', 2),
 (15, 'Yoga Guru', 'Find your inner zen as you complete 20 yoga sessions, improving flexibility and mindfulness.', 'Complete 20 yoga sessions.', 'Advanced', 3),
 (16, 'Flexibility Pro', 'Touch your toes without bending your knees, showcasing your improved flexibility.', 'Touch your toes without bending your knees.', 'Beginner', 3),
@@ -147,7 +147,7 @@ INSERT INTO `users` (`id`, `username`, `name`, `email`, `password`, `isAdmin`, `
 (2, 'user', NULL, 'user@gmail.com', 'user', 0, '../../../public/img/logo.jpg', 0, 1, 1, 0, 100),
 (4, '222', NULL, '222', '222', 0, '../../../public/img/logo.jpg', 0, 0, 1, 0, 100),
 (5, '2', NULL, '2', '2', 0, '../../../public/img/logo.jpg', 0, 0, 2, 30, 140),
-(6, '123host', 'Wildan Ghaly', '13521015@std.stei.itb.ac.id', 'dP3qonsy6OWDey59j7lhXA==', 0, '../../../public/img/profile/123host.jpg', 1, 1, 1, 58, 100),
+(6, '123host', 'Wildan Ghaly', '13521015@std.stei.itb.ac.id', '1+8UUdV1ZFsTMzmd3BP1Rw==', 0, '../../../public/img/profile/123host.jpg', 21, 1, 1, 58, 100),
 (7, '456host', 'Hellooo', '13521015@std.stei.itb.ac.id', '1+8UUdV1ZFsTMzmd3BP1Rw==', 0, '../../../public/img/logo.jpg', 0, 0, 1, 0, 100),
 (8, '789host', 'Wildan Ghalyss', '13521015@std.stei.itb.ac.id', '1+8UUdV1ZFsTMzmd3BP1Rw==', 0, '../../../views/img/profile/789host.jpg', 0, 0, 1, 0, 100);
 
@@ -187,16 +187,37 @@ DELIMITER ;
 
 CREATE TABLE `user_achievement` (
   `user_id` int NOT NULL,
-  `achievement_id` int NOT NULL
+  `achievement_id` int NOT NULL,
+  `time_get` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `user_achievement`
 --
 
-INSERT INTO `user_achievement` (`user_id`, `achievement_id`) VALUES
-(1, 1),
-(6, 1);
+INSERT INTO `user_achievement` (`user_id`, `achievement_id`, `time_get`) VALUES
+(1, 1, '2023-06-01 22:38:32'),
+(6, 1, '2023-06-02 22:38:32'),
+(6, 3, '2023-06-03 22:38:42'),
+(6, 4, '2023-07-05 22:38:42'),
+(6, 5, '2023-07-06 22:38:42'),
+(6, 6, '2023-08-07 22:38:42'),
+(6, 7, '2023-08-08 22:38:42'),
+(6, 8, '2023-08-09 22:38:42'),
+(6, 9, '2023-08-10 22:38:42'),
+(6, 10, '2023-08-11 22:38:42'),
+(6, 11, '2023-09-05 22:38:42'),
+(6, 12, '2023-09-06 22:38:42'),
+(6, 13, '2023-09-06 22:38:42'),
+(6, 14, '2023-09-07 22:38:42'),
+(6, 15, '2023-10-05 22:38:42'),
+(6, 16, '2023-10-05 22:38:42'),
+(6, 17, '2023-10-05 22:38:42'),
+(6, 18, '2023-10-01 22:38:42'),
+(6, 19, '2023-10-05 22:38:42'),
+(6, 20, '2023-10-05 22:38:42'),
+(6, 21, '2023-10-05 22:38:42'),
+(6, 22, '2023-10-05 22:38:42');
 
 --
 -- Triggers `user_achievement`
