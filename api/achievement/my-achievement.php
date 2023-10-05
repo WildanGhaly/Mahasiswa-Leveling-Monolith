@@ -20,14 +20,8 @@ $sql1 = "SELECT * FROM users u
          JOIN achievement a ON ua.achievement_id = a.id
          WHERE u.username = '$username'";
 
-$whereClauses = [];
-
 if ($search !== '') {
-    $whereClauses[] = "a.name LIKE '%$search%'";
-}
-
-if (!empty($whereClauses)) {
-    $sql1 .= " " . implode(' AND ', $whereClauses);
+    $sql1 .= " AND a.name LIKE '%$search%'";
 }
 
 if ($sort !== '') {
@@ -36,18 +30,14 @@ if ($sort !== '') {
 
 $sql1 .= " LIMIT $start, $limit";
 
-$sql2 = "SELECT COUNT(ua.user_id) AS id FROM user_achievement ua
+$sql2 = "SELECT COUNT(ua.user_id) AS id FROM user_achievement ua 
+         JOIN achievement a ON ua.achievement_id = a.id
          WHERE ua.user_id = (SELECT id FROM users WHERE username = '$username')";
 
-$whereClauses = [];
-
 if ($search !== '') {
-    $whereClauses[] = "name LIKE '%$search%'";
+    $sql2 .= " AND a.name LIKE '%$search%'";
 }
 
-if (!empty($whereClauses)) {
-    $sql2 .= " WHERE " . implode(' AND ', $whereClauses);
-}
 
 $result = $conn->query($sql1);
 $customers = $result->fetch_all(MYSQLI_ASSOC);
