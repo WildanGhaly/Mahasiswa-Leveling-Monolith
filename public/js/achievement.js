@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
         xhr.open('GET', url, true);
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
-                // console.log(this.responseText);
+                console.log(this.responseText);
                 const response = JSON.parse(xhr.responseText);
                 achievementList.innerHTML = response.achievementList;
                 paginationButtons.innerHTML = response.paginationButtons;
