@@ -53,6 +53,8 @@ foreach ($customers as $item) {
     $achievementList .= '<td>'.$item["description"].'</td>   ';
     $achievementList .= '<td>'.'<audio controls>
     <source src="../../../public/audio/'.$item["link"] .'" type="audio/mpeg">Your browser does not support the audio element.</audio></td>';
+    $achievementList .= '<td><button onclick="editFunction('.$item["id"].')">Edit</button></td>';
+    $achievementList .= '<td><button onclick="deleteFunction('.$item["id"].')">Delete</button></td>';
     $achievementList .= '</tr>';
 }
 

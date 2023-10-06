@@ -74,6 +74,7 @@ if (!isset($_SESSION['username'])) {
                     <th>Description</th>
                     <th>Audio</th>
                     <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody class="achievement-list" id="achievement-list">
