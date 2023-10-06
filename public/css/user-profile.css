@@ -7,11 +7,13 @@
   html, body {
     width: 100%;
     height: 100%;
+
   }
   
   body {
     background: #202020;
     font-family: "Arial", sans-serif;
+    background-image: url('../img/basic-wallpaper.jpg');
   }
   
   .card {
@@ -81,7 +83,7 @@
     text-decoration: underline;
     color: crimson;
   }
-  .card .name h6 {
+  .card .name h1 {
     margin: 12px;
     left: 0;
     right: 0;
@@ -134,9 +136,10 @@
     animation: fadeInMove 2s;
     animation-fill-mode: forwards;
   }
-  .card .ds-info .achievements h6, .card .ds-info .quest h6 {
+  .card .ds-info .achievements h1, .card .ds-info .quest h1 {
     text-transform: uppercase;
     color: crimson;
+    font-size: 24px;
   }
   .card .ds-info .achievements p, .card .ds-info .quest p {
     font-size: 30px;
@@ -157,14 +160,19 @@
     height: 150px;
     animation: mvBottom 1.5s;
   }
-  .card .ds-level h6 {
+  .card .ds-level h1 {
     margin-bottom: 5px;
     font-weight: 700;
     text-transform: uppercase;
-    color: crimson;
+    color: rgb(255, 255, 255);
     font-size: 18px;
   }
-  .card .ds-level .skill h6 {
+
+  .card .ds-level h1:hover {
+    color: crimson;
+  }
+
+  .card .ds-level .skill h1 {
     font-weight: 400;
     font-size: 12px;
     letter-spacing: 0.05em;
