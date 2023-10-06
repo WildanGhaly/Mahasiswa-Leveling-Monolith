@@ -5,19 +5,30 @@ $isPasswordValid    = false;
 $isEmailValid       = false;
 
 document.addEventListener('DOMContentLoaded', function() {
+    let timeout;
+
     document.getElementById('username').addEventListener('input', function() {
         var username = this.value;
-        checkUsername(username);
+        clearTimeout(timeout);
+        timeout = setTimeout(function() {
+            checkUsername(username);
+        }, 500);
     });
 
     document.getElementById('email').addEventListener('input', function() {
         var email = this.value;
-        checkEmail(email);
+        clearTimeout(timeout);
+        timeout = setTimeout(function() {
+            checkEmail(email);
+        }, 500);
     });
 
     document.getElementById('password').addEventListener('input', function() {
         var password = this.value;
-        checkPassword(password);
+        clearTimeout(timeout);
+        timeout = setTimeout(function() {
+            checkPassword(password);
+        }, 500);
     });
 
     document.getElementById('registerForm').addEventListener('submit', function(event) {
