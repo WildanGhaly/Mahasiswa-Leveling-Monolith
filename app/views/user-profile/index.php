@@ -23,14 +23,14 @@ if (!isset($_SESSION['username'])) {
     <img src="<?php include "../../../api/profile/get_image.php"?>"  alt="">
   </div>
   <div class="ds-level">
-    <h6>
+    <h1>
       LEVEL 
       <?php include "../../../api/profile/get_level.php"?>
-    </h6>
+    </h1>
     <div class="skill html">
-      <h6>
+      <h1>
         <?php include "../../../api/profile/get_progress.php"?>
-      </h6>
+      </h1>
       <div class="bar bar-level" <?php include "../../../api/profile/get_progress_percent_style.php"?>>
         <p>
           <?php include "../../../api/profile/get_progress_percent.php"?>
@@ -43,22 +43,22 @@ if (!isset($_SESSION['username'])) {
     <a href="#">
       <?php include "../../../api/profile/get_name.php"?>
     </a>
-    <h6 title="Username"> 
+    <h1 title="Username"> 
       <?php include "../../../api/profile/get_username.php"?>
-    </h6>
+    </h1>
   </div>
   <div class="button">
     <button type="submit" class="btn" onclick="window.location.href='../edit-profile'">Edit</button>
   </div>
   <div class="ds-info">
     <div class="ds achievements">
-      <h6 title="Total achievements">Awards</h6>
+      <h1 title="Total achievements">Awards</h1>
       <p>
         <?php include "../../../api/profile/get_awards.php"?>
       </p>
     </div>
     <div class="ds quest">
-      <h6 title="Total quest completed">Quest </h6>
+      <h1 title="Total quest completed">Quest </h1>
       <p>
         <?php include "../../../api/profile/get_quest.php"?>
       </p>

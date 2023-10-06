@@ -26,7 +26,7 @@ if (!isset($_SESSION['username'])) {
   </div>
   <form id="updateForm"> 
     <div class="name">
-        <h5><label for="username"><?php echo $_SESSION['username'] ?></label></h5><br><br>
+        <h1><label for="username"><?php echo $_SESSION['username'] ?></label></h1><br><br>
         <a><label for="name">Nama:</label></a>
             <input type="text" id="name" name="name" value="<?php include "../../../api/profile/get_name.php"?>" required>
             <br><br>
