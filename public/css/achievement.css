@@ -328,6 +328,31 @@
   animation: fadeIn 0.3s ease-in-out;
 }
 
+.achievement-container form {
+  color: black;
+  font-size: 12px;
+  background: white;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: rgba(160, 121, 0, 0.2) 0px 12px 35px;
+  display: flex;
+  width: 40%;  
+  justify-content: center;
+  align-items: center;
+}
+
+.achievement-container .status {
+  color: white;
+}
+
+.achievement-container .collection-upload-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* Animation on dropdown open */
 /* .filter-container select:hover {
   animation: fadeIn 0.3s ease-in-out;

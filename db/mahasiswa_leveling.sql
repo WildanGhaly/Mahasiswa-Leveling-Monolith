@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db:3306
--- Generation Time: Oct 05, 2023 at 11:19 PM
+-- Generation Time: Oct 06, 2023 at 04:13 PM
 -- Server version: 8.1.0
 -- PHP Version: 8.2.8
 
@@ -100,6 +100,28 @@ INSERT INTO `achievement_group` (`group_id`, `group_name`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `collection`
+--
+
+CREATE TABLE `collection` (
+  `id` int NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `link` varchar(255) DEFAULT NULL,
+  `user_id` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `collection`
+--
+
+INSERT INTO `collection` (`id`, `name`, `description`, `link`, `user_id`) VALUES
+(1, 'test1', 'testing', '123host/1.mp3', 6),
+(2, 'tast2', 'sheeeeeeeeeeeesh', '123host/2.mp3', 6);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `quest`
 --
 
@@ -149,7 +171,9 @@ INSERT INTO `users` (`id`, `username`, `name`, `email`, `password`, `isAdmin`, `
 (5, '2', NULL, '2', '2', 0, '../../../public/img/logo.jpg', 0, 0, 2, 30, 140),
 (6, '123host', 'Wildan Ghaly', '13521015@std.stei.itb.ac.id', '1+8UUdV1ZFsTMzmd3BP1Rw==', 0, '../../../public/img/profile/123host.jpg', 21, 1, 1, 58, 100),
 (7, '456host', 'Hellooo', '13521015@std.stei.itb.ac.id', '1+8UUdV1ZFsTMzmd3BP1Rw==', 0, '../../../public/img/logo.jpg', 0, 0, 1, 0, 100),
-(8, '789host', 'Wildan Ghalyss', '13521015@std.stei.itb.ac.id', '1+8UUdV1ZFsTMzmd3BP1Rw==', 0, '../../../views/img/profile/789host.jpg', 0, 0, 1, 0, 100);
+(8, '789host', 'Wildan Ghalyss', '13521015@std.stei.itb.ac.id', '1+8UUdV1ZFsTMzmd3BP1Rw==', 0, '../../../views/img/profile/789host.jpg', 0, 0, 1, 0, 100),
+(9, '12345', NULL, '123@gmail.com', '1+8UUdV1ZFsTMzmd3BP1Rw==', 0, '../../../public/img/dummy/dummy.jpg', 0, 0, 1, 0, 100),
+(10, 'aaaaa', NULL, 'aaa@aaa.aaa', 'hN235tX1kddl8k5iJtn48A==', 0, '../../../public/img/dummy/dummy.jpg', 0, 0, 1, 0, 100);
 
 --
 -- Triggers `users`
@@ -279,6 +303,13 @@ ALTER TABLE `achievement_group`
   ADD PRIMARY KEY (`group_id`);
 
 --
+-- Indexes for table `collection`
+--
+ALTER TABLE `collection`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_collection_foreign_key` (`user_id`);
+
+--
 -- Indexes for table `quest`
 --
 ALTER TABLE `quest`
@@ -323,6 +354,12 @@ ALTER TABLE `achievement_group`
   MODIFY `group_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT for table `collection`
+--
+ALTER TABLE `collection`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `quest`
 --
 ALTER TABLE `quest`
@@ -332,7 +369,7 @@ ALTER TABLE `quest`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables
@@ -343,6 +380,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `achievement`
   ADD CONSTRAINT `achievement_group_classification` FOREIGN KEY (`group_id`) REFERENCES `achievement_group` (`group_id`) ON DELETE SET NULL ON UPDATE SET NULL;
+
+--
+-- Constraints for table `collection`
+--
+ALTER TABLE `collection`
+  ADD CONSTRAINT `user_collection_foreign_key` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `user_achievement`
