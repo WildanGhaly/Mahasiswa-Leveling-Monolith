@@ -13,6 +13,7 @@ if (!isset($_SESSION['username'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Collection</title>
     <link rel="stylesheet" href="../../../public/css/achievement.css">
+    <link rel="stylesheet" href="../../../public/css/collection.css">
     <script src="../../../public/js/collection.js"></script>
     <script src="../../../public/js/audio-upload.js"></script>
 </head>
@@ -24,6 +25,7 @@ if (!isset($_SESSION['username'])) {
             <form enctype="multipart/form-data">
                 <input type="file" name="audioFile" accept=".mp3, .wav, .ogg">
                 <input type="button" value="Upload" id="uploadButton" class="uploadButton">
+                <input type="submit" class="audioInput" id="audioInput">
             </form>
         </div>
         <progress value="0" max="100" style="display: none;"></progress>
@@ -46,7 +48,6 @@ if (!isset($_SESSION['username'])) {
                         <option value="id">ID</option>
                         <option value="name">Name</option>
                         <option value="description">Description</option>
-                        <option value="audio">Audio</option>
                     </select>
                     <select class="sort-type" id="sort-type">
                         <option value="default">Sort-Type</option>
