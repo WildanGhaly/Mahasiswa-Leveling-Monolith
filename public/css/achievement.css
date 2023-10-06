@@ -36,6 +36,11 @@
     align-items: center;
   }
 
+  .search-container .filter-sort-container {
+    height: 30px;
+    width: 60%;
+  }
+
   .search-container .filter-container {
     display: flex;
     align-items: center;

@@ -7,39 +7,37 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var page = urlParams.get("page");
     
-    var achievementLimitCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('achievement-limit='));
+    var achievementLimitCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('my-achievement-limit='));
     var limit = achievementLimitCookie ? achievementLimitCookie.split('=')[1] : 5;
     document.getElementById('page-limit').value = limit;
 
-    var achievementDifficultyCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('achievement-difficulty='));
-    var difficulty = achievementDifficultyCookie ? achievementDifficultyCookie.split('=')[1] : "semua";
-    document.getElementById('filter-difficulty').value = difficulty;
-
-    var achievementTypeCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('achievement-type='));
-    var type = achievementTypeCookie ? achievementTypeCookie.split('=')[1] : 0;
-    document.getElementById('filter-type').value = type;
-
-    var achievementSearchCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('achievement-search='));
+    var achievementSearchCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('my-achievement-search='));
     var search = achievementSearchCookie ? achievementSearchCookie.split('=')[1] : "";
     document.getElementById('searchInput').value = search;
 
-    var achievementSortCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('achievement-sort='));
+    var achievementSortCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('my-achievement-sort='));
     var sort = achievementSortCookie ? achievementSortCookie.split('=')[1] : "default";
     document.getElementById('sort-by').value = sort;
 
-    var achievementOrderCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('achievement-order='));
+    var achievementOrderCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('my-achievement-order='));
     var order = achievementOrderCookie ? achievementOrderCookie.split('=')[1] : "asc";
     document.getElementById('sort-type').value = order;
 
+    var achievementYearCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('my-achievement-year='));
+    var year = achievementYearCookie ? achievementYearCookie.split('=')[1] : 0;
+    document.getElementById('filter-year').value = year;
+
+    var achievementSemesterCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('my-achievement-month='));
+    var semester = achievementSemesterCookie ? achievementSemesterCookie.split('=')[1] : 0;
+    document.getElementById('filter-month').value = semester;
+
     console.log(limit);
-    console.log(difficulty);
-    console.log(type);
 
     page = page ? page : 1;
 
 
     function loadAchievementPage(page) {
-        var url = `${SERVER_PATH}achievement/achievement.php?page=${page}`;
+        var url = `${SERVER_PATH}achievement/my-achievement.php?page=${page}`;
         if (limit && limit !== "null" && limit !== "undefined") {
             url += `&limit=${limit}`;
         }
@@ -62,25 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!limit || limit === "null" || limit === "undefined") {
             limit = 5;
         }
-        document.cookie = `achievement-limit=${limit}; path=/`
-        loadAchievementPage(1);
-    });
-
-    document.getElementById("filter-difficulty").addEventListener("change", function () {
-        difficulty = this.value;
-        if (!difficulty || difficulty === "null" || difficulty === "undefined") {
-            difficulty = "semua";
-        }
-        document.cookie = `achievement-difficulty=${difficulty}; path=/`
-        loadAchievementPage(1);
-    });
-
-    document.getElementById("filter-type").addEventListener("change", function () {
-        type = this.value;
-        if (!type || type === "null" || type === "undefined") {
-            type = 0;
-        }
-        document.cookie = `achievement-type=${type}; path=/`
+        document.cookie = `my-achievement-limit=${limit}; path=/`
         loadAchievementPage(1);
     });
 
@@ -89,25 +69,43 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!search || search === "null" || search === "undefined") {
             search = "";
         }
-        document.cookie = `achievement-search=${search}; path=/`
+        document.cookie = `my-achievement-search=${search}; path=/`
         loadAchievementPage(1);
     });
 
     document.getElementById("sort-by").addEventListener("change", function () {
         sort = this.value;
         if (!sort || sort === "null" || sort === "undefined" || sort === "default") {
-            sort = "";
+            sort = "default";
         }
-        document.cookie = `achievement-sort=${sort}; path=/`
+        document.cookie = `my-achievement-sort=${sort}; path=/`
         loadAchievementPage(1);
     });
 
     document.getElementById("sort-type").addEventListener("change", function () {
         order = this.value;
         if (!order || order === "null" || order === "undefined" || order === "default") {
-            order = "";
+            order = "default";
         }
-        document.cookie = `achievement-order=${order}; path=/`
+        document.cookie = `my-achievement-order=${order}; path=/`
+        loadAchievementPage(1);
+    });
+
+    document.getElementById("filter-year").addEventListener("change", function () {
+        year = this.value;
+        if (!year || year === "null" || year === "undefined") {
+            year = 0;
+        }
+        document.cookie = `my-achievement-year=${year}; path=/`
+        loadAchievementPage(1);
+    });
+
+    document.getElementById("filter-month").addEventListener("change", function () {
+        semester = this.value;
+        if (!semester || semester === "null" || semester === "undefined") {
+            semester = 0;
+        }
+        document.cookie = `my-achievement-month=${semester}; path=/`
         loadAchievementPage(1);
     });
 
