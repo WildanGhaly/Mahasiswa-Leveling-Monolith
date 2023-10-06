@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Menu</title>
     <link rel="stylesheet" href="../../../public/css/dashboard.css">
-    <script src="../../../public/js/logout.js"></script> <!-- Sementara untuk test -->
+    <script src="../../../public/js/dashboard.js"></script> <!-- Sementara untuk test -->
   </head>
 <body>
     <div class="sidebar">

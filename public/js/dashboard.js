@@ -1,26 +1,13 @@
 document.write('<script src="../../../public/js/api.js"></script>');
 
 document.addEventListener('DOMContentLoaded', function() {
-    var username = getUsernameFromCookie(); 
-    console.log(username + " If this is shown then username must be right");
-    document.getElementById('username').textContent = username;
 
     document.getElementById('logoutLink').addEventListener('click', function(event) {
         event.preventDefault();
-        logout();
+        confirm("Logout from the system?") ? logout() : console.log("Logout cancelled");
+        
     });
 });
-
-function getUsernameFromCookie() {
-    const cookies = document.cookie.split('; ');
-    for (const cookie of cookies) {
-        const [name, value] = cookie.split('=');
-        if (name === 'username') {
-            return decodeURIComponent(value);
-        }
-    }
-    return null; // No username cookie found
-}
 
 function logout() {
     var xhr = new XMLHttpRequest();
