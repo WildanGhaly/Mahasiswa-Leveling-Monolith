@@ -26,7 +26,7 @@ if (!isset($_SESSION['username'])) {
             <input type="text" class="searchInput" id="searchInput" placeholder="Search...">
             <div class="filter-sort-container">
                 <div class="filter-container">
-                    <h4>Filter: </h4>
+                    <h2>Filter: </h2>
                     <select class="filter-year" id="filter-year">
                         <option value=0>Year</option>
                         <option value=2020>2020</option>
@@ -51,7 +51,7 @@ if (!isset($_SESSION['username'])) {
                     </select>
                 </div>
                 <div class="sort-container">
-                    <h4>Sort:   </h4>
+                    <h2>Sort:   </h2>
                     <select class="sort-by" id="sort-by">
                         <option value="default">Sort</option>
                         <option value="a.id">ID</option>
