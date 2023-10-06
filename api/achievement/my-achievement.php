@@ -11,6 +11,8 @@ $limit      = isset($_COOKIE['my-achievement-limit']) ? $_COOKIE['my-achievement
 $search     = isset($_COOKIE['my-achievement-search']) ? $_COOKIE['my-achievement-search'] : '';
 $sort       = isset($_COOKIE['my-achievement-sort']) ? $_COOKIE['my-achievement-sort'] : '';
 $sortType   = isset($_COOKIE['my-achievement-order']) ? $_COOKIE['my-achievement-order'] : 'asc';
+$year       = isset($_COOKIE['my-achievement-year']) ? $_COOKIE['my-achievement-year'] : 0;
+$month      = isset($_COOKIE['my-achievement-month']) ? $_COOKIE['my-achievement-month'] : 0;
 $sortType   = $sortType == 'desc' ? 'desc' : 'asc';
 $sort       = $sort == 'default' ? '' : $sort;
 $start      = ($page - 1) * $limit;
@@ -22,6 +24,14 @@ $sql1 = "SELECT * FROM users u
 
 if ($search !== '') {
     $sql1 .= " AND a.name LIKE '%$search%'";
+}
+
+if ($year != 0) {
+    $sql1 .= " AND YEAR(ua.time_get) = $year";
+}
+
+if ($month != 0) {
+    $sql1 .= " AND MONTH(ua.time_get) = $month";
 }
 
 if ($sort !== '') {
@@ -36,6 +46,14 @@ $sql2 = "SELECT COUNT(ua.user_id) AS id FROM user_achievement ua
 
 if ($search !== '') {
     $sql2 .= " AND a.name LIKE '%$search%'";
+}
+
+if ($year != 0) {
+    $sql2 .= " AND YEAR(ua.time_get) = $year";
+}
+
+if ($month != 0) {
+    $sql2 .= " AND MONTH(ua.time_get) = $month";
 }
 
 

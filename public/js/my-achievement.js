@@ -23,6 +23,14 @@ document.addEventListener('DOMContentLoaded', function () {
     var order = achievementOrderCookie ? achievementOrderCookie.split('=')[1] : "asc";
     document.getElementById('sort-type').value = order;
 
+    var achievementYearCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('my-achievement-year='));
+    var year = achievementYearCookie ? achievementYearCookie.split('=')[1] : 0;
+    document.getElementById('filter-year').value = year;
+
+    var achievementSemesterCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('my-achievement-month='));
+    var semester = achievementSemesterCookie ? achievementSemesterCookie.split('=')[1] : 0;
+    document.getElementById('filter-month').value = semester;
+
     console.log(limit);
 
     page = page ? page : 1;
@@ -80,6 +88,24 @@ document.addEventListener('DOMContentLoaded', function () {
             order = "default";
         }
         document.cookie = `my-achievement-order=${order}; path=/`
+        loadAchievementPage(1);
+    });
+
+    document.getElementById("filter-year").addEventListener("change", function () {
+        year = this.value;
+        if (!year || year === "null" || year === "undefined") {
+            year = 0;
+        }
+        document.cookie = `my-achievement-year=${year}; path=/`
+        loadAchievementPage(1);
+    });
+
+    document.getElementById("filter-month").addEventListener("change", function () {
+        semester = this.value;
+        if (!semester || semester === "null" || semester === "undefined") {
+            semester = 0;
+        }
+        document.cookie = `my-achievement-month=${semester}; path=/`
         loadAchievementPage(1);
     });
 
