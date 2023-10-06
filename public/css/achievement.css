@@ -6,9 +6,13 @@
   }
   
   body {
-    background-image: url('../img/basic-wallpaper.jpg');
+    background-image: url('../img/basic-wallpaper5.jpeg');
     text-align: center;
     font-family: arial;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
   }
 
   .achievement-container {
@@ -111,7 +115,7 @@
 
 /* Gaya Header Kolom */
 .achievement-table th {
-  background-color: #6b0065;
+  background-color: crimson;
   color: #fff;
   padding: 10px;
   text-align: left;
