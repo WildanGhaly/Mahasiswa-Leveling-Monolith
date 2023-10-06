@@ -23,7 +23,14 @@ if (!isset($_SESSION['username'])) {
         <button class="btn" onclick="window.location.href='../achievement'"><b>ACHIEVEMENT</b></button>
         <br><br>
         <div class="search-container">
-            <input type="text" class="searchInput" id="searchInput" placeholder="Search...">
+            <div class="full-search-container">
+                <input type="text" class="searchInput" id="searchInput" placeholder="Search...">
+                <select class="search-attribute" id="search-attribute" aria-labelledby="achievement-title">
+                    <option value="a.id">ID</option>
+                    <option value="a.name">Name</option>
+                    <option value="ua.time_get">Time</option>
+                </select>
+            </div>
             <div class="filter-sort-container">
                 <div class="filter-container">
                     <h2>Filter: </h2>
