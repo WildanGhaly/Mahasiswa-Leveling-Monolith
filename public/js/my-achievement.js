@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const achievementList = document.getElementById('achievement-list');
     const paginationButtons = document.getElementById('pagination-buttons');
     var urlParams = new URLSearchParams(window.location.search);
+    let timeout;
 
     var page = urlParams.get("page");
     
@@ -66,11 +67,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.getElementById("searchInput").addEventListener("keyup", function () {
         search = this.value;
+        clearTimeout(timeout);
+
         if (!search || search === "null" || search === "undefined") {
             search = "";
         }
-        document.cookie = `my-achievement-search=${search}; path=/`
-        loadAchievementPage(1);
+
+        timeout = setTimeout(function () {
+            document.cookie = `my-achievement-search=${search}; path=/`
+            loadAchievementPage(1);
+        }, 500);
     });
 
     document.getElementById("sort-by").addEventListener("change", function () {
