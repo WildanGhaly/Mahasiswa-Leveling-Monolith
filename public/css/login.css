@@ -96,6 +96,16 @@ section .signin .content .form
     gap: 25px;
 }
 
+section .signin .content .form span
+{
+    all: initial;
+    color: red;
+    margin-top: -20px;
+    font-family: 'Quicksand', sans-serif;
+    margin-left: 10px;
+}
+
+
 section .signin .content .form .inputBox
 {
     position: relative;
