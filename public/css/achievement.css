@@ -6,6 +6,7 @@
   }
   
   body {
+    background-image: url('../img/basic-wallpaper.jpg');
     text-align: center;
     font-family: arial;
   }
@@ -15,6 +16,14 @@
     width: 80%;
     height: 100%;
     left: 20%;
+  }
+
+  .achievement-container h1 {
+    margin-top: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    font-size: 40px;
+    color: white;
   }
 
   .achievement-container .searchInput {
@@ -39,6 +48,7 @@
   .search-container .filter-sort-container {
     height: 30px;
     width: 60%;
+    color: white;
   }
 
   .search-container .filter-container {
@@ -93,7 +103,7 @@
 
 /* Gaya Header Kolom */
 .achievement-table th {
-  background-color: #3498db;
+  background-color: #6b0065;
   color: #fff;
   padding: 10px;
   text-align: left;

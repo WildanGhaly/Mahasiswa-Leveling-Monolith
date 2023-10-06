@@ -18,7 +18,7 @@ if (!isset($_SESSION['username'])) {
 <body>
     <?php include "../dashboard/index.php" ?>
     <div class="achievement-container">
-        <h1>My-Achievement</h1>
+        <h1><b>MY-AVHIEVEMENT</b></h1>
         <br>
         <button class="btn" onclick="window.location.href='../achievement'">Achievement</button>
         <br><br>
