@@ -36,6 +36,7 @@ function checkUsername(username) {
     if (!usernameRegex.test(username)) {
         document.getElementById('username').style.borderColor = 'red';
         document.getElementById('usernameError').textContent = 'Invalid username';
+        document.getElementById('usernameError2').textContent = 'Username must be 5-20 characters long and only contain alphanumeric characters and underscore';
         $isUsernameValid = false;
         return;
     }
@@ -47,10 +48,12 @@ function checkUsername(username) {
             if (response === 'unique') {
                 document.getElementById('username').style.borderColor = 'green';
                 document.getElementById('usernameError').textContent = '';
+                document.getElementById('usernameError2').textContent = '';
                 $isUsernameValid = true;
             } else {
                 document.getElementById('username').style.borderColor = 'red';
-                document.getElementById('usernameError').textContent = 'Username sudah digunakan';
+                document.getElementById('usernameError').textContent = 'Username is taken';
+                document.getElementById('usernameError2').textContent = '';
                 $isUsernameValid = false;
             }
         }
@@ -69,7 +72,7 @@ function checkEmail(email) {
         $isEmailValid = true;
     } else {
         document.getElementById('email').style.borderColor = 'red';
-        document.getElementById('emailError').textContent = 'Alamat email tidak valid';
+        document.getElementById('emailError').textContent = 'Invalid email';
         $isEmailValid = false;
     }
 }
@@ -77,7 +80,7 @@ function checkEmail(email) {
 function checkPassword(password) {
     if (password.length < 8) {
         document.getElementById('password').style.borderColor = 'red';
-        document.getElementById('passwordError').textContent = 'Password minimal 8 karakter';
+        document.getElementById('passwordError').textContent = 'Password minimum 8 character';
         $isPasswordValid = false;
     } else {
         document.getElementById('password').style.borderColor = 'green';
