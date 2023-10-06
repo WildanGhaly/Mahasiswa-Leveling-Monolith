@@ -13,6 +13,11 @@
     background: #202020;
     font-family: "Arial", sans-serif;
     display: flex;
+    background-image: url('../img/basic-wallpaper5.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
   }
   
   .card {
@@ -106,13 +111,13 @@
     text-align: center;
     animation: fadeIn 2s ease-in;
   }
-    .card .name h5 {
+    .card .name h1 {
         color: white;
         text-decoration: none;
         font-weight: 700;
         font-size: 27px;
     }
-    .card .name h5:hover {
+    .card .name h1:hover {
         text-decoration: underline;
         color: crimson;
     }
