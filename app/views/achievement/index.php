@@ -21,7 +21,7 @@ if (!isset($_SESSION['username'])) {
     <div class="achievement-container">
         <h1><b>ACHIEVEMENT</b></h1>
         <br>
-        <button class="btn" onclick="window.location.href='../my-achievement'">My Achievement</button>
+        <button class="btn" onclick="window.location.href='../my-achievement'"><b>MY ACHIEVEMENT</b></button>
         <br><br>
         <div class="search-container">
             <input type="text" class="searchInput" id="searchInput" placeholder="Search...">
