@@ -102,6 +102,12 @@ document.addEventListener('DOMContentLoaded', function () {
         loadAchievementPage(1);
     });
 
+    document.getElementById("audioInput").addEventListener("click", function () {
+        console.log("audioInput clicked");
+        loadAchievementPage(page);
+        
+    });
+
     loadAchievementPage(page);
     
 });

@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
           if (data.success) {
             status.innerHTML = 'Audio file uploaded successfully!';
+            uploadAudio();
           } else {
             status.innerHTML = 'Error uploading audio file.';
           }
@@ -30,4 +31,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       }
     });
+
   });
+
+  function uploadAudio(){
+    console.log("uploadAudio() called");
+    var fileInput = document.getElementById('audioInput');
+    fileInput.click();
+  }
