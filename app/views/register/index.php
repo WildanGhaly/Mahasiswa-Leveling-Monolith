@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>Registration</title>
   <link rel="stylesheet" type="text/css" href="../../../public/css/login.css">
@@ -19,7 +19,7 @@
         </div> 
         <span id="usernameError"></span>
         <span id="usernameError2"></span>
-        <div class="inputBox" id="inputBox"> 
+        <div class="inputBox"> 
           <input id="email" type="text" class="label" aria-labelledby="inputBox" required> <i>Email</i>
         </div>
         <span id="emailError"></span>
