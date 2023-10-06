@@ -18,15 +18,15 @@ if (!isset($_SESSION['username'])) {
 <body>
     <?php include "../dashboard/index.php" ?>
     <div class="achievement-container">
-        <h1>My-Achievement</h1>
+        <h1><b>MY-ACHIEVEMENT</b></h1>
         <br>
-        <button class="btn" onclick="window.location.href='../achievement'">Achievement</button>
+        <button class="btn" onclick="window.location.href='../achievement'"><b>ACHIEVEMENT</b></button>
         <br><br>
         <div class="search-container">
             <input type="text" class="searchInput" id="searchInput" placeholder="Search...">
             <div class="filter-sort-container">
                 <div class="filter-container">
-                    <h4>Filter: </h4>
+                    <h2>Filter: </h2>
                     <select class="filter-year" id="filter-year">
                         <option value=0>Year</option>
                         <option value=2020>2020</option>
@@ -51,7 +51,7 @@ if (!isset($_SESSION['username'])) {
                     </select>
                 </div>
                 <div class="sort-container">
-                    <h4>Sort:   </h4>
+                    <h2>Sort:   </h2>
                     <select class="sort-by" id="sort-by">
                         <option value="default">Sort</option>
                         <option value="a.id">ID</option>
