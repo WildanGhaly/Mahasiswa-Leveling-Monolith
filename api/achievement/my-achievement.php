@@ -9,6 +9,7 @@ $conn = Database::getInstance();
 $page       = isset($_GET['page']) ? $_GET['page'] : 1;
 $limit      = isset($_COOKIE['my-achievement-limit']) ? $_COOKIE['my-achievement-limit'] : 5;
 $search     = isset($_COOKIE['my-achievement-search']) ? $_COOKIE['my-achievement-search'] : '';
+$searchAttr = isset($_COOKIE['my-achievement-search-type']) ? $_COOKIE['my-achievement-search-type'] : 'a.name';
 $sort       = isset($_COOKIE['my-achievement-sort']) ? $_COOKIE['my-achievement-sort'] : '';
 $sortType   = isset($_COOKIE['my-achievement-order']) ? $_COOKIE['my-achievement-order'] : 'asc';
 $year       = isset($_COOKIE['my-achievement-year']) ? $_COOKIE['my-achievement-year'] : 0;
@@ -23,7 +24,7 @@ $sql1 = "SELECT * FROM users u
          WHERE u.username = '$username'";
 
 if ($search !== '') {
-    $sql1 .= " AND a.name LIKE '%$search%'";
+    $sql1 .= " AND $searchAttr LIKE '%$search%'";
 }
 
 if ($year != 0) {
