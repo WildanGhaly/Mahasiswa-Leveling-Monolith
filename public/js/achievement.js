@@ -24,6 +24,10 @@ document.addEventListener('DOMContentLoaded', function () {
     var search = achievementSearchCookie ? achievementSearchCookie.split('=')[1] : "";
     document.getElementById('searchInput').value = search;
 
+    var achievementSearchAttributeCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('achievement-search-type='));
+    var searchType = achievementSearchAttributeCookie ? achievementSearchAttributeCookie.split('=')[1] : "a.name";
+    document.getElementById('search-attribute').value = searchType;
+
     var achievementSortCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('achievement-sort='));
     var sort = achievementSortCookie ? achievementSortCookie.split('=')[1] : "default";
     document.getElementById('sort-by').value = sort;
@@ -97,6 +101,15 @@ document.addEventListener('DOMContentLoaded', function () {
             document.cookie = `achievement-search=${search}; path=/`;
             loadAchievementPage(1);
         },500);
+    });
+
+    document.getElementById("search-attribute").addEventListener("change", function () {
+        searchType = this.value;
+        if (!searchType || searchType === "null" || searchType === "undefined") {
+            searchType = "a.name";
+        }
+        document.cookie = `achievement-search-type=${searchType}; path=/`
+        loadAchievementPage(1);
     });
 
     document.getElementById("sort-by").addEventListener("change", function () {
