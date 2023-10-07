@@ -32,12 +32,12 @@ if (!isset($_SESSION['username'])) {
             <button id="close-audio-popup" class="close-audio-popup">Cancel</button>
         </div>
         <div id="overlay" class="overlay"></div>
-        <h1><b>COLLECTION</b></h1>
+        <h1 id="collection-title"><b>COLLECTION</b></h1>
         <div class="collection-upload-container">
             <form enctype="multipart/form-data">
-                <input type="file" name="audioFile" accept=".mp3, .wav, .ogg">
-                <input type="button" value="Upload" id="uploadButton" class="uploadButton">
-                <input type="submit" class="audioInput" id="audioInput">
+                <input type="file" name="audioFile" accept=".mp3, .wav, .ogg" aria-labelledby="collection-title">
+                <input type="button" value="Upload" id="uploadButton" class="uploadButton" aria-labelledby="collection-title">
+                <input type="submit" class="audioInput" id="audioInput" aria-labelledby="collection-title">
             </form>
         </div>
         <progress value="0" max="100" style="display: none;"></progress>
@@ -46,7 +46,7 @@ if (!isset($_SESSION['username'])) {
         <div class="search-container">
             <div class="full-search-container">
                 <input type="text" class="searchInput" id="searchInput" placeholder="Search...">
-                <select class="search-attribute" id="search-attribute" aria-labelledby="achievement-title">
+                <select class="search-attribute" id="search-attribute" aria-labelledby="collection-title">
                     <option value="id">ID</option>
                     <option value="name">Name</option>
                     <option value="description">Description</option>
@@ -54,14 +54,14 @@ if (!isset($_SESSION['username'])) {
             </div>
             <div class="filter-sort-container">
                 <div class="sort-container">
-                    <h2>Sort:   </h2>
-                    <select class="sort-by" id="sort-by">
+                    <h2 id="collection-sort">Sort:   </h2>
+                    <select class="sort-by" id="sort-by" aria-labelledby="collection-sort">
                         <option value="default">Sort</option>
                         <option value="id">ID</option>
                         <option value="name">Name</option>
                         <option value="description">Description</option>
                     </select>
-                    <select class="sort-type" id="sort-type">
+                    <select class="sort-type" id="sort-type" aria-labelledby="collection-sort">
                         <option value="default">Sort-Type</option>
                         <option value="asc">Ascending</option>
                         <option value="desc">Descending</option>
@@ -71,7 +71,7 @@ if (!isset($_SESSION['username'])) {
         </div>
         <br><br>
         <div class="filter-box">
-            <select class="page-limit" id="page-limit">
+            <select class="page-limit" id="page-limit" aria-labelledby="collection-title">
                 <option value=5>5</option>
                 <option value=10>10</option>
                 <option value=15>15</option>
