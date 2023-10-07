@@ -23,7 +23,7 @@ if (!isset($_SESSION['username'])) {
         <? include "edit.php" ?> 
         <? include "add.php" ?>
         <div id="overlay" class="overlay"></div>
-        <h1><b>ACHIEVEMENT-ADMIN</b></h1>
+        <h1 id="achievement-admin-title"><b>ACHIEVEMENT-ADMIN</b></h1>
         <button class="btn" onclick="window.location.href='../achievement'"><b>ACHIEVEMENT</b></button>
         <button class="btn" id="add-achievement" onclick=addFunction()><b>ADD ACHIEVEMENT</b></button>
         <button class="btn" onclick="window.location.href='../my-achievement'"><b>MY ACHIEVEMENT</b></button>
@@ -32,7 +32,7 @@ if (!isset($_SESSION['username'])) {
         <div class="search-container">
             <div class="full-search-container">
                 <input type="text" class="searchInput" id="searchInput" placeholder="Search...">
-                <select class="search-attribute" id="search-attribute" aria-labelledby="achievement-title">
+                <select class="search-attribute" id="search-attribute" aria-labelledby="achievement-admin-title">
                     <option value="a.id">ID</option>
                     <option value="a.name">Name</option>
                     <option value="a.description">Description</option>
@@ -41,15 +41,15 @@ if (!isset($_SESSION['username'])) {
             </div>
             <div class="filter-sort-container">
                 <div class="sort-container">
-                    <h2>Sort:   </h2>
-                    <select class="sort-by" id="sort-by">
+                    <h2 id="sort-achievement-admin">Sort:   </h2>
+                    <select class="sort-by" id="sort-by" aria-labelledby="sort-achievement-admin">
                         <option value="default">Sort</option>
                         <option value="id">ID</option>
                         <option value="name">Name</option>
                         <option value="description">Description</option>
                         <option value="threshold">Threshold</option>
                     </select>
-                    <select class="sort-type" id="sort-type">
+                    <select class="sort-type" id="sort-type" aria-labelledby="sort-achievement-admin">
                         <option value="default">Sort-Type</option>
                         <option value="asc">Ascending</option>
                         <option value="desc">Descending</option>
@@ -59,7 +59,7 @@ if (!isset($_SESSION['username'])) {
         </div>
         <br><br>
         <div class="filter-box">
-            <select class="page-limit" id="page-limit">
+            <select class="page-limit" id="page-limit" aria-labelledby="achievement-admin-title">
                 <option value=5>5</option>
                 <option value=10>10</option>
                 <option value=15>15</option>
