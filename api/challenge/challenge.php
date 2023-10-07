@@ -77,15 +77,15 @@ foreach ($customers as $item) {
     $achievementList .= '<td>'.$item["threshold"].'</td>   ';
     $achievementList .= '<td>';
     if ($claimStatus){
-        $achievementList .= '<button id="cobtain" onclick=#>Obtained </button>';
+        $achievementList .= '<button id="obtain" class="obtain">Obtained </button>';
     } else {
-        $achievementList .= '<button id="obtain-not" onclick=#>Unobtained </button>';
+        $achievementList .= '<button id="obtain-not" class="obtain-not">Unobtained </button>';
     }
     $achievementList .= '</td><td>';
     if (!$claimStatus){
-        $achievementList .= '<button id="claim" onclick=claimFunction(' .$user_id. ',' .$item["id"]. ')>Claim</button>';
+        $achievementList .= '<button id="claim" class="claim" onclick=claimFunction(' .$user_id. ',' .$item["id"]. ')>Claim</button>';
     } else {
-        $achievementList .= '<button id="claim-not" onclick=unclaimFunction(' .$user_id. ',' .$item["id"]. ')>Unclaim</button>';
+        $achievementList .= '<button id="claim-not" class="claim-not" onclick=unclaimFunction(' .$user_id. ',' .$item["id"]. ')>Unclaim</button>';
     }
     $achievementList .= '</td></tr>';   
 }
