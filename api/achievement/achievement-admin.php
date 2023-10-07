@@ -16,7 +16,8 @@ $sortType   = $sortType == 'desc' ? 'desc' : 'asc';
 $sort       = $sort == 'default' ? '' : $sort;
 $start      = ($page - 1) * $limit;
 
-$sql1 = "SELECT * from achievement a JOIN achievement_group g ON a.group_id = g.group_id";
+$sql1 = "SELECT a.id as id, a.name as name, a.description as description, a.threshold as threshold, a.difficulty as difficulty, g.group_name as group_name  
+         FROM achievement a JOIN achievement_group g ON a.group_id = g.group_id";
 
 if ($search !== '') {
     $sql1 .= " WHERE $searchAttr LIKE '%$search%'";
