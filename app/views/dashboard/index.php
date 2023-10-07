@@ -13,7 +13,7 @@
         <ul>
             <li><a href="#">Challenges</a></li>
             <li><a href="../Hall-of-Fame?page=1">Hall of Fame</a></li>
-            <li><a href="#"></a></li>
+            <li><a href="../collection">Collection</a></li>
             <li><a href="../achievement">Achievement</a></li>
             <li><a href="../user-profile">ProfileTemp</a></li>
             <li><a href="#" id="logoutLink">LogoutTemp</a><li>
