@@ -32,4 +32,13 @@ function editFunction(id){
         document.getElementById("achievement-name-input").value = "";
         document.getElementById("achievement-description-input").value = "";
     });
+
+    document.getElementById("close-achievement-popup").addEventListener("click", function() {
+        console.log("close-achievement-popup clicked");
+        document.getElementById("achievement-popup").style.display = "none";
+        document.getElementById("overlay").style.display = "none";
+        document.getElementById("achievement-name-input").value = "";
+        document.getElementById("achievement-description-input").value = "";
+        document.getElementById("achievement-threshold-input").value = "";
+    });
 }
