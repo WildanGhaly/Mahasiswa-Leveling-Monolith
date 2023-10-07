@@ -24,6 +24,10 @@ if (!isset($_SESSION['username'])) {
         <div id="audio-popup" class="audio-popup">
             <h2>Edit</h2>
             <p>Change the audio information</p>
+            <input type="text" id="audio-name-input" class="audio-name-input" placeholder="Name">
+            <br>
+            <textarea id="audio-description-input" name="audio-description-input" rows="5" cols="50" placeholder="Description"></textarea>
+            <br>
             <button id="save-audio-popup" class="save-audio-popup">Save</button>
             <button id="close-audio-popup" class="close-audio-popup">Cancel</button>
         </div>
