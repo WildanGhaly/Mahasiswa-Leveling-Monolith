@@ -43,3 +43,23 @@ function editFunction(id){
         document.getElementById("audio-description-input").value = "";
     });
 }
+
+function deleteFunction(id) {
+    console.log(`deleteFunction(${id}) called`);
+    if (!confirm("Delete this audio?")) {
+        return;
+    }
+    var url = `${SERVER_PATH}collection/delete.php/`;
+    const xhr = new XMLHttpRequest();
+    xhr.open('DELETE', url, true);
+    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            console.log(this.responseText);
+            // const response = JSON.parse(xhr.responseText);
+        }
+    };
+
+    const data = `id=${encodeURIComponent(id)}`;
+    xhr.send(data);
+}
