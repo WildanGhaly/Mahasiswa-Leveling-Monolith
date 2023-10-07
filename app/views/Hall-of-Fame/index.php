@@ -63,6 +63,12 @@ session_start();
                         <th>Level</th>
                         <th>Total Achievement</th>
                         <th>Total quest</th>
+                        <?php
+                        if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] === '1') {
+                            echo '<th>Edit</th>';
+                            echo '<th>Delete</th>';
+                        }
+                        ?>
                     </tr>
                 </thead>
 
