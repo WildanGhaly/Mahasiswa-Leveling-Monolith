@@ -20,7 +20,7 @@ if (!isset($_SESSION['username'])) {
     <div class="achievement-container">
         <h1><b>MY-ACHIEVEMENT</b></h1>
         <br>
-        <button class="btn" onclick="window.location.href='../admin-achievement'"><b>ADMIN</b></button>
+        <button id="btn-admin" class="btn-admin" onclick="window.location.href='../admin-achievement'"><b>ADMIN</b></button>
         <button class="btn" onclick="window.location.href='../achievement'"><b>ACHIEVEMENT</b></button>
         <br><br>
         <div class="search-container">

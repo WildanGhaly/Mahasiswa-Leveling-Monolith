@@ -106,12 +106,14 @@ if ($page < $pages){
 }
 
 $paginationButtons .= '</ul>';
+$isAdmin = $_SESSION['isAdmin'];
 
 $response = [
     'achievementList' => $achievementList,
     'paginationButtons' => $paginationButtons,
     'query1' => $sql1,
     'query2' => $sql2,
+    'isAdmin' => $isAdmin,
 
 ];
 
