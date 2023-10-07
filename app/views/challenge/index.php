@@ -15,6 +15,7 @@ if (!isset($_SESSION['username'])) {
     <link rel="stylesheet" href="../../../public/css/achievement.css">
     <link rel="stylesheet" href="../../../public/css/challenge.css">
     <script src="../../../public/js/challenge.js"></script> 
+    <script src="../../../public/js/challenge-claim.js"></script>
 </head>
 <body>
     <?php include "../dashboard/index.php" ?>
