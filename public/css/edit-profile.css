@@ -4,238 +4,237 @@
     box-sizing: border-box;
   }
   
-  html, body {
-    width: 100%;
-    height: 100%;
-  }
-  
-  body {
-    background: #202020;
-    font-family: "Arial", sans-serif;
-    display: flex;
-    background-image: url('../img/basic-wallpaper5.jpeg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center center;
-  }
-  
-  .card {
-    position: absolute;
-    margin: auto;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 20%;
-    width: 350px;
-    height: 500px;
-    border-radius: 10px;
-    box-shadow: 0 10px 25px 5px rgba(0, 0, 0, 0.2);
-    background: #151515;
-    overflow: hidden;
-  }
+html, body {
+  width: 100%;
+  height: 100%;
+}
 
-  .card .ds-top {
-    /* position: absolute; */
-    margin: auto;
-    top: 0;
-    right: 0;
-    left: 0;
-    width: 100%;
-    height: 90px;
-    background: crimson;
-    animation: dsTop 1.5s;
-  }
-  .card .avatar-holder {
-    position: absolute;
-    margin: auto;
-    top: 40px;
-    right: 0;
-    left: 0;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    box-shadow: 0 0 0 5px #151515, inset 0 0 0 5px #000000, inset 0 0 0 5px #000000, inset 0 0 0 5px #000000, inset 0 0 0 5px #000000;
-    background: white;
-    overflow: hidden;
-    animation: mvTop 1.5s;
-  }
-  .card .avatar-holder img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+body {
+  background: #202020;
+  font-family: "Arial", sans-serif;
+  display: flex;
+  background-image: url('../img/basic-wallpaper5.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+}
 
-  .car .avatar-holder img {
-    filter: brightness(100%);
-    transition: filter 0.5s ease;
-  }
+.card {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 20%;
+  width: 350px;
+  height: 500px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px 5px rgba(0, 0, 0, 0.2);
+  background: #151515;
+  overflow: hidden;
+}
 
-  .card .avatar-holder:hover{
-    filter: brightness(60%);
-    cursor: pointer;
-  }
+.card .ds-top {
+  margin: auto;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  background: crimson;
+  animation: dsTop 1.5s;
+}
 
-  .card .avatar-holder:active{
-    filter: brightness(100%);
-  }
+.card .avatar-holder {
+  position: absolute;
+  margin: auto;
+  top: 40px;
+  right: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px #151515, inset 0 0 0 5px #000000, inset 0 0 0 5px #000000, inset 0 0 0 5px #000000, inset 0 0 0 5px #000000;
+  background: white;
+  overflow: hidden;
+  animation: mvTop 1.5s;
+}
 
-  .card .avatar-holder .edit-text {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: crimson;
-    opacity: 0.8;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    display: none;
-    top: 63px;
-  }
+.card .avatar-holder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-  .card .avatar-holder:hover .edit-text {
-    display: block;
-    animation: mvDown 1s forwards;
-  }
+.card .avatar-holder:hover{
+  filter: brightness(60%);
+  cursor: pointer;
+}
 
-  .card .avatar-holder input {
-    display: none;
-  }
+.card .avatar-holder:active{
+  filter: brightness(100%);
+}
 
-  .card .name {
-    position: relative;
-    margin-top: 70px;
-    width: inherit;
-    height: 40px;
-    text-align: center;
-    animation: fadeIn 2s ease-in;
-  }
-    .card .name h1 {
-        color: white;
-        text-decoration: none;
-        font-weight: 700;
-        font-size: 27px;
-    }
-    .card .name h1:hover {
-        text-decoration: underline;
-        color: crimson;
-    }
-  .card .name a {
+.card .avatar-holder .edit-text {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: crimson;
+  opacity: 0.8;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: none;
+  top: 63px;
+}
+
+.card .avatar-holder:hover .edit-text {
+  display: block;
+  animation: mvDown 1s forwards;
+}
+
+.card .avatar-holder input {
+  display: none;
+}
+
+.card .name {
+  position: relative;
+  margin-top: 70px;
+  width: inherit;
+  height: 40px;
+  text-align: center;
+  animation: fadeIn 2s ease-in;
+}
+
+.card .name h1 {
     color: white;
     text-decoration: none;
     font-weight: 700;
-    font-size: 16px;
-  }
-  .card .name a:hover {
+    font-size: 27px;
+}
+
+.card .name h1:hover {
     text-decoration: underline;
     color: crimson;
+}
+
+.card .name a {
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.card .name a:hover {
+  text-decoration: underline;
+  color: crimson;
+}
+
+.card .name input {
+  position: relative;
+  color: crimson;
+  background-color: black;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  width: 70%;
+  padding-right: 20px;
+}
+
+.card .button {
+  /* position: absolute; */
+  margin-top: 0; 
+  padding: 20px 40px;
+  width: inherit;
+  height: 60px;
+  text-align: center;
+  animation: fadeIn 2s ease-in;
+  outline: none;
+}
+
+.card .button .btn {
+  padding: 8px 20px;
+  margin-top: 170px;
+  border-radius: 10px;
+  color: white;
+  background: rgb(72, 18, 29);
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  font-size: 15px;
+  transition: all 1s;
+}
+
+.card .button .btn:hover {
+  color: white;
+  background: crimson;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
   }
-  .card .name input {
-    position: relative;
-    color: crimson;
-    background-color: black;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 14px;
-    width: 70%;
-    padding-right: 20px;
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes mvTop {
+  0% {
+    top: -150px;
+  }
+  100% {
+    top: 40px;
+  }
+}
+
+@keyframes mvDown {
+  0% {
+    top: 190px;
+  }
+  100% {
+    top: 63px;
+  }
+}
+
+@keyframes dsTop {
+  0% {
+    top: -150px;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    display: block;
   }
 
-  .card .button {
-    /* position: absolute; */
-    margin-top: 0; 
-    padding: 20px 40px;
-    width: inherit;
-    height: 60px;
-    text-align: center;
-    animation: fadeIn 2s ease-in;
-    outline: none;
-  }
-  .card .button .btn {
-    padding: 8px 20px;
-    margin-top: 170px;
-    border-radius: 10px;
-    color: white;
-    background: rgb(72, 18, 29);
-    letter-spacing: 0.05em;
-    text-decoration: none;
-    font-size: 15px;
-    transition: all 1s;
-  }
-  .card .button .btn:hover {
-    color: white;
-    background: crimson;
+  .card {
+    width: 80%; 
+    height: 100%;
   }
 
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
+  .card .button .btn{
+    margin-top: 220px;
   }
-
-  @keyframes mvTop {
-    0% {
-      top: -150px;
-    }
-    100% {
-      top: 40px;
-    }
+  
+  .ds-top {
+    width: 100%; 
   }
-
-  @keyframes mvDown {
-    0% {
-      top: 190px;
-    }
-    100% {
-      top: 63px;
-    }
+  
+  .avatar-holder {
+    top: 20px;
   }
-
-  @keyframes dsTop {
-    0% {
-      top: -150px;
-    }
-    100% {
-      top: 0;
-    }
+  
+  .name {
+    top: 10px; 
   }
+}
 
-  @media (max-width: 768px) {
-    body {
-      display: block;
-    }
-
-    .card {
-      width: 80%; 
-      height: 100%;
-    }
-
-    .card .button .btn{
-      margin-top: 220px;
-    }
-    
-    .ds-top {
-      width: 100%; 
-    }
-    
-    .avatar-holder {
-      top: 20px;
-    }
-    
-    .name {
-      top: 10px; 
-    }
-    
-    
-    
-
-  }
-
-  .following {
-    color: white;
-    background: crimson;
-  }
+.following {
+  color: white;
+  background: crimson;
+}
