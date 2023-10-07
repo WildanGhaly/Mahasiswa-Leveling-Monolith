@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once __DIR__."/../session.php";
 
 $conn = Database::getInstance();
@@ -111,13 +112,14 @@ if ($page < $pages){
 }
 
 $paginationButtons .= '</ul>';
+$isAdmin = $_SESSION['isAdmin'];
 
 $response = [
     'achievementList' => $achievementList,
     'paginationButtons' => $paginationButtons,
     'query1' => $sql1,
     'query2' => $sql2,
-
+    'isAdmin'=> $isAdmin,
 ];
 
 echo json_encode($response);
