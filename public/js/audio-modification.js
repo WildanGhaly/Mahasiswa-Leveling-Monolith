@@ -56,6 +56,7 @@ function deleteFunction(id) {
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             console.log(this.responseText);
+            window.location.reload();
             // const response = JSON.parse(xhr.responseText);
         }
     };
