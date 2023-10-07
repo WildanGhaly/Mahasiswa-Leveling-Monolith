@@ -1,7 +1,16 @@
+body {
+    background-image: url('../img/basic-wallpaper5.jpeg');
+    text-align: center;
+    font-family: arial;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+  }
+
 .head-container {
     text-align: center;
     padding-top: 50px; 
-    position: relative;
     
 }
 
@@ -70,10 +79,11 @@ option:hover {
 
 
 .body-container {
+    /* background-image: url('../img/basic-wallpaper5.jpeg'); */
     /* max-width: 800px;    */
     /* margin: 20px auto; */
     padding: 20px;
-    background-color: #192e3a;
+    /* background-color: #192e3a; */
     /* border: 1px solid #ccc;
     border-radius: 5px; */
     /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
@@ -103,7 +113,7 @@ th, td {
 }
 
 th {
-    background-color: #192e3a;
+    background-color: #1f1f1f;
     color: #fff;
 }
 
