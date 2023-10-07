@@ -50,3 +50,23 @@ function editFunction(id){
         document.getElementById("achievement-threshold-input").value = "";
     });
 }
+
+function deleteFunction(id) {
+    console.log(`deleteFunction(${id}) called`);
+    if (!confirm("Delete this achievement?")) {
+        return;
+    }
+    var url = `${SERVER_PATH}achievement/delete.php/`;
+    const xhr = new XMLHttpRequest();
+    xhr.open('DELETE', url, true);
+    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            console.log(this.responseText);
+            window.location.reload();
+            // const response = JSON.parse(xhr.responseText);
+        }
+    }; 
+    const data = `id=${encodeURIComponent(id)}`
+    xhr.send(data);
+}
