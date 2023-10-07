@@ -5,7 +5,7 @@ session_start();
 include "../../config/config.php";
 include "../../app/models/user.php";
 
-ini_set('display_errors', 1);
+ini_set('display_errors', 1);   
 
 $users = new UserModel();
 $params = array();
@@ -40,7 +40,9 @@ if (isset($_GET['page'])) {
   $params['page'] = $page;
 }
 
-
+if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] === '1'){
+    $params['isAdmin'] = '1';
+}
 
 $user = $users->findUser($params);
 
