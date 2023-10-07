@@ -1,38 +1,26 @@
 <?php
-session_start();
 include_once __DIR__."/../session.php";
+session_start();
+
+$username = $_SESSION['username'];
 
 $conn = Database::getInstance();
 
 $page       = isset($_GET['page']) ? $_GET['page'] : 1;
-$limit      = isset($_COOKIE['achievement-limit']) ? $_COOKIE['achievement-limit'] : 5;
-$difficulty = isset($_COOKIE['achievement-difficulty']) ? $_COOKIE['achievement-difficulty'] : 'semua';
-$type       = isset($_COOKIE['achievement-type']) ? $_COOKIE['achievement-type'] : 0;
-$search     = isset($_COOKIE['achievement-search']) ? $_COOKIE['achievement-search'] : '';
-$searchAttr = isset($_COOKIE['achievement-search-type']) ? $_COOKIE['achievement-search-type'] : 'a.name';
-$sort       = isset($_COOKIE['achievement-sort']) ? $_COOKIE['achievement-sort'] : '';
-$sortType   = isset($_COOKIE['achievement-order']) ? $_COOKIE['achievement-order'] : 'asc';
+$limit      = isset($_COOKIE['achievement-admin-limit']) ?         $_COOKIE['achievement-admin-limit'] : 5;
+$search     = isset($_COOKIE['achievement-admin-search']) ?        $_COOKIE['achievement-admin-search'] : '';
+$searchAttr = isset($_COOKIE['achievement-admin-search-type']) ?   $_COOKIE['achievement-admin-search-type'] : 'name';
+$sort       = isset($_COOKIE['achievement-admin-sort']) ?          $_COOKIE['achievement-admin-sort'] : '';
+$sortType   = isset($_COOKIE['achievement-admin-order']) ?         $_COOKIE['achievement-admin-order'] : 'asc';
+$sortType   = $sortType == 'desc' ? 'desc' : 'asc';
+$sort       = $sort == 'default' ? '' : $sort;
 $start      = ($page - 1) * $limit;
 
-$sql1 = "SELECT a.id as id, a.name as name, a.description as descr, a.threshold as threshold, a.difficulty as difficulty, g.group_name as group_name 
+$sql1 = "SELECT a.id as id, a.name as name, a.description as description, a.threshold as threshold, a.difficulty as difficulty, g.group_name as group_name  
          FROM achievement a JOIN achievement_group g ON a.group_id = g.group_id";
 
-$whereClauses = [];
-
-if ($difficulty !== 'semua') {
-    $whereClauses[] = "a.difficulty = '$difficulty'";
-}
-
-if ($type != 0) {
-    $whereClauses[] = "a.group_id = $type";
-}
-
 if ($search !== '') {
-    $whereClauses[] = "$searchAttr LIKE '%$search%'";
-}
-
-if (!empty($whereClauses)) {
-    $sql1 .= " WHERE " . implode(' AND ', $whereClauses);
+    $sql1 .= " WHERE $searchAttr LIKE '%$search%'";
 }
 
 if ($sort !== '') {
@@ -41,24 +29,10 @@ if ($sort !== '') {
 
 $sql1 .= " LIMIT $start, $limit";
 
-$sql2 = "SELECT COUNT(id) AS id FROM achievement a";
-
-$whereClauses = [];
-
-if ($difficulty !== 'semua') {
-    $whereClauses[] = "difficulty = '$difficulty'";
-}
-
-if ($type != 0) {
-    $whereClauses[] = "group_id = $type";
-}
+$sql2 = "SELECT COUNT(a.id) AS id FROM achievement a";
 
 if ($search !== '') {
-    $whereClauses[] = "$searchAttr LIKE '%$search%'";
-}
-
-if (!empty($whereClauses)) {
-    $sql2 .= " WHERE " . implode(' AND ', $whereClauses);
+    $sql2 .= " WHERE $searchAttr LIKE '%$search%'";
 }
 
 $result = $conn->query($sql1);
@@ -77,10 +51,10 @@ foreach ($customers as $item) {
     $achievementList .= '<tr>';
     $achievementList .= '<td>'.$item["id"].'</td>   ';
     $achievementList .= '<td>'.$item["name"].'</td>   ';
-    $achievementList .= '<td>'.$item["descr"].'</td>   ';
-    $achievementList .= '<td>'.$item["threshold"].'</td>';
-    $achievementList .= '<td>'.$item["difficulty"].'</td>';
-    $achievementList .= '<td>'.$item["group_name"].'</td>'; 
+    $achievementList .= '<td>'.$item["description"].'</td>   ';
+    $achievementList .= '<td>'.$item["threshold"].'</td>   ';
+    $achievementList .= '<td><button onclick="editFunction('.$item["id"].')">Edit</button></td>';
+    $achievementList .= '<td><button onclick="deleteFunction('.$item["id"].')">Delete</button></td>';
     $achievementList .= '</tr>';
 }
 
@@ -112,14 +86,13 @@ if ($page < $pages){
 }
 
 $paginationButtons .= '</ul>';
-$isAdmin = $_SESSION['isAdmin'];
 
 $response = [
     'achievementList' => $achievementList,
     'paginationButtons' => $paginationButtons,
     'query1' => $sql1,
     'query2' => $sql2,
-    'isAdmin'=> $isAdmin,
+
 ];
 
 echo json_encode($response);
