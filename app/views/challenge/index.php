@@ -31,6 +31,7 @@ if (!isset($_SESSION['username'])) {
                     <option value="id">ID</option>
                     <option value="name">Name</option>
                     <option value="description">Description</option>
+                    <option value="threshold">Threshold</option>
                 </select>
             </div>
             <div class="filter-sort-container">

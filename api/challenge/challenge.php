@@ -31,7 +31,7 @@ $sql1 .= " LIMIT $start, $limit";
 $sql2 = "SELECT COUNT(id) AS id FROM quest";
 
 if ($search !== '') {
-    $sql2 .= " AND name LIKE '%$search%'";
+    $sql2 .= " WHERE $searchAttr LIKE '%$search%'";
 }
 
 $result = $conn->query($sql1);

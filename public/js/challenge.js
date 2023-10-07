@@ -8,23 +8,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var page = urlParams.get("page");
     
-    var achievementLimitCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('collection-limit='));
+    var achievementLimitCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('challenge-limit='));
     var limit = achievementLimitCookie ? achievementLimitCookie.split('=')[1] : 5;
     document.getElementById('page-limit').value = limit;
 
-    var achievementSearchCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('collection-search='));
+    var achievementSearchCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('challenge-search='));
     var search = achievementSearchCookie ? achievementSearchCookie.split('=')[1] : "";
     document.getElementById('searchInput').value = search;
 
-    var achievementSearchAttributeCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('collection-search-type='));
+    var achievementSearchAttributeCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('challenge-search-type='));
     var searchType = achievementSearchAttributeCookie ? achievementSearchAttributeCookie.split('=')[1] : "name";
     document.getElementById('search-attribute').value = searchType;
 
-    var achievementSortCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('collection-sort='));
+    var achievementSortCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('challenge-sort='));
     var sort = achievementSortCookie ? achievementSortCookie.split('=')[1] : "default";
     document.getElementById('sort-by').value = sort;
 
-    var achievementOrderCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('collection-order='));
+    var achievementOrderCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('challenge-order='));
     var order = achievementOrderCookie ? achievementOrderCookie.split('=')[1] : "asc";
     document.getElementById('sort-type').value = order;
 
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!limit || limit === "null" || limit === "undefined") {
             limit = 5;
         }
-        document.cookie = `collection-limit=${limit}; path=/`
+        document.cookie = `challenge-limit=${limit}; path=/`
         loadAchievementPage(1);
     });
 
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         timeout = setTimeout(function () {
-            document.cookie = `collection-search=${search}; path=/`
+            document.cookie = `challenge-search=${search}; path=/`
             loadAchievementPage(1);
         }, 500);
     });
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!searchType || searchType === "null" || searchType === "undefined") {
             searchType = "a.name";
         }
-        document.cookie = `collection-search-type=${searchType}; path=/`
+        document.cookie = `challenge-search-type=${searchType}; path=/`
         loadAchievementPage(1);
     });
 
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!sort || sort === "null" || sort === "undefined" || sort === "default") {
             sort = "default";
         }
-        document.cookie = `collection-sort=${sort}; path=/`
+        document.cookie = `challenge-sort=${sort}; path=/`
         loadAchievementPage(1);
     });
 
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!order || order === "null" || order === "undefined" || order === "default") {
             order = "default";
         }
-        document.cookie = `collection-order=${order}; path=/`
+        document.cookie = `challenge-order=${order}; path=/`
         loadAchievementPage(1);
     });
 
