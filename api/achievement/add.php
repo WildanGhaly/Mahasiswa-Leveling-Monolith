@@ -20,7 +20,7 @@ $check = "SELECT * FROM achievement WHERE name = '$name'";
 $resultcheck = $conn->query($check);
 if ($resultcheck->num_rows > 0) {
     http_response_code(409);
-    echo "Nama achievement sudah ada";
+    echo "Achievement name should be UNIQUE";
     exit();
 }
 

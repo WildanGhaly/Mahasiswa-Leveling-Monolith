@@ -79,6 +79,11 @@ function addFunction() {
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4 && xhr.status === 200) {
+                    const response = xhr.responseText;
+                    if (response !== "success") {
+                        alert(xhr.responseText);
+                        return;
+                    }
                     console.log(this.responseText);
                     // const response = JSON.parse(xhr.responseText);
                     document.getElementById("achievement-popup-add").style.display = "none";
@@ -86,6 +91,11 @@ function addFunction() {
                     document.getElementById("achievement-name-input-add").value = "";
                     document.getElementById("achievement-description-input-add").value = "";
                     document.getElementById("achievement-threshold-input-add").value = "";
+                    window.location.reload();
+                } else if (xhr.readyState === 4 && xhr.status === 409) {
+                    alert(xhr.responseText);
+                } else if (xhr.readyState === 4 && xhr.status === 500) {
+                    alert(xhr.responseText);
                 }
             }; 
             const data = `name=${encodeURIComponent(name)}&description=${encodeURIComponent(description)}&threshold=${encodeURIComponent(threshold)}&difficulty=${encodeURIComponent(difficulty)}&type=${encodeURIComponent(type)}`
