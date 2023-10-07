@@ -58,8 +58,7 @@ function addFunction() {
 
     document.getElementById("save-achievement-popup-add").addEventListener("click", function() {
         console.log("save-achievement-popup-add clicked");
-        document.getElementById("achievement-popup-add").style.display = "none";
-        document.getElementById("overlay").style.display = "none";
+
         const name          = document.getElementById("achievement-name-input-add").value;
         const description   = document.getElementById("achievement-description-input-add").value;
         const threshold     = document.getElementById("achievement-threshold-input-add").value;
@@ -72,7 +71,7 @@ function addFunction() {
         console.log(difficulty);
         console.log(type);
 
-        if (name || description || threshold) {
+        if (name && description && threshold) {
             console.log("name or description or threshold is not empty");
             var url = `${SERVER_PATH}achievement/add.php`;
             const xhr = new XMLHttpRequest();
@@ -82,15 +81,19 @@ function addFunction() {
                 if (xhr.readyState === 4 && xhr.status === 200) {
                     console.log(this.responseText);
                     // const response = JSON.parse(xhr.responseText);
+                    document.getElementById("achievement-popup-add").style.display = "none";
+                    document.getElementById("overlay").style.display = "none";
+                    document.getElementById("achievement-name-input-add").value = "";
+                    document.getElementById("achievement-description-input-add").value = "";
+                    document.getElementById("achievement-threshold-input-add").value = "";
                 }
             }; 
             const data = `name=${encodeURIComponent(name)}&description=${encodeURIComponent(description)}&threshold=${encodeURIComponent(threshold)}&difficulty=${encodeURIComponent(difficulty)}&type=${encodeURIComponent(type)}`
             xhr.send(data);
+        } else {
+            alert("Name, description, and threshold must be filled");
         }
 
-        document.getElementById("achievement-name-input-add").value = "";
-        document.getElementById("achievement-description-input-add").value = "";
-        document.getElementById("achievement-threshold-input-add").value = "";
     });
 
     document.getElementById("close-achievement-popup-add").addEventListener("click", function() {
