@@ -11,7 +11,7 @@
     <div class="sidebar">
         <h2>Darmodar</h2>
         <ul>
-            <li><a href="#">Challenges</a></li>
+            <li><a href="../challenge/">Challenges</a></li>
             <li><a href="../Hall-of-Fame?page=1">Hall of Fame</a></li>
             <li><a href="../collection">Collection</a></li>
             <li><a href="../achievement">Achievement</a></li>
