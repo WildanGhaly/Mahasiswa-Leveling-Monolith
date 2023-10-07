@@ -1,4 +1,5 @@
-.achievement-container .achievement-popup {
+.achievement-container .achievement-popup,
+.achievement-container .achievement-popup-add {
     display: none;
     position: absolute;
     top: 50%;
@@ -22,20 +23,23 @@
     z-index: 9998;
 }
 
-.achievement-popup input {
+.achievement-popup input,
+.achievement-popup-add input {
     width: 100%;
     height: 40px;
     margin-bottom: 10px;
 }
 
-.achievement-popup textarea {
+.achievement-popup textarea,
+.achievement-popup-add textarea {
     width: 100%;
     height: 50px;
     margin-bottom: 10px;
     white-space: inherit;
 }
 
-.achievement-popup select {
+.achievement-popup select,
+.achievement-popup-add select {
     width: 100%;
     height: 40px;
     margin-bottom: 10px;
