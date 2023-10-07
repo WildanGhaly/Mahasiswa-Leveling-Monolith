@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db:3306
--- Generation Time: Oct 06, 2023 at 04:13 PM
+-- Generation Time: Oct 07, 2023 at 08:06 AM
 -- Server version: 8.1.0
 -- PHP Version: 8.2.8
 
@@ -41,7 +41,6 @@ CREATE TABLE `achievement` (
 --
 
 INSERT INTO `achievement` (`id`, `name`, `description`, `threshold`, `difficulty`, `group_id`) VALUES
-(1, 'Test1', 'Test001', 'Test', 'Beginner', 1),
 (3, 'First Step', 'You\'ve taken the first step on your fitness journey by completing your initial workout session.', 'Complete your first workout session.', 'Beginner', 6),
 (4, 'Steady Start', 'Keep the momentum going! Workout for 7 consecutive days to establish a steady workout routine.', 'Workout for 7 consecutive days.', 'Beginner', 6),
 (5, 'Weekly Warrior', 'Consistency is key. Achieve this by completing a workout every day for a week.', 'Complete a workout every day for a week.', 'Beginner', 1),
@@ -71,7 +70,11 @@ INSERT INTO `achievement` (`id`, `name`, `description`, `threshold`, `difficulty
 (29, 'Iron Man/Woman', 'You\'re unstoppable! Complete a triathlon, including swimming, biking, and running.', 'Complete a triathlon (swim, bike, run).', 'Advanced', 1),
 (30, 'Mindful Mover', 'Meditate for 20 minutes after each workout, promoting mental and physical balance.', 'Meditate for 20 minutes after each workout.', 'Beginner', 5),
 (31, 'Nutrition Ninja', 'Log your meals for 30 consecutive days.', 'Keep track of your meals for 30 consecutive days, highlighting the importance of balanced nutrition.', 'Beginner', 5),
-(32, 'Healthy Hydrator', 'Stay hydrated and drink 8 glasses of water daily for a month, supporting overall well-being.', 'Drink 8 glasses of water daily for a month.', 'Beginner', 5);
+(32, 'Healthy Hydrator', 'Stay hydrated and drink 8 glasses of water daily for a month, supporting overall well-being.', 'Drink 8 glasses of water daily for a month.', 'Beginner', 5),
+(33, 'a', 'a', 'a', 'Beginner', 1),
+(35, 'b', 'b', 'b', 'Beginner', 1),
+(36, 'z', 'z', 'z', 'Beginner', 1),
+(38, 'zz', 'z', 'z', 'Beginner', 1);
 
 -- --------------------------------------------------------
 
@@ -116,8 +119,10 @@ CREATE TABLE `collection` (
 --
 
 INSERT INTO `collection` (`id`, `name`, `description`, `link`, `user_id`) VALUES
-(1, 'test1', 'testing', '123host/1.mp3', 6),
-(2, 'tast2', 'sheeeeeeeeeeeesh', '123host/2.mp3', 6);
+(13, 'test5.mp3', 'description', '123host/test5.mp3', 6),
+(14, 'test4.mp3', 'description', '123host/test4.mp3', 6),
+(15, 'test2.mp3', 'description', '123host/test2.mp3', 6),
+(16, 'test3.mp3', 'description', '456host/test3.mp3', 7);
 
 -- --------------------------------------------------------
 
@@ -148,7 +153,7 @@ INSERT INTO `quest` (`id`, `name`, `description`, `threshold`) VALUES
 CREATE TABLE `users` (
   `id` int NOT NULL,
   `username` varchar(255) NOT NULL,
-  `name` varchar(255) DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT 'MyName',
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `isAdmin` tinyint(1) NOT NULL DEFAULT '0',
@@ -170,7 +175,7 @@ INSERT INTO `users` (`id`, `username`, `name`, `email`, `password`, `isAdmin`, `
 (4, '222', NULL, '222', '222', 0, '../../../public/img/logo.jpg', 0, 0, 1, 0, 100),
 (5, '2', NULL, '2', '2', 0, '../../../public/img/logo.jpg', 0, 0, 2, 30, 140),
 (6, '123host', 'Wildan Ghaly', '13521015@std.stei.itb.ac.id', '1+8UUdV1ZFsTMzmd3BP1Rw==', 0, '../../../public/img/profile/123host.jpg', 21, 1, 1, 58, 100),
-(7, '456host', 'Hellooo', '13521015@std.stei.itb.ac.id', '1+8UUdV1ZFsTMzmd3BP1Rw==', 0, '../../../public/img/logo.jpg', 0, 0, 1, 0, 100),
+(7, '456host', 'Hellooo', '13521015@std.stei.itb.ac.id', '1+8UUdV1ZFsTMzmd3BP1Rw==', 1, '../../../public/img/logo.jpg', 0, 0, 1, 0, 100),
 (8, '789host', 'Wildan Ghalyss', '13521015@std.stei.itb.ac.id', '1+8UUdV1ZFsTMzmd3BP1Rw==', 0, '../../../views/img/profile/789host.jpg', 0, 0, 1, 0, 100),
 (9, '12345', NULL, '123@gmail.com', '1+8UUdV1ZFsTMzmd3BP1Rw==', 0, '../../../public/img/dummy/dummy.jpg', 0, 0, 1, 0, 100),
 (10, 'aaaaa', NULL, 'aaa@aaa.aaa', 'hN235tX1kddl8k5iJtn48A==', 0, '../../../public/img/dummy/dummy.jpg', 0, 0, 1, 0, 100);
@@ -220,8 +225,6 @@ CREATE TABLE `user_achievement` (
 --
 
 INSERT INTO `user_achievement` (`user_id`, `achievement_id`, `time_get`) VALUES
-(1, 1, '2023-06-01 22:38:32'),
-(6, 1, '2023-06-02 22:38:32'),
 (6, 3, '2023-06-03 22:38:42'),
 (6, 4, '2023-07-05 22:38:42'),
 (6, 5, '2023-07-06 22:38:42'),
@@ -345,7 +348,7 @@ ALTER TABLE `user_quest`
 -- AUTO_INCREMENT for table `achievement`
 --
 ALTER TABLE `achievement`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `achievement_group`
@@ -357,7 +360,7 @@ ALTER TABLE `achievement_group`
 -- AUTO_INCREMENT for table `collection`
 --
 ALTER TABLE `collection`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `quest`
