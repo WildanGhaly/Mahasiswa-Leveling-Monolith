@@ -16,13 +16,16 @@ if (!isset($_SESSION['username'])) {
     <link rel="stylesheet" href="../../../public/css/collection.css">
     <script src="../../../public/js/collection.js"></script>
     <script src="../../../public/js/audio-upload.js"></script>
+    <script src="../../../public/js/audio-modification.js"></script>
 </head>
 <body>
     <?php include "../dashboard/index.php" ?>
     <div class="achievement-container">
         <div id="audio-popup" class="audio-popup">
-            <h2>Ini adalah Popup!</h2>
-            <p>Ini adalah konten popup sederhana.</p>
+            <h2>Edit</h2>
+            <p>Change the audio information</p>
+            <button id="save-audio-popup" class="save-audio-popup">Save</button>
+            <button id="close-audio-popup" class="close-audio-popup">Cancel</button>
         </div>
         <div id="overlay" class="overlay"></div>
         <h1><b>COLLECTION</b></h1>
