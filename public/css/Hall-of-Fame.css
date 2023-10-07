@@ -12,7 +12,7 @@
     border-radius: 5px;
     font-size: 16px;
     margin-right: 10px;
-    margin-left: 200px;
+    margin-left: 300px;
     background: #151515;
     color: crimson;
 }
@@ -111,9 +111,13 @@ tr:nth-child(even) {
     background-color: #1f1f1f;
 }
 
-a {
+#data button {
     text-decoration: none;
-    color: #007BFF;
+    background-color: #007BFF;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
 }
 
 .pagination-container {
@@ -156,6 +160,7 @@ a {
 }
 
 .deleteFilter {
+    margin-right: 100px;
     padding: 5px; 
     font-size: 14px; 
     border: 1px solid #333; 
@@ -167,6 +172,15 @@ a {
 
 .deleteFilter:hover {
     background-color: #1f1f1f;
+}
+
+#a_add {
+    text-decoration: none;
+    background-color: #007BFF;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
 }
 
 

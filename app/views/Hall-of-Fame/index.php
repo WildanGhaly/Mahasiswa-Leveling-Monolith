@@ -34,33 +34,44 @@ session_start();
             </select>
 
             <button id="deleteSessionButton" class="deleteFilter">Reset Filter</button>
+            <?php
+            if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] === '1') {
+                echo '<a href="../admin-Hall-of-Fame/?button=add" id="a_add">Add</a>';
+            }
+            ?>
 
         </div>
         <h1>Hall of Fame</h1>
     </div>
     
     <script>
-        searchUser("<?php echo $_SESSION['filter'] ?>","<?php echo $_SESSION['sort'] ?>","<?php echo $_SESSION['user'] ?>");
+        var isAdmin = "<?php echo $_SESSION['isAdmin'] ?>";
+        searchUser("<?php echo $_SESSION['filter'] ?>","<?php echo $_SESSION['sort'] ?>","<?php echo $_SESSION['user'] ?>", "<?php echo $_SESSION['isAdmin'] ?>");
     </script>
 
-
     <div class="body-container">
-        <table id="data">
-            <thead>
-                <tr>
-                    <th>No</th>
-                    <th>Nama</th>
-                    <th>Level</th>
-                    <th>Total Achievement</th>
-                    <th>Total quest</th>
-                </tr>
-            </thead>
+            <table id="data">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <?php
+                        if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] === '1') {
+                            echo '<th>Username</th>';
+                        }
+                        ?>
+                        <th>Nama</th>
+                        <th>Level</th>
+                        <th>Total Achievement</th>
+                        <th>Total quest</th>
+                    </tr>
+                </thead>
 
-            <tbody id="data">
-                
-            </tbody>
+                <tbody id="data">
+                    
+                </tbody>
 
-        </table>
+            </table>
+
     </div>
 
     <div class="pagination-container">
@@ -72,3 +83,8 @@ session_start();
 
 
 </body>
+
+<foot>
+    <script src="../../../public/js/edit-Hall-of-fame.js"></script>
+</foot>
+
