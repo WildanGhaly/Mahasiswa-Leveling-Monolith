@@ -235,6 +235,10 @@ body {
   background-color: rgb(127, 0, 25);
 }
 
+.btn-admin {
+  display: none;
+}
+
 button {
   align-items: center;
   appearance: none;

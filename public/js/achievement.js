@@ -57,8 +57,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 const response = JSON.parse(xhr.responseText);
                 achievementList.innerHTML = response.achievementList;
                 paginationButtons.innerHTML = response.paginationButtons;
-                if (response.isAdmin === "0" || response.isAdmin === 0 || response.isAdmin === false || response.isAdmin === "false" || response.isAdmin === null || response.isAdmin === "null" || response.isAdmin === undefined || response.isAdmin === "undefined") {
-                    document.getElementById("btn-admin").style.display = "none";
+                if (!(response.isAdmin === "0" || response.isAdmin === 0 || response.isAdmin === false || response.isAdmin === "false" || response.isAdmin === null || response.isAdmin === "null" || response.isAdmin === undefined || response.isAdmin === "undefined")) {
+                    document.getElementById("btn-admin").style.display = "inline-flex";
                 }
             }
         };
