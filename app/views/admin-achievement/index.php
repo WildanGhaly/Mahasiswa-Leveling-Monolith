@@ -4,6 +4,16 @@ if (!isset($_SESSION['username'])) {
     header('Location: ../login');
     return;
 }
+if (!isset($_SESSION['isAdmin'])) {
+    header('Location: ../my-achievement');
+    return;
+}
+if ($_SESSION['isAdmin'] == 0) {
+    // Masuk ke FORBIDDEN
+    http_response_code(403);
+    header('Location: /error/403.php');
+    exit();
+}
 ?>
 
 <!DOCTYPE html>

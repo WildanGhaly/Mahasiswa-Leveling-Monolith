@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Error 404</title>
+  <title>Error 403</title>
   <link rel="stylesheet" type="text/css" href="/public/css/error.css">
 </head>
 <body>
@@ -11,7 +11,7 @@
     <?php } ?>
 
     <div class="random404">
-        <h1>404</h1>
+        <h1>403</h1>
     </div>
     <div class="mahasiswa">
         <h1>Mahasiswa</h1>
@@ -20,8 +20,8 @@
     <div class="error404">
         <div class="error404-content">
         
-        <h2>Page Not Found</h2>
-        <p>The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
+        <h2>Access Denied</h2>
+        <p>You do not have permission to access this resource.</p>
         <button id="btn" class="btn" onclick="window.location.href='/app/views/landing/'">Back to Home</button>
         </div>
     </div>
