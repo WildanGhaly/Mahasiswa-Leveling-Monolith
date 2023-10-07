@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] !== '1') {
-    header('Location: go+away+you+hackers');
+    header('Location: /error/403.php/?haha=go+away+you+hackers');
     exit(); 
 }
 ?>
