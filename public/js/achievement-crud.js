@@ -10,11 +10,18 @@ function editFunction(id){
         document.getElementById("overlay").style.display = "none";
         const name          = document.getElementById("achievement-name-input").value;
         const description   = document.getElementById("achievement-description-input").value;
+        const threshold     = document.getElementById("achievement-threshold-input").value;
+        const difficulty    = document.getElementById("achievement-difficulty-input").value;
+        const type          = document.getElementById("achievement-type-input").value;
+
         console.log(name);
         console.log(description);
+        console.log(threshold);
+        console.log(difficulty);
+        console.log(type);
 
-        if (name || description) {
-            console.log("name or description is not empty");
+        if (name || description || threshold) {
+            console.log("name or description or threshold is not empty");
             var url = `${SERVER_PATH}achievement/edit.php`;
             const xhr = new XMLHttpRequest();
             xhr.open('PUT', url, true);
@@ -25,12 +32,13 @@ function editFunction(id){
                     // const response = JSON.parse(xhr.responseText);
                 }
             }; 
-            xhr.send(`name=${encodeURIComponent(name)}&description=${encodeURIComponent(description)}&id=${encodeURIComponent(id)}`);
-        
+            const data = `name=${encodeURIComponent(name)}&description=${encodeURIComponent(description)}&threshold=${encodeURIComponent(threshold)}&difficulty=${encodeURIComponent(difficulty)}&type=${encodeURIComponent(type)}&id=${encodeURIComponent(id)}`
+            xhr.send(data);
         }
 
         document.getElementById("achievement-name-input").value = "";
         document.getElementById("achievement-description-input").value = "";
+        document.getElementById("achievement-threshold-input").value = "";
     });
 
     document.getElementById("close-achievement-popup").addEventListener("click", function() {

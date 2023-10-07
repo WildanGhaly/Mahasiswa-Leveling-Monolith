@@ -102,6 +102,10 @@ document.addEventListener('DOMContentLoaded', function () {
         loadAchievementPage(1);
     });
 
+    document.getElementById("save-achievement-popup").addEventListener("click", function() {
+        loadAchievementPage(1);
+    });
+
     loadAchievementPage(page);
 });
 
