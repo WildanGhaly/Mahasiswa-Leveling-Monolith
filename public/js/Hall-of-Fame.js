@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         debounceTimeout = setTimeout(function() {
-            searchUser(filterSelect, sortSelect, search_input);
+            searchUser(filterSelect, sortSelect, search_input, isAdmin);
         }, 400);
         
     });
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         debounceTimeout = setTimeout(function() {
-            searchUser(filterSelect, sortSelect, search_input);
+            searchUser(filterSelect, sortSelect, search_input, isAdmin);
         }, 400);
 
         
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         debounceTimeout = setTimeout(function() {
-            searchUser(filterSelect, sortSelect, search_input);
+            searchUser(filterSelect, sortSelect, search_input, isAdmin);
         }, 400);
 
         
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
-function displayData(data, start_count) {
+function displayData(data, start_count, isAdmin) {
     var tableBody = document.querySelector('#data tbody');
 
     if (!Array.isArray(data)) {
@@ -123,24 +123,35 @@ function displayData(data, start_count) {
     var tableHTML = '';
 
     data.forEach(function(record) {
-        if (record[2] === null) {
+        if (record[2] === null && !isAdmin) {
             return; 
         } else {
             count++;
 
             var rowHTML = '<tr>';
             rowHTML += '<td>' + count + '</td>';
+            if (parseInt(isAdmin)){
+                rowHTML += '<td>' + record[1] + '</td>';
+            }
             rowHTML += '<td>' + record[2] + '</td>';
             rowHTML += '<td>' + record[9] + '</td>';
             rowHTML += '<td>' + record[7] + '</td>';
             rowHTML += '<td>' + record[8] + '</td>';
+
+            if (parseInt(isAdmin)){
+                rowHTML += '<td><button id ="a_edit' + count + '"> Edit </button></td>';
+                rowHTML += '<td><button id ="a_delete' + count + '"> Delete </button></td>';
+            }
+
             rowHTML += '</tr>';
 
             tableHTML += rowHTML;
         }
     });
+    // console.log(tableHTML);
 
     tableBody.innerHTML = tableHTML;
+    // console.log(document.body.innerHTML);
 }
 
 
@@ -158,8 +169,9 @@ if (match) {
 
 }
 
-function searchUser(filter, sort, input) {
+function searchUser(filter, sort, input, isAdmin) {
     var php_path = `${SERVER_PATH}search/search.php?`;
+    
     var filterSelect = document.getElementById('Filter');
     var sortSelect = document.getElementById('Sort');
     var search_input = document.getElementById('search_input');
@@ -205,7 +217,6 @@ function searchUser(filter, sort, input) {
 
     url = php_path + parameter;
 
-
     xhr.open("GET", url, true);
 
     xhr.onload = function () {
@@ -213,7 +224,7 @@ function searchUser(filter, sort, input) {
         if (xhr.status === 200) {
             let response = JSON.parse(this.responseText);
             // console.log(this.responseText);
-            displayData(response, (parseInt(page) - 1) * 10 );
+            displayData(response, (parseInt(page) - 1) * 10, isAdmin);
             
             
         } else {
