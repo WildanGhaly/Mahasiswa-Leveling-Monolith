@@ -20,6 +20,11 @@ if (!isset($_SESSION['username'])) {
 <body>
     <?php include "../dashboard/index.php" ?>
     <div class="achievement-container">
+        <div id="audio-popup" class="audio-popup">
+            <h2>Ini adalah Popup!</h2>
+            <p>Ini adalah konten popup sederhana.</p>
+        </div>
+        <div id="overlay" class="overlay"></div>
         <h1><b>COLLECTION</b></h1>
         <div class="collection-upload-container">
             <form enctype="multipart/form-data">
