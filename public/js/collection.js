@@ -102,6 +102,17 @@ document.addEventListener('DOMContentLoaded', function () {
         loadAchievementPage(1);
     });
 
+    document.getElementById("audioInput").addEventListener("click", function () {
+        console.log("audioInput clicked");
+        loadAchievementPage(page);
+        
+    });
+
+    document.getElementById("save-audio-popup").addEventListener("click", function () {
+        console.log("save-audio-popup clicked");
+        loadAchievementPage(page);
+    });
+
     loadAchievementPage(page);
     
 });
