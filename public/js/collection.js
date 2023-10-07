@@ -108,6 +108,11 @@ document.addEventListener('DOMContentLoaded', function () {
         
     });
 
+    document.getElementById("save-audio-popup").addEventListener("click", function () {
+        console.log("save-audio-popup clicked");
+        loadAchievementPage(page);
+    });
+
     loadAchievementPage(page);
     
 });
