@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db:3306
--- Generation Time: Oct 07, 2023 at 08:06 AM
+-- Generation Time: Oct 08, 2023 at 08:58 AM
 -- Server version: 8.1.0
 -- PHP Version: 8.2.8
 
@@ -142,7 +142,17 @@ CREATE TABLE `quest` (
 --
 
 INSERT INTO `quest` (`id`, `name`, `description`, `threshold`) VALUES
-(1, 'first quest', 'this is my first quest', 'if you find this then the threshold complete');
+(1, 'first quest', 'this is my first quest', 'if you find this then the threshold complete'),
+(2, 'Push Up 1', 'Push Up 10x in one day', 'Push Up 10 times in one day'),
+(3, 'Push Up 2', 'Push Up 20 times in one day', 'Push Up 20 times in one day'),
+(4, 'Push Up 3', 'Push Up 30 times in one day', 'Push Up 30 times in one day'),
+(5, 'Sit Up 1', 'Sit Up 10 times in one day', 'Sit Up 10 times in one day'),
+(6, 'Sit Up 2', 'Sit Up 20 times in one day', 'Sit Up 20 times in one day'),
+(7, 'Pull Up 1', 'Pull Up 3 times in one day', 'Pull Up 3 times in one day'),
+(8, 'Pull Up 2', 'Pull Up 3 times in a row', 'Pull Up 3 times in a row'),
+(9, 'Runner 1', 'Run 1.000 meters in one day', 'Run 1.000 meters in one day'),
+(10, 'Runner 2', 'Run 10.000 meters in one day', 'Run 10.000 meters in one day'),
+(11, 'Runner 3', 'Run 100.000 meters in one day', 'Run 100.000 meters in one day');
 
 -- --------------------------------------------------------
 
@@ -174,8 +184,8 @@ INSERT INTO `users` (`id`, `username`, `name`, `email`, `password`, `isAdmin`, `
 (2, 'user', NULL, 'user@gmail.com', 'user', 0, '../../../public/img/logo.jpg', 0, 1, 1, 0, 100),
 (4, '222', NULL, '222', '222', 0, '../../../public/img/logo.jpg', 0, 0, 1, 0, 100),
 (5, '2', NULL, '2', '2', 0, '../../../public/img/logo.jpg', 0, 0, 2, 30, 140),
-(6, '123host', 'Wildan Ghaly', '13521015@std.stei.itb.ac.id', '1+8UUdV1ZFsTMzmd3BP1Rw==', 0, '../../../public/img/profile/123host.jpg', 21, 1, 1, 58, 100),
-(7, '456host', 'Hellooo', '13521015@std.stei.itb.ac.id', '1+8UUdV1ZFsTMzmd3BP1Rw==', 1, '../../../public/img/logo.jpg', 0, 0, 1, 0, 100),
+(6, '123host', 'Wildan Ghaly', '13521015@std.stei.itb.ac.id', '1+8UUdV1ZFsTMzmd3BP1Rw==', 0, '../../../public/img/profile/123host.jpg', 21, 3, 1, 58, 100),
+(7, '456host', 'Hellooo', '13521015@std.stei.itb.ac.id', '1+8UUdV1ZFsTMzmd3BP1Rw==', 1, '../../../public/img/logo.jpg', 0, 1, 1, 0, 100),
 (8, '789host', 'Wildan Ghalyss', '13521015@std.stei.itb.ac.id', '1+8UUdV1ZFsTMzmd3BP1Rw==', 0, '../../../views/img/profile/789host.jpg', 0, 0, 1, 0, 100),
 (9, '12345', NULL, '123@gmail.com', '1+8UUdV1ZFsTMzmd3BP1Rw==', 0, '../../../public/img/dummy/dummy.jpg', 0, 0, 1, 0, 100),
 (10, 'aaaaa', NULL, 'aaa@aaa.aaa', 'hN235tX1kddl8k5iJtn48A==', 0, '../../../public/img/dummy/dummy.jpg', 0, 0, 1, 0, 100);
@@ -274,7 +284,10 @@ CREATE TABLE `user_quest` (
 
 INSERT INTO `user_quest` (`user_id`, `quest_id`) VALUES
 (2, 1),
-(6, 1);
+(7, 1),
+(6, 2),
+(6, 3),
+(6, 7);
 
 --
 -- Triggers `user_quest`
@@ -366,7 +379,7 @@ ALTER TABLE `collection`
 -- AUTO_INCREMENT for table `quest`
 --
 ALTER TABLE `quest`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `users`
