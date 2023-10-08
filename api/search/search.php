@@ -2,10 +2,10 @@
 session_start();
 
 
-include "../../config/config.php";
+// include "../../config/config.php";
 include "../../app/models/user.php";
 
-ini_set('display_errors', 1);   
+// ini_set('display_errors', 1);   
 
 $users = new UserModel();
 $params = array();
