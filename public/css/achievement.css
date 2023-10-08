@@ -235,9 +235,6 @@ body {
   background-color: rgb(127, 0, 25);
 }
 
-.btn-admin {
-  display: none;
-}
 
 .achievement-container button {
   align-items: center;
@@ -284,6 +281,11 @@ body {
   box-shadow: #D6D6E7 0 3px 7px inset;
   transform: translateY(2px);
 }
+
+.achievement-container .btn-admin {
+  display: none;
+}
+
   
 .filter-sort-container {
   display: inline-block;
