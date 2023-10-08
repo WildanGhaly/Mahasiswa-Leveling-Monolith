@@ -1,5 +1,16 @@
 <?php
 session_start();
+
+if (!isset($_SESSION['user'])){
+    $_SESSION['user'] = '';
+}
+if (!isset($_SESSION['filter'])){
+    $_SESSION['filter'] = '';
+}
+if (!isset($_SESSION['sort'])){
+    $_SESSION['sort'] = '';
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +56,7 @@ session_start();
     </div>
     
     <script>
-        var isAdmin = "<?php echo $_SESSION['isAdmin'] ?>";
+        
         searchUser("<?php echo $_SESSION['filter'] ?>","<?php echo $_SESSION['sort'] ?>","<?php echo $_SESSION['user'] ?>", "<?php echo $_SESSION['isAdmin'] ?>");
     </script>
 
