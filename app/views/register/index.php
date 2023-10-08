@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <title>Registration</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="../../../public/css/login.css">
   <script src="../../../public/js/register.js"></script>
 </head>

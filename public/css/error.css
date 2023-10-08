@@ -157,3 +157,11 @@ section .error404 .btn:hover {
         transform: translateX(100%) translateY(-100%) rotate(0);
     }
 }
+
+@media screen and (max-width: 768px) {
+    section span {
+        width: calc(12.5vw - 2px);
+        height: calc(12.5vw - 2px);
+    }
+    
+}
