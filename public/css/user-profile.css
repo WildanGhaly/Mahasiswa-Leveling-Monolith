@@ -285,7 +285,8 @@ body {
 
 @media (max-width: 768px) {
   .card {
-    width: 80%; 
+    width: 100%;
+    left: 0;
     height: auto; 
   }
   
