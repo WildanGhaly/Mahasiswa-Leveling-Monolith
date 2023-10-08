@@ -39,3 +39,16 @@
     margin-bottom: 10px;
     white-space: inherit;
 }
+
+.achievement-container .collection-upload-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+@media screen and (max-width: 768px){
+  .achievement-container .collection-upload-container form {
+    width: 60%;
+  }
+}

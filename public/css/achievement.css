@@ -348,12 +348,6 @@ body {
   color: white;
 }
 
-.achievement-container .collection-upload-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 @keyframes fadeIn {
   0% {
