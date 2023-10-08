@@ -1,7 +1,37 @@
-.obtain {
+.achievement-list .obtain {
     background-color: rgb(0, 255, 0);
+    box-shadow: rgba(39, 66, 35, 0.4) 0 2px 4px,rgba(35, 66, 38, 0.3) 0 7px 13px -3px,rgb(106, 215, 111) 0 -3px 0 inset;
 }
 
-.obtain-not {
+.achievement-list .obtain-not {
     background-color: rgb(255, 0, 0);
+    box-shadow: rgba(66, 35, 35, 0.4) 0 2px 4px,rgba(66, 35, 35, 0.3) 0 7px 13px -3px,rgb(215, 106, 106) 0 -3px 0 inset;
+}
+
+.achievement-list .obtain:focus {
+    box-shadow: #6bde67 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #59e260 0 -3px 0 inset;
+}
+
+.achievement-container .obtain:hover {
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #50dd57 0 -3px 0 inset;
+    transform: translateY(-2px);
+}
+
+.achievement-container .obtain:active {
+    box-shadow: #56da54 0 3px 7px inset;
+    transform: translateY(2px);
+}
+
+.achievement-list .obtain-not:focus {
+    box-shadow: #de6767 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #e25959 0 -3px 0 inset;
+}
+
+.achievement-container .obtain-not:hover {
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #dd5050 0 -3px 0 inset;
+    transform: translateY(-2px);
+}
+
+.achievement-container .obtain-not:active {
+    box-shadow: #da5454 0 3px 7px inset;
+    transform: translateY(2px);
 }
