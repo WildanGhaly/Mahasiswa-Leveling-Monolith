@@ -2,72 +2,85 @@ document.write('<script src="../../../public/js/api.js"></script>');
 
 document.addEventListener('DOMContentLoaded', function() {
     var debounceTimeout;
-    document.getElementById('search_input').addEventListener('input', function() {
-        var filterSelect = document.getElementById('Filter').value;
-        var sortSelect = document.getElementById('Sort').value;
-        var search_input = this.value;
+    var xhr = new XMLHttpRequest();
 
-        if (debounceTimeout) {
-            clearTimeout(debounceTimeout);
-        }
-        
-        debounceTimeout = setTimeout(function() {
-            searchUser(filterSelect, sortSelect, search_input, isAdmin);
-        }, 400);
-        
-    });
+    xhr.open("GET", `${SERVER_PATH}search/isAdmin.php`, true);
+    
+    xhr.onload = function () {
 
-    document.getElementById('Filter').addEventListener('change', function () {
+        if (xhr.status === 200) {
 
-        var filterSelect = this.value;
-        var sortSelect = document.getElementById('Sort').value;
-        var search_input = document.getElementById('search_input').value;
+            var isAdmin = this.responseText;
 
-        if (debounceTimeout) {
-            clearTimeout(debounceTimeout);
-        }
-        
-        debounceTimeout = setTimeout(function() {
-            searchUser(filterSelect, sortSelect, search_input, isAdmin);
-        }, 400);
+            document.getElementById('search_input').addEventListener('input', function() {
+                var filterSelect = document.getElementById('Filter').value;
+                var sortSelect = document.getElementById('Sort').value;
+                var search_input = this.value;
 
-        
-    });
+                if (debounceTimeout) {
+                    clearTimeout(debounceTimeout);
+                }
+                
+                debounceTimeout = setTimeout(function() {
+                    searchUser(filterSelect, sortSelect, search_input, isAdmin);
+                }, 400);
+                
+            });
 
-    document.getElementById('Sort').addEventListener('change', function () {
-        var filterSelect = document.getElementById('Filter').value;
-        var sortSelect = this.value;
-        var search_input = document.getElementById('search_input').value;
+            document.getElementById('Filter').addEventListener('change', function () {
 
+                var filterSelect = this.value;
+                var sortSelect = document.getElementById('Sort').value;
+                var search_input = document.getElementById('search_input').value;
 
-        if (debounceTimeout) {
-            clearTimeout(debounceTimeout);
-        }
-        
-        debounceTimeout = setTimeout(function() {
-            searchUser(filterSelect, sortSelect, search_input, isAdmin);
-        }, 400);
+                if (debounceTimeout) {
+                    clearTimeout(debounceTimeout);
+                }
+                
+                debounceTimeout = setTimeout(function() {
+                    searchUser(filterSelect, sortSelect, search_input, isAdmin);
+                }, 400);
 
-        
-    });
+                
+            });
 
-    document.getElementById('Next').addEventListener('click', function () {
-        var currentURL = window.location.href;
-        var page = getPage(currentURL);
-        var intPage = parseInt(page);
-        page = String(intPage + 1);
-        window.location.search = '?page=' + page;
+            document.getElementById('Sort').addEventListener('change', function () {
+                var filterSelect = document.getElementById('Filter').value;
+                var sortSelect = this.value;
+                var search_input = document.getElementById('search_input').value;
 
 
-        if (debounceTimeout) {
-            clearTimeout(debounceTimeout);
-        }
-        
-        debounceTimeout = setTimeout(function() {
-        }, 400);
+                if (debounceTimeout) {
+                    clearTimeout(debounceTimeout);
+                }
+                
+                debounceTimeout = setTimeout(function() {
+                    searchUser(filterSelect, sortSelect, search_input, isAdmin);
+                }, 400);
 
-        
-    });
+                
+            });
+
+            document.getElementById('Next').addEventListener('click', function () {
+                var currentURL = window.location.href;
+                var page = getPage(currentURL);
+                var intPage = parseInt(page);
+                page = String(intPage + 1);
+                window.location.search = '?page=' + page;
+
+
+                if (debounceTimeout) {
+                    clearTimeout(debounceTimeout);
+                }
+                
+                debounceTimeout = setTimeout(function() {
+                }, 400);
+
+                
+            });
+        }   
+    }
+    xhr.send();
 
 
     document.getElementById('Previous').addEventListener('click', function () {
