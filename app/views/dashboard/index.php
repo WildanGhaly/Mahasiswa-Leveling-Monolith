@@ -16,14 +16,15 @@
       <button class="close-sidebar" id="close-sidebar">
         &#10006;
       </button>
-        <h2>Darmodar</h2>
+        <h2>MAHASISWA LEVELING</h2>
         <ul>
+            <li><a href="../landing/">Home</a></li>
             <li><a href="../challenge/">Challenges</a></li>
             <li><a href="../Hall-of-Fame?page=1">Hall of Fame</a></li>
             <li><a href="../collection">Collection</a></li>
             <li><a href="../achievement">Achievement</a></li>
-            <li><a href="../user-profile">ProfileTemp</a></li>
-            <li><a href="#" id="logoutLink">LogoutTemp</a></li>
+            <li><a href="../user-profile">Profile</a></li>
+            <li><a href="#" id="logoutLink">Logout</a></li>
         </ul>
     </div>
 
