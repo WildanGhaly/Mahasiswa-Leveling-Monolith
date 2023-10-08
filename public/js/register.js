@@ -130,7 +130,7 @@ function registerUser(username, email, password) {
             console.log(response);
 
             if (response == "success") {
-                window.location.href = '../dashboard'; 
+                window.location.href = '../challenge'; 
             } else {
                 alert('Gagal mendaftar akun baru');
             }

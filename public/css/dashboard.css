@@ -10,7 +10,7 @@ body {
 
 .sidebar {
     width: 20%;
-    background: linear-gradient(to bottom, #192e3a, #0c1b28);
+    background: linear-gradient(to bottom, #3a1919, #0c1b28);
     color: #fff;
     height: 100%;
     position: fixed;
@@ -27,7 +27,7 @@ body {
     padding: 20px;
     text-align: center;
     font-size: 24px;
-    border-bottom: 2px solid #192e3a;
+    border-bottom: 2px solid #3a1919;
     margin-bottom: 20px;
 }
 
@@ -68,7 +68,7 @@ body {
     position: fixed;
     top: 20px;
     left: 10px;
-    background-color: #192e3a;
+    background: linear-gradient(to bottom, #3a1919, #0c1b28);
     color: #fff;
     border: none;
     font-size: 24px;
