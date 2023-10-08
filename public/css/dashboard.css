@@ -62,6 +62,10 @@ body {
     overflow-y: auto;
     box-shadow: 3px 0 5px rgba(0, 0, 0, 0.2);
     transition: width 0.3s;
+    left: 0px;
+    top: 0px;
+    transition: left 0.3s ease-in-out;
+    z-index: 999;
 }
 
 .sidebar h2 {
@@ -104,8 +108,56 @@ body {
     transform: scale(1);
 }
 
+.toggle-sidebar {
+    position: fixed;
+    top: 20px;
+    left: 10px;
+    background-color: #192e3a;
+    color: #fff;
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 998;
+    border-radius: 20%;
+}
 
+.close-sidebar {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background-color: transparent;
+    color: #fff;
+    border: oldlace;
+    font-size: 24px;
+    font-weight: bold;
+    display: none;
+}
 
+.sidebar.open {
+  left: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 250px;
+        left: -250;
+    }
+  
+    .sidebar:not(.open) {
+        left: -250px;
+    }
+
+    .close-sidebar {
+        display: block;
+    }
+  
+    .content {
+        margin-left: 0;
+    }
+  }
+  
 
 
 

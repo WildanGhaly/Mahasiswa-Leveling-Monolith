@@ -7,6 +7,19 @@ document.addEventListener('DOMContentLoaded', function() {
         confirm("Logout from the system?") ? logout() : console.log("Logout cancelled");
         
     });
+
+    const toggleButton = document.getElementById("toggle-sidebar");
+    const sidebar = document.querySelector(".sidebar");
+
+    toggleButton.addEventListener("click", function() {
+        sidebar.classList.toggle("open");
+    });
+
+    const closeButtons = document.getElementById("close-sidebar");
+    closeButtons.addEventListener("click", function() {
+        sidebar.classList.toggle("open");
+    });
+    
 });
 
 function logout() {

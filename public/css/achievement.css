@@ -239,7 +239,7 @@ body {
   display: none;
 }
 
-button {
+.achievement-container button {
   align-items: center;
   appearance: none;
   background-color: #ffffff;
@@ -271,16 +271,16 @@ button {
   font-weight: 900;
 }
 
-button:focus {
+.achievement-container button:focus {
   box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
 }
 
-button:hover {
+.achievement-container button:hover {
   box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
   transform: translateY(-2px);
 }
 
-button:active {
+.achievement-container button:active {
   box-shadow: #D6D6E7 0 3px 7px inset;
   transform: translateY(2px);
 }
@@ -362,4 +362,30 @@ button:active {
       opacity: 1;
       transform: translateY(0);
   }
+}
+
+@media (max-width: 768px){
+  .achievement-container {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    overflow-y: scroll;
+    overflow-x: scroll;
+  }
+
+  .achievement-list {
+    overflow-y: scroll;
+    overflow-x: scroll;
+  }
+
+  .search-container .filter-sort-container h2 {
+    font-size: 10px;
+  }
+
+  .search-container .filter-sort-container select {
+    width: 40%;
+    font-size: 10px;
+  }
+
 }
