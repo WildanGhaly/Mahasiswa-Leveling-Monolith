@@ -235,8 +235,9 @@ function searchUser(filter, sort, input, isAdmin) {
     xhr.onload = function () {
         
         if (xhr.status === 200) {
+            console.log(this.responseText);
             let response = JSON.parse(this.responseText);
-            // console.log(this.responseText);
+            // 
             displayData(response, (parseInt(page) - 1) * 10, isAdmin);
             
             
