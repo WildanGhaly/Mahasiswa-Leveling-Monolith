@@ -99,6 +99,8 @@ table {
     margin-top: 20px;
     border: 1px solid #192e3a;
     border-top: 2px solid crimson;
+    position: relative;
+    left: 5%;
 }
 
 tr {
