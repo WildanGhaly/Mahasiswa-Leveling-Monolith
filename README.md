@@ -80,6 +80,7 @@ docker-php-ext-install mysqli
 <img src="screenshots/display/.m_user_profile.png" width="200">
 <img src="screenshots/display/HOF.png" width="200">
 <img src="screenshots/display/HOF_add.png" width="200">
+<img src="screenshots/display/.m_landing.png" width="200">
 <img src="screenshots/display/.m_403.png" width="200">
 <img src="screenshots/display/.m_404.png" width="200">
 
@@ -100,6 +101,7 @@ docker-php-ext-install mysqli
 <img src="screenshots/display/user_profile.png" width="200">
 <img src="screenshots/display/HOF.png" width="200">
 <img src="screenshots/display/HOF_add.png" width="200">
+<img src="screenshots/display/landing.png" width="200">
 <img src="screenshots/display/403.png" width="200">
 <img src="screenshots/display/404.png" width="200">
 
@@ -188,6 +190,9 @@ docker-php-ext-install mysqli
 
 ### Hall of Fame Page Mobile
 <img src="screenshots/HOF_mobile.png" width="500">
+
+### Landing Page
+<img src="screenshots/landing.png" width="500">
 
 ## Team Collaboration - Task Allocation
 
