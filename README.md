@@ -186,13 +186,13 @@ docker-php-ext-install mysqli
 <img src="screenshots/user_profile_mobile.png" width="500">
 
 ### Hall of Fame Page Desktop
-<img src="screenshots/HOF_desktop.png" width="500">
+<img src="screenshots/hof_desktop.png" width="500">
 
 ### Hall of Fame Page Mobile
-<img src="screenshots/HOF_mobile.png" width="500">
+<img src="screenshots/hof_mobile.png" width="500">
 
 ### Landing Page
-<img src="screenshots/landing.png" width="500">
+<img src="screenshots/landing_desktop.png" width="500">
 
 ## Team Collaboration - Task Allocation
 
