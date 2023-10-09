@@ -5,6 +5,11 @@ if (!isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] !== '1') {
     header('Location: /error/403.php/?haha=go+away+you+hackers');
     exit(); 
 }
+
+if (!isset($_SESSION['page'])){
+    $_SESSION['page'] = '1';
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +29,8 @@ if (!isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] !== '1') {
 
 <body>
     <?php include "../dashboard/index.php" ?>
-    <h1>Add User</h1>
+    <?php echo '<a href="../Hall-of-Fame?page=' . $_SESSION['page'] . '"><button class="back">Back</button></a>'; ?>
+
     <div id="form">
         <form  class="form-grid" id="userForm">
 
@@ -85,7 +91,7 @@ if (!isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] !== '1') {
          </div>
 
         <div class="form-group">
-            <input type="submit" value="Add User">
+            <input type="submit" value="Submit">
          </div>
             
         </form>

@@ -38,6 +38,7 @@ if (isset($_GET['sort'])) {
 if (isset($_GET['page'])) {
   $page = $_GET['page'];
   $params['page'] = $page;
+  $_SESSION['page'] = $page;
 }
 
 if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] === '1'){
