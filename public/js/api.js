@@ -1,1 +1,1 @@
-var SERVER_PATH = 'http://localhost:8080/api/';
+var SERVER_PATH = 'http://localhost:8000/api/';
