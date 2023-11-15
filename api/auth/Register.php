@@ -10,14 +10,67 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 $key = "mahasiswa_leveling";
 
-$en_password = openssl_encrypt($password, "AES-256-CBC", $key, 0, substr(md5($key), 0, 16));
+ini_set('display_errors', 1);   
+// $en_password = openssl_encrypt($password, "AES-256-CBC", $key, 0, substr(md5($key), 0, 16));
+$en_password = password_hash($password, PASSWORD_BCRYPT);
 
 $conn = Database::getInstance();
 
-$sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$en_password')";
-if ($conn->query($sql) === TRUE) {
-    $_SESSION['username'] = $username; // Menyimpan username dalam sesi
-    echo 'success';
+$conn->begin_transaction();
+
+$sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("sss", $username, $email, $en_password);
+
+if ($stmt->execute() === TRUE) {
+    try {
+        $arg0 = $username; 
+        $arg1 = password_hash($password, PASSWORD_BCRYPT);
+        $requestBody = '<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+        <Body>
+            <restCode xmlns="http://service.example.org/">
+                <arg0 xmlns="">' . $arg0 . '</arg0>
+                <arg1 xmlns="">' . $arg1 . '</arg1>
+            </restCode>
+        </Body>
+    </Envelope>';
+        // echo $requestBody;
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, '192.168.0.218:8081/code');
+        curl_setopt($curl, CURLOPT_POST, true);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, [
+            'Content-Type: text/xml; charset="utf-8"',
+            'X-API-KEY: PHPClient',
+        ]);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $requestBody);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+        $response = curl_exec($curl);
+        if ($response === false) {
+            $error = curl_error($curl);
+            echo 'cURL Error: ' . $error;
+            $conn->rollback();
+        } else {
+            $responseXml = simplexml_load_string($response);
+            $returnValue = $responseXml->xpath('//return');
+            $value = (string) $returnValue[0];
+
+            if ($value === '1') {
+                $conn->commit();
+                echo "success";
+
+            } else {
+                echo "error. failed create token";
+                $conn->rollback();
+            }
+        }
+        curl_close($curl);
+    
+
+    } catch (Exception $e) {
+        $conn->rollback();
+        echo "error " . $e->getMessage();
+    }
 } else {
     echo 'error';
 }
