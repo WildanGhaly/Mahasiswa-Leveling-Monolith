@@ -46,6 +46,9 @@ if (!isset($_SESSION['username'])) {
     <h1 title="Username"> 
       <?php include "../../../api/profile/get_username.php"?>
     </h1>
+    <h1 class="code" title="Code">
+      <?php include "../../../api/profile/get_code.php"?>
+    </h1>
   </div>
   <div class="button">
     <button type="submit" class="btn" onclick="window.location.href='../edit-profile'">Edit</button>
