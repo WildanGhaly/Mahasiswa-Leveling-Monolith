@@ -24,7 +24,12 @@ $stmt->bind_param("sss", $username, $email, $en_password);
 
 if ($stmt->execute() === TRUE) {
     try {
-        $arg0 = $username; 
+        $query = "SELECT IFNULL(MAX(id), 0) + 1 AS next_user_id FROM users";
+        $result = $conn->query($query);
+        $row = $result->fetch_assoc();
+        $nextUserId = $row['next_user_id'];
+        
+        $arg0 = $nextUserId; 
         $arg1 = password_hash($password, PASSWORD_BCRYPT);
         $requestBody = '<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
         <Body>
