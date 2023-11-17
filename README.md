@@ -23,6 +23,13 @@ Users can personalize their profiles with profile pictures and store multiple au
 6. **Many More**:
 This application also provides other interesting features that can be explored by users.
 
+## New features
+1. Generate a unique code for registration on RestClient that is stored in soap.
+2. Can display the code in the user profile
+3. Fix some security issues such as passwords are now hashed and login queries are prepared in advance.
+4. Every time a user completes a quest, they will get points that can be used to buy merch at RestClient. These points are stored in soap.
+
+
 ## Requirement
 
 This project built using:
