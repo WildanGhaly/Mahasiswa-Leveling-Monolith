@@ -234,3 +234,9 @@ docker-php-ext-install mysqli
 |Hall of Fame (Edit)||✔️|
 |Hall of Fame (Add)||✔️|
 |Initial Project (Database Schema, Folder Structure, Docker, etc)|✔️||
+
+### Additional Features
+|Feature|13521015|13521025|
+|-------|--------|--------|
+|Code on Profile|✔️|✔️|
+|SOAP Connector||✔️|
