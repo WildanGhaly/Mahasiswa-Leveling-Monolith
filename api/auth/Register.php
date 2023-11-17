@@ -41,7 +41,7 @@ if ($stmt->execute() === TRUE) {
     </Envelope>';
         // echo $requestBody;
         $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, '192.168.0.218:8081/code');
+        curl_setopt($curl, CURLOPT_URL, '192.168.6.193:8081/code');
         curl_setopt($curl, CURLOPT_POST, true);
         curl_setopt($curl, CURLOPT_HTTPHEADER, [
             'Content-Type: text/xml; charset="utf-8"',
