@@ -18,16 +18,17 @@ $conn = Database::getInstance();
 
 $conn->begin_transaction();
 
-$sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
+$query = "SELECT IFNULL(MAX(id), 0) + 1 AS next_user_id FROM users";
+$result = $conn->query($query);
+$row = $result->fetch_assoc();
+$nextUserId = $row['next_user_id'];
+
+$sql = "INSERT INTO users (username, email, password, id) VALUES (?, ?, ?,?)";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("sss", $username, $email, $en_password);
+$stmt->bind_param("ssss", $username, $email, $en_password, $nextUserId);
 
 if ($stmt->execute() === TRUE) {
     try {
-        $query = "SELECT IFNULL(MAX(id), 0) + 1 AS next_user_id FROM users";
-        $result = $conn->query($query);
-        $row = $result->fetch_assoc();
-        $nextUserId = $row['next_user_id'];
         
         $arg0 = $nextUserId; 
         $arg1 = password_hash($password, PASSWORD_BCRYPT);
@@ -41,7 +42,7 @@ if ($stmt->execute() === TRUE) {
     </Envelope>';
         // echo $requestBody;
         $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, '192.168.6.193:8081/code');
+        curl_setopt($curl, CURLOPT_URL, '10.97.51.237:8081/code');
         curl_setopt($curl, CURLOPT_POST, true);
         curl_setopt($curl, CURLOPT_HTTPHEADER, [
             'Content-Type: text/xml; charset="utf-8"',

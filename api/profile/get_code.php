@@ -10,17 +10,16 @@ $stmt->execute();
 $result = $stmt->get_result();
 $row = $result->fetch_assoc();
 $UserId = $row['id'];
-
 // echo $UserId;
 $requestBody = '<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-        <Body>
-            <getCode xmlns="http://service.example.org/">
-                <arg0 xmlns="">' . $UserId . '</arg0>
-            </getCode>
-        </Body>
-    </Envelope>';
-        // echo $requestBody;
-        $curl = curl_init();
+<Body>
+<getCode xmlns="http://service.example.org/">
+<arg0 xmlns="">' . $UserId . '</arg0>
+</getCode>
+</Body>
+</Envelope>';
+// echo $requestBody;
+$curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, '10.97.51.237:8081/getCode');
         curl_setopt($curl, CURLOPT_POST, true);
         curl_setopt($curl, CURLOPT_HTTPHEADER, [
@@ -40,4 +39,4 @@ $requestBody = '<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
             $value = (string) $returnValue[0];
             echo $value;
         }
-
+        
